@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LGPD - Currículo Lucas Martins</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: #2c5aa0;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .lgpd-box {
+            background: #f0f4f8;
+            border-left: 4px solid #2c5aa0;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 0 5px 5px 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .lgpd-box h2 {
+            color: #2c5aa0;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .lgpd-box p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .lgpd-box ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .lgpd-box li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .consent-section {
+            margin: 30px 0;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-container input {
+            margin-top: 5px;
+            margin-right: 15px;
+        }
+        
+        .checkbox-container label {
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 15px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #acceptBtn {
+            background: #2c5aa0;
+            color: white;
+        }
+        
+        #acceptBtn:hover {
+            background: #1d4275;
+            transform: translateY(-2px);
+        }
+        
+        #declineBtn {
+            background: #f0f4f8;
+            color: #2c5aa0;
+            border: 1px solid #2c5aa0;
+        }
+        
+        #declineBtn:hover {
+            background: #e1e8f0;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Botão flutuante de idioma - AGORA COM TEXTO */
+        .language-floater {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: #2c5aa0;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .language-btn:hover {
+            background: #1d4275;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        .language-btn::after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+        }
+        
+        .language-options {
+            position: absolute;
+            bottom: 45px;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            min-width: 150px;
+        }
+        
+        .language-options.show {
+            display: flex;
+        }
+        
+        .language-option {
+            padding: 12px 20px;
+            background: white;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .language-option:hover {
+            background: #f0f4f8;
+        }
+        
+        .language-option.active {
+            background: #e1e8f0;
+            font-weight: bold;
+        }
+        
+        .language-option::before {
+            content: "•";
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        @media (max-width: 600px) {
+            .button-container {
+                flex-direction: column;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .language-floater {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .language-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="header-title">CONFIDENCIALIDAD DE DATOS</h1>
+            <p id="header-subtitle">Protección de información personal conforme a la LGPD</p>
+        </div>
+        
+        <div class="content">
+            <div class="lgpd-box">
+                <h2 id="terms-title">Términos de Uso y Política de Privacidad</h2>
+                <p id="terms-intro">Este currículum contiene información confidencial de Lucas Martins Céspedes. Al acceder, usted acepta los siguientes términos:</p>
+                
+                <ol id="terms-list">
+                    <li id="term-1">La información contenida en este currículum es para uso exclusivo en el proceso de reclutamiento y selección.</li>
+                    <li id="term-2">No está autorizado a compartir, distribuir o utilizar esta información para cualquier otro propósito sin la autorización expresa del titular.</li>
+                    <li id="term-3">El titular de los datos es consciente y acepta la disponibilidad de este currículum para los reclutadores, bajo estos términos.</li>
+                    <li id="term-4">Este currículum está protegido por la Ley General de Protección de Datos (LGPD - Ley nº 13.709/2018) y el Reglamento General de Protección de Datos (GDPR - Reglamento UE 2016/679).</li>
+                    <li id="term-5">El acceso no autorizado o el uso indebido de esta información puede resultar en acciones legales.</li>
+                </ol>
+                
+                <p><strong id="declaration">Declaro estar consciente de que:</strong> <span id="declaration-text">Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.</span></p>
+            </div>
+            
+            <div class="consent-section">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="consentCheckbox">
+                    <label for="consentCheckbox" id="consent-label">
+                        Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.
+                    </label>
+                </div>
+                
+                <div class="button-container">
+                    <button id="acceptBtn" disabled>Acceder al Currículum</button>
+                    <button id="declineBtn">Rechazar y Salir</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p id="footer-text">cv.lucasmartins.work | Todos los derechos reservados © 2025</p>
+        </div>
+    </div>
+
+    <!-- Botão flutuante para seleção de idioma - AGORA COM TEXTO -->
+    <div class="language-floater">
+        <button class="language-btn" id="languageButton">Cambiar Idioma</button>
+        <div class="language-options" id="languageOptions">
+            <button class="language-option" data-lang="pt-BR">Português</button>
+            <button class="language-option" data-lang="en">English</button>
+            <button class="language-option active" data-lang="es">Español</button>
+        </div>
+    </div>
+
+    <script>
+        // Objeto com todas as traduções
+        const translations = {
+            'pt-BR': {
+                'header-title': 'CONFIDENCIALIDADE DE DADOS',
+                'header-subtitle': 'Proteção de informações pessoais conforme LGPD',
+                'terms-title': 'Termos de Uso e Política de Privacidade',
+                'terms-intro': 'Este currículo contém informações confidenciais de Lucas Martins Céspedes. Ao acessar, você concorda com os seguintes termos:',
+                'term-1': 'As informações contidas neste currículo são para uso exclusivo no processo de recrutamento e seleção.',
+                'term-2': 'Você não está autorizado a compartilhar, distribuir ou utilizar estas informações para qualquer outro propósito sem a autorização expressa do titular.',
+                'term-3': 'O titular dos dados está ciente e concorda com a disponibilização deste currículo para os recrutadores, sob estes termos.',
+                'term-4': 'Este currículo está protegido pela Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e Regulamento Geral sobre a Proteção de Dados (GDPR - Regulamento UE 2016/679).',
+                'term-5': 'O acesso não autorizado ou uso indevido destas informações pode resultar em ações legais.',
+                'declaration': 'Declaro estar ciente de que:',
+                'declaration-text': 'Os dados pessoais constantes neste documento são de propriedade exclusiva de Lucas Martins Céspedes e estão sendo disponibilizados para fins específicos de avaliação profissional.',
+                'consent-label': 'Eu concordo com os termos acima e entendo que as informações contidas no currículo são confidenciais. Comprometo-me a não compartilhar ou distribuir estes dados sem a permissão explícita do titular.',
+                'acceptBtn': 'Acessar Currículo',
+                'declineBtn': 'Recusar e Sair',
+                'footer-text': 'cv.lucasmartins.work | Todos os direitos reservados © 2025',
+                'languageButton': 'Alterar Idioma',
+                'decline-alert': 'Você recusou os termos. A página será fechada.'
+            },
+            'en': {
+                'header-title': 'DATA CONFIDENTIALITY',
+                'header-subtitle': 'Personal information protection according to GDPR',
+                'terms-title': 'Terms of Use and Privacy Policy',
+                'terms-intro': 'This resume contains confidential information of Lucas Martins Céspedes. By accessing it, you agree to the following terms:',
+                'term-1': 'The information contained in this resume is for exclusive use in the recruitment and selection process.',
+                'term-2': 'You are not authorized to share, distribute or use this information for any other purpose without the express authorization of the owner.',
+                'term-3': 'The data owner is aware of and agrees to the provision of this resume to recruiters under these terms.',
+                'term-4': 'This resume is protected by the Brazilian General Data Protection Law (LGPD - Law No. 13.709/2018) and General Data Protection Regulation (GDPR - EU Regulation 2016/679).',
+                'term-5': 'Unauthorized access or misuse of this information may result in legal action.',
+                'declaration': 'I declare that I am aware that:',
+                'declaration-text': 'The personal data contained in this document are the exclusive property of Lucas Martins Céspedes and are being made available for specific professional evaluation purposes.',
+                'consent-label': 'I agree to the above terms and understand that the information contained in the resume is confidential. I commit not to share or distribute this data without the explicit permission of the owner.',
+                'acceptBtn': 'Access Resume',
+                'declineBtn': 'Decline and Exit',
+                'footer-text': 'cv.lucasmartins.work | All rights reserved © 2025',
+                'languageButton': 'Change Language',
+                'decline-alert': 'You have declined the terms. The page will close.'
+            },
+            'es': {
+                'header-title': 'CONFIDENCIALIDAD DE DATOS',
+                'header-subtitle': 'Protección de información personal conforme a la LGPD',
+                'terms-title': 'Términos de Uso y Política de Privacidad',
+                'terms-intro': 'Este currículum contiene información confidencial de Lucas Martins Céspedes. Al acceder, usted acepta los siguientes términos:',
+                'term-1': 'La información contenida en este currículum es para uso exclusivo en el proceso de reclutamiento y selección.',
+                'term-2': 'No está autorizado a compartir, distribuir o utilizar esta información para cualquier otro propósito sin la autorización expresa del titular.',
+                'term-3': 'El titular de los datos es consciente y acepta la disponibilidad de este currículum para los reclutadores, bajo estos términos.',
+                'term-4': 'Este currículum está protegido por la Ley General de Protección de Datos (LGPD - Ley nº 13.709/2018) y el Reglamento General de Protección de Datos (GDPR - Reglamento UE 2016/679).',
+                'term-5': 'El acceso no autorizado o el uso indebido de esta información puede resultar en acciones legales.',
+                'declaration': 'Declaro estar consciente de que:',
+                'declaration-text': 'Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.',
+                'consent-label': 'Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.',
+                'acceptBtn': 'Acceder al Currículum',
+                'declineBtn': 'Rechazar y Salir',
+                'footer-text': 'cv.lucasmartins.work | Todos los derechos reservados © 2025',
+                'languageButton': 'Cambiar Idioma',
+                'decline-alert': 'Ha rechazado los términos. La página se cerrará.'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos DOM
+            const consentCheckbox = document.getElementById('consentCheckbox');
+            const acceptBtn = document.getElementById('acceptBtn');
+            const declineBtn = document.getElementById('declineBtn');
+            const languageButton = document.getElementById('languageButton');
+            const languageOptions = document.getElementById('languageOptions');
+            const langOptions = document.querySelectorAll('.language-option');
+            
+            // Habilitar botão quando o checkbox for marcado
+            consentCheckbox.addEventListener('change', function() {
+                acceptBtn.disabled = !this.checked;
+            });
+            
+            // Ação para aceitar os termos
+            acceptBtn.addEventListener('click', function() {
+                // Adicionar timestamp para forçar recarregamento
+                const timestamp = new Date().getTime();
+                window.location.href = `multilingual_cv.html?t=${timestamp}`;
+            });
+            
+            // Ação para recusar os termos
+            declineBtn.addEventListener('click', function() {
+                alert(translations[currentLang]['decline-alert']);
+                window.close();
+            });
+            
+            // Controle do botão de idioma
+            languageButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageOptions.classList.toggle('show');
+            });
+            
+            // Fechar menu de idiomas ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!languageOptions.contains(e.target) && e.target !== languageButton) {
+                    languageOptions.classList.remove('show');
+                }
+            });
+            
+            // Selecionar idioma
+            langOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Atualizar visualmente a seleção
+                    langOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Atualizar o texto do botão com o idioma atual
+                    languageButton.textContent = translations[lang]['languageButton'];
+                    
+                    // Salvar preferência de idioma
+                    localStorage.setItem('preferredLanguage', lang);
+                    
+                    // Atualizar todo o conteúdo da página
+                    updateContent(lang);
+                    
+                    // Fechar menu após seleção
+                    languageOptions.classList.remove('show');
+                });
+            });
+            
+            // Função para atualizar o conteúdo com base no idioma
+            function updateContent(lang) {
+                // Atualizar todos os elementos com tradução
+                for (const key in translations[lang]) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+                
+                // Atualizar texto do botão de consentimento
+                document.querySelector('label[for="consentCheckbox"]').textContent = translations[lang]['consent-label'];
+                
+                // Atualizar texto dos botões principais
+                acceptBtn.textContent = translations[lang]['acceptBtn'];
+                declineBtn.textContent = translations[lang]['declineBtn'];
+            }
+            
+            // Verificar se há um idioma preferido salvo
+            const savedLang = localStorage.getItem('preferredLanguage');
+            let currentLang = savedLang || 'es';
+            
+            // Atualizar seleção visual
+            langOptions.forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.getAttribute('data-lang') === currentLang) {
+                    opt.classList.add('active');
+                }
+            });
+            
+            // Atualizar conteúdo
+            updateContent(currentLang);
+            
+            // Atualizar texto do botão
+            languageButton.textContent = translations[currentLang]['languageButton'];
+
+            // Forçar recarregamento ao voltar para a página
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    window.location.reload();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
