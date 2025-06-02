@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Lucas Martins Céspedes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm;
+            background: white;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(44, 90, 160, 0.95);
+            border-radius: 25px;
+            padding: 8px 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        
+        .language-selector select {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            outline: none;
+            cursor: pointer;
+            padding: 2px;
+        }
+        
+        .language-selector select option {
+            background: #2c5aa0;
+            color: white;
+        }
+        
+        @media print {
+            .language-selector {
+                display: none !important;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+            .experience-item, .education-item, .skill-category, .cert-item, .language-item {
+                page-break-inside: avoid;
+            }
+            .header {
+                page-break-after: avoid;
+            }
+            body {
+                -webkit-print-color-adjust: exact;
+            }
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            border-bottom: 3px solid #2c5aa0;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .photo-container {
+            flex-shrink: 0;
+        }
+        .photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2c5aa0;
+            box-shadow: 0 4px 12px rgba(44, 90, 160, 0.2);
+        }
+
+        .header-info {
+            flex: 1;
+        }
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 5px;
+        }
+        .title {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 12px;
+        }
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .availability-note {
+            margin-top: 10px;
+            font-size: 11px;
+            font-style: italic;
+            color: #555;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 3px solid #2c5aa0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c5aa0;
+            border-bottom: 2px solid #2c5aa0;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .experience-item, .education-item {
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+        .job-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        .company {
+            color: #2c5aa0;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .date-location {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        .description {
+            font-size: 12px;
+            text-align: justify;
+            line-height: 1.4;
+        }
+        .description ul {
+            margin: 5px 0;
+            padding-left: 15px;
+        }
+        .description li {
+            margin-bottom: 3px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .skill-category {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 4px solid #2c5aa0;
+        }
+        .skill-category h4 {
+            color: #2c5aa0;
+            margin: 0 0 8px 0;
+            font-size: 13px;
+        }
+        .skill-category ul {
+            margin: 0;
+            padding-left: 15px;
+            font-size: 12px;
+        }
+        .objective {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #2c5aa0;
+            font-size: 13px;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .languages {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .language-item {
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            border: 1px solid #dee2e6;
+        }
+        .certifications {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .cert-item {
+            background: #e8f4f8;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            border: 1px solid #2c5aa0;
+        }
+        .footer-note {
+            margin-top: 30px;
+            border-top: 1px solid #dee2e6;
+            padding-top: 15px;
+            font-size: 10px;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* Responsividade para mobile */
+        @media (max-width: 768px) {
+            .language-selector {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .photo {
+                width: 100px;
+                height: 100px;
+            }
+            .name {
+                font-size: 24px;
+            }
+            .contact-info {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="pt">🇧🇷 Português</option>
+        </select>
+    </div>
+
+    <div class="header">
+        <div class="photo-container">
+            <img src="https://i.imgur.com/spwlVXb.png" alt="Professional photo of Lucas Martins Céspedes" class="photo">
+        </div>
+        <div class="header-info">
+            <div class="name">LUCAS MARTINS CÉSPEDES</div>
+            <div class="title" id="header-title">Gestión Empresarial & Transformación Digital &<br>Auditoría, Controles Internos (SOx/ITGC) &<br>En formación en Análisis de Datos</div>
+            <div class="contact-info">
+                <span>✉️ <a href="mailto:hello@lucasmartins.work" style="color: inherit; text-decoration: none;">hello@lucasmartins.work</a></span>
+                <span>🔗 <a href="https://linkedin.com/in/lucasmces" target="_blank" style="color: inherit; text-decoration: none;">linkedin.com/in/lucasmces</a></span>
+                <span id="location">📍 En proceso de reubicación a España</span>
+            </div>
+            <div class="availability-note" id="availability-note">
+                <strong>Nota:</strong> Actualmente en proceso de traslado familiar a España. Por el momento, únicamente disponible para <strong>entrevistas telemáticas</strong> hasta completar la reubicación.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="profile-title">Perfil Profesional</div>
+        <div class="objective" id="profile-content">
+            Profesional con sólida trayectoria en <strong>gestión empresarial</strong>, <strong>transformación digital</strong> y <strong>compliance</strong>, con 8 años de experiencia como <strong>socio fundador de agencia tecnológica</strong>. Ciudadano español en proceso de reubicación, con enfoque estratégico en <strong>procesos, riesgos</strong> y <strong>optimización operativa</strong>.
+            <br><br>
+            Acumulé cerca de 6 años de experiencia en <strong>auditoría financiera</strong> y <strong>controles internos (SOx/ITGC)</strong> en empresas multinacionales y Big Four, complementando mi visión de negocio con fundamentos sólidos de control y conformidad regulatoria.
+            <br><br>
+            Actualmente, impulso una transición profesional hacia el área de <strong>Data Analytics</strong>, combinando mi experiencia previa en auditoría y tecnología con nuevas competencias analíticas. Busco contribuir en España con una perspectiva integral que une <strong>control, tecnología, análisis y liderazgo</strong>.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="experience-title">Experiencia Profesional</div>
+        
+        <div class="experience-item">
+            <div class="job-title" id="job1-title">Socio Fundador y Responsable de Operaciones</div>
+            <div class="company">Agência AO4 - Comunicación y Tecnología</div>
+            <div class="date-location" id="job1-date">2018 - Actualidad (8 años de trayectoria empresarial) | São José do Rio Preto, São Paulo, Brasil</div>
+            <div class="description" id="job1-desc">
+                <ul>
+                    <li>Cofundación y dirección estratégica de agencia con <strong>facturación anual de R$ 1M</strong> y liderazgo de <strong>equipo de 12 profesionales</strong></li>
+                    <li><strong>Desarrollo comercial integral</strong>: prospección, vendas consultivas y gestión de <strong>cartera de +20 clientes</strong> con <strong>tasa de retención del 85%</strong> (+5 años promedio)</li>
+                    <li>Implementación de <strong>controles LGPD/GDPR</strong> y sistemas de protección de datos con travas sistémicas</li>
+                    <li>Creación de <strong>dashboards analytics</strong> y <strong>reportes ejecutivos</strong> para optimización de <strong>ROI</strong> de clientes</li>
+                    <li><strong>Gestión de equipos multidisciplinarios</strong>, contratación de talentos y desarrollo de cultura empresarial</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title" id="job2-title">Analista - Controles Internos de Tecnología (SOx/ITGC)</div>
+            <div class="company">GPA (Grupo Pão de Açúcar)</div>
+            <div class="date-location" id="job2-date">Agosto 2016 - Mayo 2018 (1 año 10 meses) | São Paulo, Brasil</div>
+            <div class="description" id="job2-desc">
+                <ul>
+                    <li>Optimización y maduración de <strong>controles internos Sarbanes-Oxley (SOx)</strong> en ambientes de TI multinacional</li>
+                    <li>Mejora continua de <strong>controles ITGC</strong>: accesos, cambios, operaciones y desarrollo de sistemas</li>
+                    <li>Desarrollo de mejoras en procesos de <strong>análisis de riesgos</strong> tecnológicos y <strong>segregación de funciones</strong></li>
+                    <li>Optimización de comunicación con <strong>auditoría externa</strong> y cumplimiento de plazos corporativos</li>
+                    <li>Incremento de assertividad en solicitudes técnicas y <strong>mentoring</strong> sobre cultura de riesgos</li>
+                    <li>Implementación de mejoras en pruebas de control y seguimiento de deficiencias en sistemas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title" id="job3-title">Auditor</div>
+            <div class="company">PwC Brasil</div>
+            <div class="date-location" id="job3-date">Julio 2013 - Junio 2016 (3 años) | São Paulo, Brasil</div>
+            <div class="description" id="job3-desc">
+                <ul>
+                    <li>Planificación y ejecución de <strong>auditorías financieras</strong> bajo estándares <strong>IFRS/BRGAAP</strong></li>
+                    <li>Mapeo y evaluación de <strong>controles internos</strong> empresariales</li>
+                    <li><strong>Análisis de procesos</strong> contables y desarrollo de recomendaciones de mejora</li>
+                    <li>Elaboración de <strong>informes de auditoría</strong> y dictámenes sobre estados financieros</li>
+                    <li>Supervisión de <strong>reporting packages</strong> y <strong>revisiones analíticas</strong> avanzadas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title" id="job4-title">Analista de Sistemas ERP</div>
+            <div class="company">Metalúrgica Andrômeda Ltda.</div>
+            <div class="date-location" id="job4-date">Febrero 2006 - Marzo 2012 (6 años 2 meses) | Mauá, São Paulo, Brasil</div>
+            <div class="description" id="job4-desc">
+                <ul>
+                    <li>Administración integral del sistema <strong>ERP Microsiga/TOTVS</strong></li>
+                    <li>Diseño de <strong>flujos de procesos</strong> y optimización de entrada/salida de datos</li>
+                    <li>Evolución profesional: Auxiliar →Financiero →Compras →Analista Sistemas</li>
+                    <li>Gestión de <strong>infraestructura tecnológica</strong> y soporte a usuarios</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="education-title">Formación Académica</div>
+
+        <div class="education-item">
+            <div class="job-title" id="edu1-title">Grado en Contabilidad (equivalente)</div>
+            <div class="company">FECAP - Fundação Escola de Comércio Álvares Penteado</div>
+            <div class="date-location" id="edu1-date">2013 - 2015 | São Paulo, Brasil</div>
+        </div>
+
+        <div class="education-item">
+            <div class="job-title" id="edu2-title">Grado en Administración Financiera (equivalente)</div>
+            <div class="company">UMESP - Universidade Metodista de São Paulo</div>
+            <div class="date-location" id="edu2-date">2007 - 2011 | São Paulo, Brasil</div>
+        </div>
+
+        <div class="education-item">
+            <div class="job-title" id="edu3-title">Especialización Profesional en Análisis de Datos con SQL</div>
+            <div class="company">DataCamp (modalidad online, en curso)</div>
+            <div class="date-location" id="edu3-date">2025 | Online</div>
+        </div>
+
+        <div class="education-item">
+            <div class="job-title" id="edu4-title">Técnico Superior en Gestión de Sistemas de Información</div>
+            <div class="company">Instituto Federal de São Paulo (IFSP)</div>
+            <div class="date-location" id="edu4-date">2012 - 2013 | São Paulo, Brasil</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="skills-title">Competencias Técnicas</div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4 id="skill1-title">Auditoría y Cumplimiento</h4>
+                <ul id="skill1-list">
+                    <li><strong>Controles Internos (SOx/ITGC)</strong></li>
+                    <li><strong>Auditoría Financiera</strong></li>
+                    <li><strong>Gestión de Riesgos</strong></li>
+                    <li><strong>Compliance LGPD/GDPR</strong></li>
+                    <li><strong>Segregación de Funciones</strong></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4 id="skill2-title">Análisis de Datos</h4>
+                <ul id="skill2-list">
+                    <li><strong>SQL (nivel intermedio)</strong></li>
+                    <li><strong>Visualización de Datos</strong></li>
+                    <li><strong>Análisis Estadístico</strong></li>
+                    <li><strong>Indicadores / KPIs</strong></li>
+                    <li><strong>Informes Ejecutivos</strong></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4 id="skill3-title">Tecnología y Sistemas</h4>
+                <ul id="skill3-list">
+                    <li><strong>Documentación de Controles y Procesos</strong></li>
+                    <li><strong>Excel Avanzado</strong></li>
+                    <li><strong>Mapeo de Procesos</strong></li>
+                    <li><strong>Documentación Técnica</strong></li>
+                    <li><strong>Soporte a Usuarios</strong></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4 id="skill4-title">Gestión Empresarial</h4>
+                <ul id="skill4-list">
+                    <li><strong>Liderazgo de Equipos</strong></li>
+                    <li><strong>Desarrollo Comercial</strong></li>
+                    <li><strong>Gestión de Ventas</strong></li>
+                    <li><strong>Relación con Clientes</strong></li>
+                    <li><strong>Análisis Financiero</strong></li>
+                    <li><strong>Emprendimiento</strong></li>
+                    <li><strong>Selección y Contratación de Talento</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="certifications-title">Certificaciones</div>
+        <div class="certifications" id="certifications-content">
+            <div class="cert-item"><strong>CRC Brasil</strong> - Contador habilitado (Consejo Regional de Contabilidad)</div>
+            <div class="cert-item"><strong>Associate Data Analyst in SQL</strong> – En curso (DataCamp, modalidad online)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="languages-title">Idiomas</div>
+        <div class="languages" id="languages-content">
+            <div class="language-item"><strong>Portugués:</strong> Nativo</div>
+            <div class="language-item"><strong>Inglés:</strong> Intermedio (B1)</div>
+            <div class="language-item"><strong>Español:</strong> Básico-Intermedio (A2-B1)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title" id="additional-title">Información Adicional</div>
+        <div class="description" id="additional-content">
+            <ul>
+                <li><strong>Situación:</strong> En proceso de reubicación familiar a España (2025)</li>
+                <li><strong>Disponibilidad:</strong> Inmediata para posiciones remotas/híbridas</li>
+                <li><strong>Movilidad:</strong> Total disponibilidad geográfica en España</li>
+                <li><strong>Objetivos:</strong> Desarrollo profesional en controles internos o transición hacia análisis de datos</li>
+                <li><strong>Nota:</strong> Dispuesto a realizar la homologación o equivalencia de títulos en España si el puesto lo requiere</li>
+                <li><strong>Nacionalidad:</strong> Española (documentación al día)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-note" id="footer-note">
+        <br>
+        <em>Este currículum ha sido actualizado en mayo de 2025 (v3). Para consultar la versión más reciente, visite <strong><a href="https://lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">lucasmartins.work</a></strong></em>
+    </div>
+
+    <script>
+        // Objeto completo con todas as traduções
+        const translations = {
+            es: {
+                'header-title': 'Gestión Empresarial & Transformación Digital &<br>Auditoría, Controles Internos (SOx/ITGC) &<br>En formación en Análisis de Datos',
+                'location': '📍 En proceso de reubicación a España',
+                'availability-note': '<strong>Nota:</strong> Actualmente en proceso de traslado familiar a España. Por el momento, únicamente disponible para <strong>entrevistas telemáticas</strong> hasta completar la reubicación.',
+                'profile-title': 'Perfil Profesional',
+                'profile-content': 'Profesional con sólida trayectoria en <strong>gestión empresarial</strong>, <strong>transformación digital</strong> y <strong>compliance</strong>, con 8 años de experiencia como <strong>socio fundador de agencia tecnológica</strong>. Ciudadano español en proceso de reubicación, con enfoque estratégico en <strong>procesos, riesgos</strong> y <strong>optimización operativa</strong>.<br><br>Acumulé cerca de 6 años de experiencia en <strong>auditoría financiera</strong> y <strong>controles internos (SOx/ITGC)</strong> en empresas multinacionales y Big Four, complementando mi visión de negocio con fundamentos sólidos de control y conformidad regulatoria.<br><br>Actualmente, impulso una transición profesional hacia el área de <strong>Data Analytics</strong>, combinando mi experiencia previa en auditoría y tecnología con nuevas competencias analíticas. Busco contribuir en España con una perspectiva integral que une <strong>control, tecnología, análisis y liderazgo</strong>.',
+                'experience-title': 'Experiencia Profesional',
+                'job1-title': 'Socio Fundador y Responsable de Operaciones',
+                'job1-date': '2018 - Actualidad (8 años de trayectoria empresarial) | São José do Rio Preto, São Paulo, Brasil',
+                'job1-desc': '<ul><li>Cofundación y dirección estratégica de agencia con <strong>facturación anual de R$ 1M</strong> y liderazgo de <strong>equipo de 12 profesionales</strong></li><li><strong>Desarrollo comercial integral</strong>: prospección, vendas consultivas y gestión de <strong>cartera de +20 clientes</strong> con <strong>tasa de retención del 85%</strong> (+5 años promedio)</li><li>Implementación de <strong>controles LGPD/GDPR</strong> y sistemas de protección de datos con travas sistémicas</li><li>Creación de <strong>dashboards analytics</strong> y <strong>reportes ejecutivos</strong> para optimización de <strong>ROI</strong> de clientes</li><li><strong>Gestión de equipos multidisciplinarios</strong>, contratación de talentos y desarrollo de cultura empresarial</li></ul>',
+                'job2-title': 'Analista - Controles Internos de Tecnología (SOx/ITGC)',
+                'job2-date': 'Agosto 2016 - Mayo 2018 (1 año 10 meses) | São Paulo, Brasil',
+                'job2-desc': '<ul><li>Optimización y maduración de <strong>controles internos Sarbanes-Oxley (SOx)</strong> en ambientes de TI multinacional</li><li>Mejora continua de <strong>controles ITGC</strong>: accesos, cambios, operaciones y desarrollo de sistemas</li><li>Desarrollo de mejoras en procesos de <strong>análisis de riesgos</strong> tecnológicos y <strong>segregación de funciones</strong></li><li>Optimización de comunicación con <strong>auditoría externa</strong> y cumplimiento de plazos corporativos</li><li>Incremento de assertividad en solicitudes técnicas y <strong>mentoring</strong> sobre cultura de riesgos</li><li>Implementación de mejoras en pruebas de control y seguimiento de deficiencias en sistemas</li></ul>',
+                'job3-title': 'Auditor',
+                'job3-date': 'Julio 2013 - Junio 2016 (3 años) | São Paulo, Brasil',
+                'job3-desc': '<ul><li>Planificación y ejecución de <strong>auditorías financieras</strong> bajo estándares <strong>IFRS/BRGAAP</strong></li><li>Mapeo y evaluación de <strong>controles internos</strong> empresariales</li><li><strong>Análisis de procesos</strong> contables y desarrollo de recomendaciones de mejora</li><li>Elaboración de <strong>informes de auditoría</strong> y dictámenes sobre estados financieros</li><li>Supervisión de <strong>reporting packages</strong> y <strong>revisiones analíticas</strong> avanzadas</li></ul>',
+                'job4-title': 'Analista de Sistemas ERP',
+                'job4-date': 'Febrero 2006 - Marzo 2012 (6 años 2 meses) | Mauá, São Paulo, Brasil',
+                'job4-desc': '<ul><li>Administración integral del sistema <strong>ERP Microsiga/TOTVS</strong></li><li>Diseño de <strong>flujos de procesos</strong> y optimización de entrada/salida de datos</li><li>Evolución profesional: Auxiliar →Financiero →Compras →Analista Sistemas</li><li>Gestión de <strong>infraestructura tecnológica</strong> y soporte a usuarios</li></ul>',
+                'education-title': 'Formación Académica',
+                'edu1-title': 'Grado en Contabilidad (equivalente)',
+                'edu1-date': '2013 - 2015 | São Paulo, Brasil',
+                'edu2-title': 'Grado en Administración Financiera (equivalente)',
+                'edu2-date': '2007 - 2011 | São Paulo, Brasil',
+                'edu3-title': 'Especialización Profesional en Análisis de Datos con SQL',
+                'edu3-date': '2025 | Online',
+                'edu4-title': 'Técnico Superior en Gestión de Sistemas de Información',
+                'edu4-date': '2012 - 2013 | São Paulo, Brasil',
+                'skills-title': 'Competencias Técnicas',
+                'skill1-title': 'Auditoría y Cumplimiento',
+                'skill1-list': '<li><strong>Controles Internos (SOx/ITGC)</strong></li><li><strong>Auditoría Financiera</strong></li><li><strong>Gestión de Riesgos</strong></li><li><strong>Compliance LGPD/GDPR</strong></li><li><strong>Segregación de Funciones</strong></li>',
+                'skill2-title': 'Análisis de Datos',
+                'skill2-list': '<li><strong>SQL (nivel intermedio)</strong></li><li><strong>Visualización de Datos</strong></li><li><strong>Análisis Estadístico</strong></li><li><strong>Indicadores / KPIs</strong></li><li><strong>Informes Ejecutivos</strong></li>',
+                'skill3-title': 'Tecnología y Sistemas',
+                'skill3-list': '<li><strong>Documentación de Controles y Procesos</strong></li><li><strong>Excel Avanzado</strong></li><li><strong>Mapeo de Procesos</strong></li><li><strong>Documentación Técnica</strong></li><li><strong>Soporte a Usuarios</strong></li>',
+                'skill4-title': 'Gestión Empresarial',
+                'skill4-list': '<li><strong>Liderazgo de Equipos</strong></li><li><strong>Desarrollo Comercial</strong></li><li><strong>Gestión de Ventas</strong></li><li><strong>Relación con Clientes</strong></li><li><strong>Análisis Financiero</strong></li><li><strong>Emprendimiento</strong></li><li><strong>Selección y Contratación de Talento</strong></li>',
+                'certifications-title': 'Certificaciones',
+                'certifications-content': '<div class="cert-item"><strong>CRC Brasil</strong> - Contador habilitado (Consejo Regional de Contabilidad)</div><div class="cert-item"><strong>Associate Data Analyst in SQL</strong> – En curso (DataCamp, modalidad online)</div>',
+                'languages-title': 'Idiomas',
+                'languages-content': '<div class="language-item"><strong>Portugués:</strong> Nativo</div><div class="language-item"><strong>Inglés:</strong> Intermedio (B1)</div><div class="language-item"><strong>Español:</strong> Básico-Intermedio (A2-B1)</div>',
+                'additional-title': 'Información Adicional',
+                'additional-content': '<ul><li><strong>Situación:</strong> En proceso de reubicación familiar a España (2025)</li><li><strong>Disponibilidad:</strong> Inmediata para posiciones remotas/híbridas</li><li><strong>Movilidad:</strong> Total disponibilidad geográfica en España</li><li><strong>Objetivos:</strong> Desarrollo profesional en controles internos o transición hacia análisis de datos</li><li><strong>Nota:</strong> Dispuesto a realizar la homologación o equivalencia de títulos en España si el puesto lo requiere</li><li><strong>Nacionalidad:</strong> Española (documentación al día)</li></ul>',
+                'footer-note': '<br><em>Este currículum ha sido actualizado en mayo de 2025 (v3). Para consultar la versión más reciente, visite <strong><a href="https://lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">lucasmartins.work</a></strong></em>'
+            },
+            en: {
+                'header-title': 'Business Management & Digital Transformation &<br>Audit, Internal Controls (SOx/ITGC) &<br>Data Analytics in Training',
+                'location': '📍 Relocating to Spain',
+                'availability-note': '<strong>Note:</strong> Currently in the process of family relocation to Spain. For the time being, only available for <strong>remote interviews</strong> until relocation is complete.',
+                'profile-title': 'Professional Profile',
+                'profile-content': 'Professional with a solid background in <strong>business management</strong>, <strong>digital transformation</strong>, and <strong>compliance</strong>, with 8 years of experience as a <strong>founding partner of a technology agency</strong>. Spanish citizen in the process of relocation, with a strategic focus on <strong>processes, risks</strong>, and <strong>operational optimization</strong>.<br><br>Accumulated nearly 6 years of experience in <strong>financial auditing</strong> and <strong>internal controls (SOx/ITGC)</strong> in multinational companies and Big Four, complementing my business vision with solid fundamentals of control and regulatory compliance.<br><br>Currently driving a professional transition towards <strong>Data Analytics</strong>, combining my previous experience in audit and technology with new analytical skills. Seeking to contribute in Spain with a comprehensive perspective that unites <strong>control, technology, analysis and leadership</strong>.',
+                'experience-title': 'Professional Experience',
+                'job1-title': 'Founding Partner and Operations Manager',
+                'job1-date': '2018 - Present (8 years of business trajectory) | São José do Rio Preto, São Paulo, Brazil',
+                'job1-desc': '<ul><li>Co-founding and strategic direction of an agency with <strong>annual revenue of R$ 1M</strong> and leadership of a <strong>team of 12 professionals</strong></li><li><strong>Comprehensive business development</strong>: prospecting, consultative sales and management of a <strong>portfolio of +20 clients</strong> with <strong>85% retention rate</strong> (+5 years average)</li><li>Implementation of <strong>LGPD/GDPR controls</strong> and data protection systems with systemic locks</li><li>Creation of <strong>analytics dashboards</strong> and <strong>executive reports</strong> to optimize client <strong>ROI</strong></li><li><strong>Management of multidisciplinary teams</strong>, talent hiring and development of business culture</li></ul>',
+                'job2-title': 'Analyst - Technology Internal Controls (SOx/ITGC)',
+                'job2-date': 'August 2016 - May 2018 (1 year 10 months) | São Paulo, Brazil',
+                'job2-desc': '<ul><li>Optimization and maturation of <strong>Sarbanes-Oxley (SOx) internal controls</strong> in multinational IT environments</li><li>Continuous improvement of <strong>ITGC controls</strong>: access, changes, operations and systems development</li><li>Development of improvements in processes for <strong>technological risk analysis</strong> and <strong>segregation of functions</strong></li><li>Optimization of communication with <strong>external audit</strong> and compliance with corporate deadlines</li><li>Increased assertiveness in technical requests and <strong>mentoring</strong> on risk culture</li><li>Implementation of improvements in control tests and tracking of system deficiencies</li></ul>',
+                'job3-title': 'Auditor',
+                'job3-date': 'July 2013 - June 2016 (3 years) | São Paulo, Brazil',
+                'job3-desc': '<ul><li>Planning and execution of <strong>financial audits</strong> under <strong>IFRS/BRGAAP</strong> standards</li><li>Mapping and evaluation of corporate <strong>internal controls</strong></li><li><strong>Accounting process analysis</strong> and development of improvement recommendations</li><li>Preparation of <strong>audit reports</strong> and opinions on financial statements</li><li>Supervision of <strong>reporting packages</strong> and advanced <strong>analytical reviews</strong></li></ul>',
+                'job4-title': 'ERP Systems Analyst',
+                'job4-date': 'February 2006 - March 2012 (6 years 2 months) | Mauá, São Paulo, Brazil',
+                'job4-desc': '<ul><li>Comprehensive administration of the <strong>Microsiga/TOTVS ERP system</strong></li><li>Design of <strong>process flows</strong> and optimization of data input/output</li><li>Professional evolution: Assistant →Financial →Purchasing →Systems Analyst</li><li>Management of <strong>technological infrastructure</strong> and user support</li></ul>',
+                'education-title': 'Academic Education',
+                'edu1-title': 'Degree in Accounting (equivalent)',
+                'edu1-date': '2013 - 2015 | São Paulo, Brazil',
+                'edu2-title': 'Degree in Financial Administration (equivalent)',
+                'edu2-date': '2007 - 2011 | São Paulo, Brazil',
+                'edu3-title': 'Professional Specialization in Data Analysis with SQL',
+                'edu3-date': '2025 | Online',
+                'edu4-title': 'Higher Technician in Information Systems Management',
+                'edu4-date': '2012 - 2013 | São Paulo, Brazil',
+                'skills-title': 'Technical Skills',
+                'skill1-title': 'Audit and Compliance',
+                'skill1-list': '<li><strong>Internal Controls (SOx/ITGC)</strong></li><li><strong>Financial Audit</strong></li><li><strong>Risk Management</strong></li><li><strong>LGPD/GDPR Compliance</strong></li><li><strong>Segregation of Functions</strong></li>',
+                'skill2-title': 'Data Analysis',
+                'skill2-list': '<li><strong>SQL (intermediate level)</strong></li><li><strong>Data Visualization</strong></li><li><strong>Statistical Analysis</strong></li><li><strong>Indicators / KPIs</strong></li><li><strong>Executive Reports</strong></li>',
+                'skill3-title': 'Technology and Systems',
+                'skill3-list': '<li><strong>Documentation of Controls and Processes</strong></li><li><strong>Advanced Excel</strong></li><li><strong>Process Mapping</strong></li><li><strong>Technical Documentation</strong></li><li><strong>User Support</strong></li>',
+                'skill4-title': 'Business Management',
+                'skill4-list': '<li><strong>Team Leadership</strong></li><li><strong>Business Development</strong></li><li><strong>Sales Management</strong></li><li><strong>Customer Relationship</strong></li><li><strong>Financial Analysis</strong></li><li><strong>Entrepreneurship</strong></li><li><strong>Talent Selection and Hiring</strong></li>',
+                'certifications-title': 'Certifications',
+                'certifications-content': '<div class="cert-item"><strong>CRC Brazil</strong> - Qualified Accountant (Regional Accounting Council)</div><div class="cert-item"><strong>Associate Data Analyst in SQL</strong> – In progress (DataCamp, online)</div>',
+                'languages-title': 'Languages',
+                'languages-content': '<div class="language-item"><strong>Portuguese:</strong> Native</div><div class="language-item"><strong>English:</strong> Intermediate (B1)</div><div class="language-item"><strong>Spanish:</strong> Basic-Intermediate (A2-B1)</div>',
+                'additional-title': 'Additional Information',
+                'additional-content': '<ul><li><strong>Situation:</strong> In the process of family relocation to Spain (2025)</li><li><strong>Availability:</strong> Immediate for remote/hybrid positions</li><li><strong>Mobility:</strong> Full geographic availability in Spain</li><li><strong>Objectives:</strong> Professional development in internal controls or transition to data analysis</li><li><strong>Note:</strong> Willing to validate or obtain equivalence of degrees in Spain if required for the position</li><li><strong>Nationality:</strong> Spanish (documentation up to date)</li></ul>',
+                'footer-note': '<br><em>This resume was updated in May 2025 (v3). For the most recent version, visit <strong><a href="https://lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">lucasmartins.work</a></strong></em>'
+            },
+            pt: {
+                'header-title': 'Gestão Empresarial & Transformação Digital &<br>Auditoria, Controles Internos (SOx/ITGC) &<br>Em formação em Análise de Dados',
+                'location': '📍 Em processo de realocação para Espanha',
+                'availability-note': '<strong>Nota:</strong> Atualmente em processo de transferência familiar para Espanha. Por enquanto, disponível apenas para <strong>entrevistas remotas</strong> até a conclusão da realocação.',
+                'profile-title': 'Perfil Profissional',
+                'profile-content': 'Profissional com sólida trajetória em <strong>gestão empresarial</strong>, <strong>transformação digital</strong> e <strong>compliance</strong>, com 8 anos de experiência como <strong>sócio fundador de agência tecnológica</strong>. Cidadão espanhol em processo de realocação, com foco estratégico em <strong>processos, riscos</strong> e <strong>otimização operacional</strong>.<br><br>Acumulei cerca de 6 anos de experiência em <strong>auditoria financeira</strong> e <strong>controles internos (SOx/ITGC)</strong> em empresas multinacionais e Big Four, complementando minha visão de negócios com fundamentos sólidos de controle e conformidade regulatória.<br><br>Atualmente, impulsiono uma transição profissional para a área de <strong>Data Analytics</strong>, combinando minha experiência prévia em auditoria e tecnologia com novas competências analíticas. Busco contribuir na Espanha com uma perspectiva integral que une <strong>controle, tecnologia, análise e liderança</strong>.',
+                'experience-title': 'Experiência Profissional',
+                'job1-title': 'Sócio Fundador e Responsável de Operações',
+                'job1-date': '2018 - Atual (8 anos de trajetória empresarial) | São José do Rio Preto, São Paulo, Brasil',
+                'job1-desc': '<ul><li>Cofundação e direção estratégica de agência com <strong>faturamento anual de R$ 1M</strong> e liderança de <strong>equipe de 12 profissionais</strong></li><li><strong>Desenvolvimento comercial integral</strong>: prospecção, vendas consultivas e gestão de <strong>carteira de +20 clientes</strong> com <strong>taxa de retenção de 85%</strong> (+5 anos em média)</li><li>Implementação de <strong>controles LGPD/GDPR</strong> e sistemas de proteção de dados com travas sistêmicas</li><li>Criação de <strong>dashboards analytics</strong> e <strong>relatórios executivos</strong> para otimização do <strong>ROI</strong> dos clientes</li><li><strong>Gestão de equipes multidisciplinares</strong>, contratação de talentos e desenvolvimento de cultura empresarial</li></ul>',
+                'job2-title': 'Analista - Controles Internos de Tecnologia (SOx/ITGC)',
+                'job2-date': 'Agosto 2016 - Maio 2018 (1 ano 10 meses) | São Paulo, Brasil',
+                'job2-desc': '<ul><li>Otimização e maturação de <strong>controles internos Sarbanes-Oxley (SOx)</strong> em ambientes de TI multinacionais</li><li>Melhoria contínua de <strong>controles ITGC</strong>: acessos, mudanças, operações e desenvolvimento de sistemas</li><li>Desenvolvimento de melhorias em processos de <strong>análise de riscos</strong> tecnológicos e <strong>segregação de funções</strong></li><li>Otimização da comunicação com <strong>auditoria externa</strong> e cumprimento de prazos corporativos</li><li>Aumento da assertividade em solicitações técnicas e <strong>mentoring</strong> sobre cultura de riscos</li><li>Implementação de melhorias em testes de controle e acompanhamento de deficiências em sistemas</li></ul>',
+                'job3-title': 'Auditor',
+                'job3-date': 'Julho 2013 - Junho 2016 (3 anos) | São Paulo, Brasil',
+                'job3-desc': '<ul><li>Planejamento e execução de <strong>auditorias financeiras</strong> sob padrões <strong>IFRS/BRGAAP</strong></li><li>Mapeamento e avaliação de <strong>controles internos</strong> empresariais</li><li><strong>Análise de processos</strong> contábeis e desenvolvimento de recomendações de melhoria</li><li>Elaboração de <strong>relatórios de auditoria</strong> e pareceres sobre demonstrações financeiras</li><li>Supervisão de <strong>reporting packages</strong> e <strong>revisões analíticas</strong> avançadas</li></ul>',
+                'job4-title': 'Analista de Sistemas ERP',
+                'job4-date': 'Fevereiro 2006 - Março 2012 (6 anos 2 meses) | Mauá, São Paulo, Brasil',
+                'job4-desc': '<ul><li>Administração integral do sistema <strong>ERP Microsiga/TOTVS</strong></li><li>Design de <strong>fluxos de processos</strong> e otimização de entrada/saída de dados</li><li>Evolução profissional: Auxiliar →Financeiro →Compras →Analista de Sistemas</li><li>Gestão de <strong>infraestrutura tecnológica</strong> e suporte a usuários</li></ul>',
+                'education-title': 'Formação Acadêmica',
+                'edu1-title': 'Graduação em Contabilidade (equivalente)',
+                'edu1-date': '2013 - 2015 | São Paulo, Brasil',
+                'edu2-title': 'Graduação em Administração Financeira (equivalente)',
+                'edu2-date': '2007 - 2011 | São Paulo, Brasil',
+                'edu3-title': 'Especialização Profissional em Análise de Dados com SQL',
+                'edu3-date': '2025 | Online',
+                'edu4-title': 'Técnico Superior em Gestão de Sistemas de Informação',
+                'edu4-date': '2012 - 2013 | São Paulo, Brasil',
+                'skills-title': 'Competências Técnicas',
+                'skill1-title': 'Auditoria e Conformidade',
+                'skill1-list': '<li><strong>Controles Internos (SOx/ITGC)</strong></li><li><strong>Auditoria Financeira</strong></li><li><strong>Gestão de Riscos</strong></li><li><strong>Compliance LGPD/GDPR</strong></li><li><strong>Segregação de Funções</strong></li>',
+                'skill2-title': 'Análise de Dados',
+                'skill2-list': '<li><strong>SQL (nível intermediário)</strong></li><li><strong>Visualização de Dados</strong></li><li><strong>Análise Estatística</strong></li><li><strong>Indicadores / KPIs</strong></li><li><strong>Relatórios Executivos</strong></li>',
+                'skill3-title': 'Tecnologia e Sistemas',
+                'skill3-list': '<li><strong>Documentação de Controles e Processos</strong></li><li><strong>Excel Avançado</strong></li><li><strong>Mapeamento de Processos</strong></li><li><strong>Documentação Técnica</strong></li><li><strong>Suporte a Usuários</strong></li>',
+                'skill4-title': 'Gestão Empresarial',
+                'skill4-list': '<li><strong>Liderança de Equipes</strong></li><li><strong>Desenvolvimento Comercial</strong></li><li><strong>Gestão de Vendas</strong></li><li><strong>Relação com Clientes</strong></li><li><strong>Análise Financeira</strong></li><li><strong>Empreendedorismo</strong></li><li><strong>Seleção e Contratação de Talentos</strong></li>',
+                'certifications-title': 'Certificações',
+                'certifications-content': '<div class="cert-item"><strong>CRC Brasil</strong> - Contador habilitado (Conselho Regional de Contabilidade)</div><div class="cert-item"><strong>Associate Data Analyst in SQL</strong> – Em andamento (DataCamp, modalidade online)</div>',
+                'languages-title': 'Idiomas',
+                'languages-content': '<div class="language-item"><strong>Português:</strong> Nativo</div><div class="language-item"><strong>Inglês:</strong> Intermediário (B1)</div><div class="language-item"><strong>Espanhol:</strong> Básico-Intermediário (A2-B1)</div>',
+                'additional-title': 'Informações Adicionais',
+                'additional-content': '<ul><li><strong>Situação:</strong> Em processo de realocação familiar para Espanha (2025)</li><li><strong>Disponibilidade:</strong> Imediata para posições remotas/híbridas</li><li><strong>Mobilidade:</strong> Total disponibilidade geográfica na Espanha</li><li><strong>Objetivos:</strong> Desenvolvimento profissional em controles internos ou transição para análise de dados</li><li><strong>Nota:</strong> Disposto a realizar a homologação ou equivalência de títulos na Espanha se a posição exigir</li><li><strong>Nacionalidade:</strong> Espanhola (documentação em dia)</li></ul>',
+                'footer-note': '<br><em>Este currículo foi atualizado em maio de 2025 (v3). Para consultar a versão mais recente, visite <strong><a href="https://lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">lucasmartins.work</a></strong></em>'
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            const langData = translations[lang];
+            
+            // Atualiza todo o conteúdo da página
+            for (const key in langData) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.innerHTML = langData[key];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
