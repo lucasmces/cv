@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LGPD/GDPR - CV Lucas Martins.</title>
+    <title>LGPD/GDPR - CV Lucas Martins</title>
     <style>
         * {
             margin: 0;
@@ -132,6 +132,7 @@
         .button-container {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
         
         button {
@@ -143,6 +144,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
+            min-width: 200px;
         }
         
         #acceptBtn {
@@ -169,6 +171,17 @@
         
         #declineBtn:hover {
             background: #e1e8f0;
+        }
+        
+        #downloadBtn {
+            background: #28a745;
+            color: white;
+            display: none; /* Inicialmente oculto */
+        }
+        
+        #downloadBtn:hover {
+            background: #218838;
+            transform: translateY(-2px);
         }
         
         .footer {
@@ -260,6 +273,43 @@
             font-size: 16px;
         }
         
+        .connection-fallback {
+            display: none;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        
+        .connection-fallback p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .connection-fallback ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .connection-fallback li {
+            margin-bottom: 8px;
+        }
+        
+        .retry-btn {
+            background: #ffc107;
+            color: #333;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .retry-btn:hover {
+            background: #e0a800;
+        }
+        
         /* Força visibilidade de todos os elementos */
         .terms-section,
         .terms-list,
@@ -298,6 +348,10 @@
             .language-btn {
                 padding: 10px 16px;
                 font-size: 13px;
+            }
+            
+            button {
+                min-width: 100%;
             }
         }
     </style>
@@ -338,6 +392,19 @@
                 <div class="button-container">
                     <button id="acceptBtn" disabled>Acceder al Currículum</button>
                     <button id="declineBtn">Rechazar y Salir</button>
+                    <button id="downloadBtn">Descargar CV (PDF)</button>
+                </div>
+                
+                <div class="connection-fallback" id="fallbackMessage">
+                    <p id="fallback-title">⚠️ Problemas de conexión detectados</p>
+                    <p id="fallback-text">Si no puede acceder al currículum, intente:</p>
+                    <ul>
+                        <li id="fallback-tip1">Desactivar VPN o proxy</li>
+                        <li id="fallback-tip2">Verificar su conexión a Internet</li>
+                        <li id="fallback-tip3">Usar una red diferente</li>
+                        <li id="fallback-tip4">Descargar el CV en formato PDF</li>
+                    </ul>
+                    <button class="retry-btn" id="retryBtn">Reintentar acceso</button>
                 </div>
             </div>
         </div>
@@ -357,8 +424,6 @@
     </div>
 
     <script>
-        console.log('Script iniciado');
-        
         // Traduções
         const translations = {
             'pt-BR': {
@@ -376,8 +441,16 @@
                 'consent-label': 'Eu concordo com os termos acima e entendo que as informações contidas no currículo são confidenciais. Comprometo-me a não compartilhar ou distribuir estes dados sem a permissão explícita do titular.',
                 'acceptBtn': 'Acessar Currículo',
                 'declineBtn': 'Recusar e Sair',
+                'downloadBtn': 'Baixar CV (PDF)',
                 'footer-text': 'cv.lucasmartins.work | Todos os direitos reservados © 2025',
-                'languageButton': 'Alterar Idioma'
+                'languageButton': 'Alterar Idioma',
+                'fallback-title': '⚠️ Problemas de conexão detectados',
+                'fallback-text': 'Se não conseguir acessar o currículo, tente:',
+                'fallback-tip1': 'Desativar VPN ou proxy',
+                'fallback-tip2': 'Verificar sua conexão com a Internet',
+                'fallback-tip3': 'Usar uma rede diferente',
+                'fallback-tip4': 'Baixar o CV em formato PDF',
+                'retryBtn': 'Tentar novamente'
             },
             'en': {
                 'header-title': 'DATA CONFIDENTIALITY',
@@ -394,8 +467,16 @@
                 'consent-label': 'I agree to the above terms and understand that the information contained in the resume is confidential. I commit not to share or distribute this data without the explicit permission of the owner.',
                 'acceptBtn': 'Access Resume',
                 'declineBtn': 'Decline and Exit',
+                'downloadBtn': 'Download CV (PDF)',
                 'footer-text': 'cv.lucasmartins.work | All rights reserved © 2025',
-                'languageButton': 'Change Language'
+                'languageButton': 'Change Language',
+                'fallback-title': '⚠️ Connection issues detected',
+                'fallback-text': 'If you cannot access the resume, try:',
+                'fallback-tip1': 'Disable VPN or proxy',
+                'fallback-tip2': 'Check your Internet connection',
+                'fallback-tip3': 'Use a different network',
+                'fallback-tip4': 'Download the CV in PDF format',
+                'retryBtn': 'Retry access'
             },
             'es': {
                 'header-title': 'CONFIDENCIALIDAD DE DATOS',
@@ -412,8 +493,16 @@
                 'consent-label': 'Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.',
                 'acceptBtn': 'Acceder al Currículum',
                 'declineBtn': 'Rechazar y Salir',
+                'downloadBtn': 'Descargar CV (PDF)',
                 'footer-text': 'cv.lucasmartins.work | Todos los derechos reservados © 2025',
-                'languageButton': 'Cambiar Idioma'
+                'languageButton': 'Cambiar Idioma',
+                'fallback-title': '⚠️ Problemas de conexión detectados',
+                'fallback-text': 'Si no puede acceder al currículum, intente:',
+                'fallback-tip1': 'Desactivar VPN o proxy',
+                'fallback-tip2': 'Verificar su conexión a Internet',
+                'fallback-tip3': 'Usar una red diferente',
+                'fallback-tip4': 'Descargar el CV en formato PDF',
+                'retryBtn': 'Reintentar acceso'
             }
         };
 
@@ -421,38 +510,90 @@
         let initialized = false;
 
         function updateContent(lang) {
-            console.log('Atualizando para idioma:', lang);
             currentLang = lang;
             const translation = translations[lang];
             
-            if (!translation) {
-                console.error('Tradução não encontrada para:', lang);
-                return;
-            }
+            if (!translation) return;
             
             Object.keys(translation).forEach(key => {
                 const element = document.getElementById(key);
                 if (element) {
                     element.textContent = translation[key];
-                } else {
-                    console.warn('Elemento não encontrado para a chave:', key);
                 }
             });
+        }
+
+        // Verifica a disponibilidade do recurso
+        async function checkResourceAvailability() {
+            try {
+                const response = await fetch('multilingual_cv.html', {
+                    method: 'HEAD',
+                    cache: 'no-cache'
+                });
+                return response.ok;
+            } catch (error) {
+                console.error('Verificação de recurso falhou:', error);
+                return false;
+            }
+        }
+
+        // Tenta carregar o currículo com fallback
+        async function loadCVWithFallback() {
+            const acceptBtn = document.getElementById('acceptBtn');
+            acceptBtn.disabled = true;
+            acceptBtn.textContent = translations[currentLang]['acceptBtn'] + '...';
+            
+            try {
+                // Tenta o recurso principal
+                const isAvailable = await checkResourceAvailability();
+                
+                if (isAvailable) {
+                    window.location.href = 'multilingual_cv.html';
+                } else {
+                    // Se falhar, tenta um mirror alternativo
+                    try {
+                        const mirrorResponse = await fetch('https://rawcdn.githack.com/lucasmartinscv/cv/main/multilingual_cv.html', {method: 'HEAD'});
+                        if (mirrorResponse.ok) {
+                            window.location.href = 'https://rawcdn.githack.com/lucasmartinscv/cv/main/multilingual_cv.html';
+                        } else {
+                            showFallbackMessage();
+                        }
+                    } catch (mirrorError) {
+                        showFallbackMessage();
+                    }
+                }
+            } catch (error) {
+                showFallbackMessage();
+            }
+        }
+
+        // Mostra mensagem de fallback
+        function showFallbackMessage() {
+            document.getElementById('fallbackMessage').style.display = 'block';
+            document.getElementById('downloadBtn').style.display = 'block';
         }
 
         function init() {
             if (initialized) return;
             initialized = true;
             
-            console.log('Inicializando...');
-            
-            // Funcionalidades
+            // Verifica disponibilidade inicial
+            checkResourceAvailability().then(isAvailable => {
+                if (!isAvailable) {
+                    document.getElementById('downloadBtn').style.display = 'block';
+                }
+            });
+
+            // Elementos da UI
             const consentCheckbox = document.getElementById('consentCheckbox');
             const acceptBtn = document.getElementById('acceptBtn');
             const declineBtn = document.getElementById('declineBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const retryBtn = document.getElementById('retryBtn');
             const languageButton = document.getElementById('languageButton');
             const languageOptions = document.getElementById('languageOptions');
             
+            // Event Listeners
             if (consentCheckbox && acceptBtn) {
                 consentCheckbox.addEventListener('change', function() {
                     acceptBtn.disabled = !this.checked;
@@ -462,21 +603,26 @@
             if (acceptBtn) {
                 acceptBtn.addEventListener('click', function() {
                     if (consentCheckbox && consentCheckbox.checked) {
-                        window.location.href = 'multilingual_cv.html';
+                        loadCVWithFallback();
                     }
                 });
             }
             
             if (declineBtn) {
                 declineBtn.addEventListener('click', function() {
-                    const messages = {
-                        'pt-BR': 'Você recusou os termos. A página será fechada.',
-                        'en': 'You have declined the terms. The page will close.',
-                        'es': 'Ha rechazado los términos. La página se cerrará.'
-                    };
-                    alert(messages[currentLang]);
+                    alert(translations[currentLang]['declineBtn']);
                     window.close();
                 });
+            }
+            
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function() {
+                    window.open('Lucas_Martins_CV.pdf', '_blank');
+                });
+            }
+            
+            if (retryBtn) {
+                retryBtn.addEventListener('click', loadCVWithFallback);
             }
             
             if (languageButton && languageOptions) {
@@ -492,40 +638,20 @@
                 });
             }
             
-            const options = document.querySelectorAll('.language-option');
-            if (options.length) {
-                options.forEach(option => {
-                    option.addEventListener('click', function() {
-                        const lang = this.getAttribute('data-lang');
-                        console.log('Opção de idioma clicada:', lang);
-                        
-                        document.querySelectorAll('.language-option').forEach(opt => {
-                            opt.classList.remove('active');
-                        });
-                        this.classList.add('active');
-                        
-                        updateContent(lang);
-                        
-                        if (languageOptions) {
-                            languageOptions.classList.remove('show');
-                        }
-                    });
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    document.querySelectorAll('.language-option').forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    updateContent(lang);
+                    languageOptions.classList.remove('show');
                 });
-            } else {
-                console.error('Nenhuma opção de idioma encontrada');
-            }
+            });
             
-            // Aplicar idioma inicial
             updateContent(currentLang);
-            console.log('Inicialização completa');
         }
 
-        // Garante que a função init seja chamada apenas uma vez
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
