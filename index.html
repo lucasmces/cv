@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LGPD/GDPR - CV Lucas Martins</title>
+    <title>LGPD/GDPR - CV Lucas Martins.</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
         
         body {
-            background: white;
+            background: #f5f7fa;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -173,17 +173,6 @@
             background: #e1e8f0;
         }
         
-        #downloadBtn {
-            background: #28a745;
-            color: white;
-            display: none; /* Inicialmente oculto */
-        }
-        
-        #downloadBtn:hover {
-            background: #218838;
-            transform: translateY(-2px);
-        }
-        
         .footer {
             text-align: center;
             padding: 20px;
@@ -310,6 +299,20 @@
             background: #e0a800;
         }
         
+        .contact-email {
+            background: #e9f7fe;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 15px;
+            border: 1px solid #bde0fe;
+        }
+        
+        .contact-email strong {
+            color: #2c5aa0;
+            font-weight: bold;
+        }
+        
         /* Força visibilidade de todos os elementos */
         .terms-section,
         .terms-list,
@@ -392,18 +395,22 @@
                 <div class="button-container">
                     <button id="acceptBtn" disabled>Acceder al Currículum</button>
                     <button id="declineBtn">Rechazar y Salir</button>
-                    <button id="downloadBtn">Descargar CV (PDF)</button>
                 </div>
                 
                 <div class="connection-fallback" id="fallbackMessage">
-                    <p id="fallback-title">⚠️ Problemas de conexión detectados</p>
-                    <p id="fallback-text">Si no puede acceder al currículum, intente:</p>
+                    <p id="fallback-title">⚠️ Acceso bloqueado por restricciones de seguridad</p>
+                    <p id="fallback-text">Parece que su red corporativa (firewall o VPN) está bloqueando el acceso a este currículum:</p>
                     <ul>
-                        <li id="fallback-tip1">Desactivar VPN o proxy</li>
-                        <li id="fallback-tip2">Verificar su conexión a Internet</li>
-                        <li id="fallback-tip3">Usar una red diferente</li>
-                        <li id="fallback-tip4">Descargar el CV en formato PDF</li>
+                        <li id="fallback-tip1">Las políticas de seguridad de su organización pueden bloquear el acceso a sitios externos</li>
+                        <li id="fallback-tip2">Su VPN corporativa podría estar filtrando este contenido</li>
+                        <li id="fallback-tip3">Firewalls de red pueden bloquear recursos externos</li>
                     </ul>
+                    
+                    <div class="contact-email">
+                        <p>Por favor, contácteme directamente para acceder a mi currículum:</p>
+                        <p><strong>hello@lucasmartins.work</strong></p>
+                    </div>
+                    
                     <button class="retry-btn" id="retryBtn">Reintentar acceso</button>
                 </div>
             </div>
@@ -441,15 +448,13 @@
                 'consent-label': 'Eu concordo com os termos acima e entendo que as informações contidas no currículo são confidenciais. Comprometo-me a não compartilhar ou distribuir estes dados sem a permissão explícita do titular.',
                 'acceptBtn': 'Acessar Currículo',
                 'declineBtn': 'Recusar e Sair',
-                'downloadBtn': 'Baixar CV (PDF)',
                 'footer-text': 'cv.lucasmartins.work | Todos os direitos reservados © 2025',
                 'languageButton': 'Alterar Idioma',
-                'fallback-title': '⚠️ Problemas de conexão detectados',
-                'fallback-text': 'Se não conseguir acessar o currículo, tente:',
-                'fallback-tip1': 'Desativar VPN ou proxy',
-                'fallback-tip2': 'Verificar sua conexão com a Internet',
-                'fallback-tip3': 'Usar uma rede diferente',
-                'fallback-tip4': 'Baixar o CV em formato PDF',
+                'fallback-title': '⚠️ Acesso bloqueado por restrições de segurança',
+                'fallback-text': 'Parece que sua rede corporativa (firewall ou VPN) está bloqueando o acesso a este currículo:',
+                'fallback-tip1': 'As políticas de segurança de sua organização podem bloquear o acesso a sites externos',
+                'fallback-tip2': 'Sua VPN corporativa pode estar filtrando este conteúdo',
+                'fallback-tip3': 'Firewalls de rede podem bloquear recursos externos',
                 'retryBtn': 'Tentar novamente'
             },
             'en': {
@@ -467,15 +472,13 @@
                 'consent-label': 'I agree to the above terms and understand that the information contained in the resume is confidential. I commit not to share or distribute this data without the explicit permission of the owner.',
                 'acceptBtn': 'Access Resume',
                 'declineBtn': 'Decline and Exit',
-                'downloadBtn': 'Download CV (PDF)',
                 'footer-text': 'cv.lucasmartins.work | All rights reserved © 2025',
                 'languageButton': 'Change Language',
-                'fallback-title': '⚠️ Connection issues detected',
-                'fallback-text': 'If you cannot access the resume, try:',
-                'fallback-tip1': 'Disable VPN or proxy',
-                'fallback-tip2': 'Check your Internet connection',
-                'fallback-tip3': 'Use a different network',
-                'fallback-tip4': 'Download the CV in PDF format',
+                'fallback-title': '⚠️ Access blocked by security restrictions',
+                'fallback-text': 'It appears your corporate network (firewall or VPN) is blocking access to this resume:',
+                'fallback-tip1': 'Your organization security policies may block access to external sites',
+                'fallback-tip2': 'Your corporate VPN might be filtering this content',
+                'fallback-tip3': 'Network firewalls can block external resources',
                 'retryBtn': 'Retry access'
             },
             'es': {
@@ -493,15 +496,13 @@
                 'consent-label': 'Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.',
                 'acceptBtn': 'Acceder al Currículum',
                 'declineBtn': 'Rechazar y Salir',
-                'downloadBtn': 'Descargar CV (PDF)',
                 'footer-text': 'cv.lucasmartins.work | Todos los derechos reservados © 2025',
                 'languageButton': 'Cambiar Idioma',
-                'fallback-title': '⚠️ Problemas de conexión detectados',
-                'fallback-text': 'Si no puede acceder al currículum, intente:',
-                'fallback-tip1': 'Desactivar VPN o proxy',
-                'fallback-tip2': 'Verificar su conexión a Internet',
-                'fallback-tip3': 'Usar una red diferente',
-                'fallback-tip4': 'Descargar el CV en formato PDF',
+                'fallback-title': '⚠️ Acceso bloqueado por restricciones de seguridad',
+                'fallback-text': 'Parece que su red corporativa (firewall o VPN) está bloqueando el acceso a este currículum:',
+                'fallback-tip1': 'Las políticas de seguridad de su organización pueden bloquear el acceso a sitios externos',
+                'fallback-tip2': 'Su VPN corporativa podría estar filtrando este contenido',
+                'fallback-tip3': 'Firewalls de red pueden bloquear recursos externos',
                 'retryBtn': 'Reintentar acceso'
             }
         };
@@ -550,17 +551,8 @@
                 if (isAvailable) {
                     window.location.href = 'multilingual_cv.html';
                 } else {
-                    // Se falhar, tenta um mirror alternativo
-                    try {
-                        const mirrorResponse = await fetch('https://rawcdn.githack.com/lucasmartinscv/cv/main/multilingual_cv.html', {method: 'HEAD'});
-                        if (mirrorResponse.ok) {
-                            window.location.href = 'https://rawcdn.githack.com/lucasmartinscv/cv/main/multilingual_cv.html';
-                        } else {
-                            showFallbackMessage();
-                        }
-                    } catch (mirrorError) {
-                        showFallbackMessage();
-                    }
+                    // Se falhar, mostra mensagem explicativa
+                    showFallbackMessage();
                 }
             } catch (error) {
                 showFallbackMessage();
@@ -570,7 +562,6 @@
         // Mostra mensagem de fallback
         function showFallbackMessage() {
             document.getElementById('fallbackMessage').style.display = 'block';
-            document.getElementById('downloadBtn').style.display = 'block';
         }
 
         function init() {
@@ -580,7 +571,7 @@
             // Verifica disponibilidade inicial
             checkResourceAvailability().then(isAvailable => {
                 if (!isAvailable) {
-                    document.getElementById('downloadBtn').style.display = 'block';
+                    showFallbackMessage();
                 }
             });
 
@@ -588,7 +579,6 @@
             const consentCheckbox = document.getElementById('consentCheckbox');
             const acceptBtn = document.getElementById('acceptBtn');
             const declineBtn = document.getElementById('declineBtn');
-            const downloadBtn = document.getElementById('downloadBtn');
             const retryBtn = document.getElementById('retryBtn');
             const languageButton = document.getElementById('languageButton');
             const languageOptions = document.getElementById('languageOptions');
@@ -612,12 +602,6 @@
                 declineBtn.addEventListener('click', function() {
                     alert(translations[currentLang]['declineBtn']);
                     window.close();
-                });
-            }
-            
-            if (downloadBtn) {
-                downloadBtn.addEventListener('click', function() {
-                    window.open('Lucas_Martins_CV.pdf', '_blank');
                 });
             }
             
