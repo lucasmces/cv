@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LGPD/GDPR - Currículo Lucas Martins</title>
+    <title>LGPD/GDPR - CV Lucas Martins</title>
     <style>
         * {
             margin: 0;
@@ -27,7 +27,7 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            overflow: visible;
             position: relative;
         }
         
@@ -35,6 +35,7 @@
             background: #2c5aa0;
             padding: 30px;
             text-align: center;
+            border-radius: 10px 10px 0 0;
         }
         
         .header h1 {
@@ -52,59 +53,80 @@
             padding: 30px;
         }
         
-        .lgpd-box {
+        .terms-section {
             background: #f0f4f8;
             border-left: 4px solid #2c5aa0;
-            padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 0 5px 5px 0;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+            display: block;
+            width: 100%;
         }
         
-        .lgpd-box h2 {
+        .terms-section h2 {
             color: #2c5aa0;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 20px;
+            font-weight: bold;
         }
         
-        .lgpd-box p {
-            margin-bottom: 15px;
+        .terms-section p {
+            margin-bottom: 20px;
             line-height: 1.6;
             color: #333;
+            font-size: 15px;
         }
         
-        .lgpd-box ol {
-            padding-left: 20px;
-            margin-bottom: 15px;
-            display: block !important;
-            visibility: visible !important;
-        }
-        
-        .lgpd-box li {
-            margin-bottom: 10px;
-            line-height: 1.5;
+        .terms-list {
+            list-style-type: decimal;
+            padding-left: 25px;
+            margin: 20px 0;
             color: #333;
-            display: list-item !important;
-            visibility: visible !important;
+        }
+        
+        .terms-list li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 15px;
+            padding-left: 5px;
+        }
+        
+        .declaration-section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .declaration-section strong {
+            color: #2c5aa0;
+            font-weight: bold;
         }
         
         .consent-section {
             margin: 30px 0;
+            padding: 25px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
         }
         
         .checkbox-container {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
-        .checkbox-container input {
+        .checkbox-container input[type="checkbox"] {
             margin-top: 5px;
             margin-right: 15px;
+            width: 18px;
+            height: 18px;
         }
         
         .checkbox-container label {
             color: #333;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-size: 15px;
         }
         
         .button-container {
@@ -114,9 +136,9 @@
         
         button {
             flex: 1;
-            padding: 15px;
+            padding: 15px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -142,7 +164,7 @@
         #declineBtn {
             background: #f0f4f8;
             color: #2c5aa0;
-            border: 1px solid #2c5aa0;
+            border: 2px solid #2c5aa0;
         }
         
         #declineBtn:hover {
@@ -156,6 +178,7 @@
             border-top: 1px solid #dee2e6;
             color: #666;
             font-size: 14px;
+            border-radius: 0 0 10px 10px;
         }
         
         .language-floater {
@@ -166,8 +189,8 @@
         }
         
         .language-btn {
-            padding: 10px 20px;
-            border-radius: 30px;
+            padding: 12px 20px;
+            border-radius: 25px;
             background: #2c5aa0;
             color: white;
             border: none;
@@ -195,7 +218,7 @@
         
         .language-options {
             position: absolute;
-            bottom: 45px;
+            bottom: 50px;
             right: 0;
             background: white;
             border-radius: 8px;
@@ -234,7 +257,16 @@
         .language-option::before {
             content: "•";
             margin-right: 10px;
-            font-size: 18px;
+            font-size: 16px;
+        }
+        
+        /* Força visibilidade de todos os elementos */
+        .terms-section,
+        .terms-list,
+        .terms-list li {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
         
         @media (max-width: 600px) {
@@ -250,13 +282,21 @@
                 padding: 20px;
             }
             
+            .terms-section {
+                padding: 20px;
+            }
+            
+            .consent-section {
+                padding: 20px;
+            }
+            
             .language-floater {
                 bottom: 15px;
                 right: 15px;
             }
             
             .language-btn {
-                padding: 8px 16px;
+                padding: 10px 16px;
                 font-size: 13px;
             }
         }
@@ -270,11 +310,11 @@
         </div>
         
         <div class="content">
-            <div class="lgpd-box">
+            <div class="terms-section">
                 <h2 id="terms-title">Términos de Uso y Política de Privacidad</h2>
                 <p id="terms-intro">Este currículum contiene información confidencial de Lucas Martins Céspedes. Al acceder, usted acepta los siguientes términos:</p>
                 
-                <ol id="terms-list">
+                <ol class="terms-list">
                     <li id="term-1">La información contenida en este currículum es para uso exclusivo en el proceso de reclutamiento y selección.</li>
                     <li id="term-2">No está autorizado a compartir, distribuir o utilizar esta información para cualquier otro propósito sin la autorización expresa del titular.</li>
                     <li id="term-3">El titular de los datos es consciente y acepta la disponibilidad de este currículum para los reclutadores, bajo estos términos.</li>
@@ -282,7 +322,9 @@
                     <li id="term-5">El acceso no autorizado o el uso indebido de esta información puede resultar en acciones legales.</li>
                 </ol>
                 
-                <p><strong id="declaration">Declaro estar consciente de que:</strong> <span id="declaration-text">Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.</span></p>
+                <div class="declaration-section">
+                    <p><strong id="declaration">Declaro estar consciente de que:</strong> <span id="declaration-text">Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.</span></p>
+                </div>
             </div>
             
             <div class="consent-section">
@@ -315,7 +357,9 @@
     </div>
 
     <script>
-        // Traduções completas
+        console.log('Script iniciado');
+        
+        // Traduções
         const translations = {
             'pt-BR': {
                 'header-title': 'CONFIDENCIALIDADE DE DADOS',
@@ -373,89 +417,61 @@
             }
         };
 
-        // Variável global para o idioma atual
         let currentLang = 'es';
 
-        // Função para atualizar o conteúdo
         function updateContent(lang) {
-            console.log('Atualizando conteúdo para:', lang);
+            console.log('Atualizando para idioma:', lang);
             currentLang = lang;
             const translation = translations[lang];
             
-            if (!translation) {
-                console.error('Tradução não encontrada para:', lang);
-                return;
-            }
+            if (!translation) return;
             
-            // Atualizar todos os elementos
             Object.keys(translation).forEach(key => {
                 const element = document.getElementById(key);
                 if (element) {
-                    if (key === 'acceptBtn' || key === 'declineBtn' || key === 'languageButton') {
-                        element.textContent = translation[key];
-                    } else {
-                        element.textContent = translation[key];
-                    }
-                    console.log('Atualizado elemento:', key);
-                } else {
-                    console.warn('Elemento não encontrado:', key);
+                    element.textContent = translation[key];
                 }
             });
-            
-            // Garantir que a lista está visível
-            const termsList = document.getElementById('terms-list');
-            if (termsList) {
-                termsList.style.display = 'block';
-                termsList.style.visibility = 'visible';
-                console.log('Lista de termos forçada a ficar visível');
-            }
         }
 
-        // Executar quando a página carregar
-        function initializePage() {
-            console.log('Inicializando página...');
+        function init() {
+            console.log('Inicializando...');
             
+            // Debug: verificar se elementos existem
+            const termsSection = document.querySelector('.terms-section');
+            const termsList = document.querySelector('.terms-list');
+            
+            console.log('Terms section encontrada:', !!termsSection);
+            console.log('Terms list encontrada:', !!termsList);
+            
+            if (termsSection) {
+                console.log('Estilo computado da terms-section:', window.getComputedStyle(termsSection).display);
+            }
+            if (termsList) {
+                console.log('Estilo computado da terms-list:', window.getComputedStyle(termsList).display);
+            }
+            
+            // Funcionalidades
             const consentCheckbox = document.getElementById('consentCheckbox');
             const acceptBtn = document.getElementById('acceptBtn');
             const declineBtn = document.getElementById('declineBtn');
             const languageButton = document.getElementById('languageButton');
             const languageOptions = document.getElementById('languageOptions');
-            const langOptionButtons = document.querySelectorAll('.language-option');
             
-            // Garantir que todos os elementos da lista estão visíveis
-            const termsList = document.getElementById('terms-list');
-            const termsItems = document.querySelectorAll('#terms-list li');
-            
-            if (termsList) {
-                termsList.style.display = 'block';
-                termsList.style.visibility = 'visible';
-                console.log('Lista principal configurada como visível');
-            }
-            
-            termsItems.forEach((item, index) => {
-                item.style.display = 'list-item';
-                item.style.visibility = 'visible';
-                console.log(`Item ${index + 1} configurado como visível`);
-            });
-            
-            // Controle do checkbox
             if (consentCheckbox && acceptBtn) {
                 consentCheckbox.addEventListener('change', function() {
                     acceptBtn.disabled = !this.checked;
                 });
             }
             
-            // Botão aceitar
             if (acceptBtn) {
                 acceptBtn.addEventListener('click', function() {
                     if (consentCheckbox && consentCheckbox.checked) {
-                        const timestamp = new Date().getTime();
-                        window.location.href = `multilingual_cv.html?t=${timestamp}`;
+                        window.location.href = 'multilingual_cv.html';
                     }
                 });
             }
             
-            // Botão recusar
             if (declineBtn) {
                 declineBtn.addEventListener('click', function() {
                     const messages = {
@@ -468,7 +484,6 @@
                 });
             }
             
-            // Controle do menu de idiomas
             if (languageButton && languageOptions) {
                 languageButton.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -482,86 +497,34 @@
                 });
             }
             
-            // Seleção de idioma
-            langOptionButtons.forEach(option => {
+            document.querySelectorAll('.language-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const lang = this.getAttribute('data-lang');
-                    console.log('Idioma selecionado:', lang);
                     
-                    // Atualizar seleção visual
-                    langOptionButtons.forEach(opt => opt.classList.remove('active'));
+                    document.querySelectorAll('.language-option').forEach(opt => opt.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Salvar preferência
-                    try {
-                        if (typeof(Storage) !== "undefined") {
-                            localStorage.setItem('preferredLanguage', lang);
-                        }
-                    } catch (e) {
-                        console.warn('localStorage não disponível:', e);
-                    }
-                    
-                    // Atualizar conteúdo
                     updateContent(lang);
                     
-                    // Fechar menu
                     if (languageOptions) {
                         languageOptions.classList.remove('show');
                     }
                 });
             });
             
-            // Carregar idioma salvo ou usar padrão
-            try {
-                if (typeof(Storage) !== "undefined") {
-                    const savedLang = localStorage.getItem('preferredLanguage');
-                    if (savedLang && translations[savedLang]) {
-                        currentLang = savedLang;
-                        console.log('Idioma carregado do localStorage:', currentLang);
-                        
-                        // Atualizar seleção visual
-                        langOptionButtons.forEach(opt => {
-                            opt.classList.remove('active');
-                            if (opt.getAttribute('data-lang') === currentLang) {
-                                opt.classList.add('active');
-                            }
-                        });
-                    }
-                }
-            } catch (e) {
-                console.warn('Erro ao carregar idioma salvo:', e);
-            }
-            
-            // Aplicar tradução inicial
+            // Aplicar idioma inicial
             updateContent(currentLang);
-            
-            console.log('Página inicializada com sucesso');
+            console.log('Inicialização completa');
         }
 
-        // Executar quando DOM estiver pronto
+        // Múltiplas formas de garantir que o script execute
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializePage);
+            document.addEventListener('DOMContentLoaded', init);
         } else {
-            initializePage();
+            init();
         }
         
-        // Fallback adicional
-        window.addEventListener('load', function() {
-            console.log('Window load event - verificando visibilidade da lista');
-            const termsList = document.getElementById('terms-list');
-            if (termsList) {
-                const computedStyle = window.getComputedStyle(termsList);
-                console.log('Display da lista:', computedStyle.display);
-                console.log('Visibility da lista:', computedStyle.visibility);
-                
-                // Forçar visibilidade se necessário
-                if (computedStyle.display === 'none' || computedStyle.visibility === 'hidden') {
-                    termsList.style.display = 'block !important';
-                    termsList.style.visibility = 'visible !important';
-                    console.log('Visibilidade da lista forçada');
-                }
-            }
-        });
+        window.addEventListener('load', init);
     </script>
 </body>
 </html>
