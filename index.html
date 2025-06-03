@@ -58,8 +58,6 @@
             padding: 20px;
             margin-bottom: 25px;
             border-radius: 0 5px 5px 0;
-            max-height: none !important;
-            overflow: visible !important;
         }
         
         .lgpd-box h2 {
@@ -77,11 +75,16 @@
         .lgpd-box ol {
             padding-left: 20px;
             margin-bottom: 15px;
+            display: block !important;
+            visibility: visible !important;
         }
         
         .lgpd-box li {
             margin-bottom: 10px;
             line-height: 1.5;
+            color: #333;
+            display: list-item !important;
+            visibility: visible !important;
         }
         
         .consent-section {
@@ -375,34 +378,65 @@
 
         // Função para atualizar o conteúdo
         function updateContent(lang) {
+            console.log('Atualizando conteúdo para:', lang);
             currentLang = lang;
             const translation = translations[lang];
             
-            if (!translation) return;
+            if (!translation) {
+                console.error('Tradução não encontrada para:', lang);
+                return;
+            }
             
             // Atualizar todos os elementos
             Object.keys(translation).forEach(key => {
                 const element = document.getElementById(key);
                 if (element) {
-                    element.textContent = translation[key];
+                    if (key === 'acceptBtn' || key === 'declineBtn' || key === 'languageButton') {
+                        element.textContent = translation[key];
+                    } else {
+                        element.textContent = translation[key];
+                    }
+                    console.log('Atualizado elemento:', key);
+                } else {
+                    console.warn('Elemento não encontrado:', key);
                 }
             });
             
-            // Casos especiais que não seguem o padrão de ID
-            const consentLabel = document.querySelector('label[for="consentCheckbox"]');
-            if (consentLabel) {
-                consentLabel.textContent = translation['consent-label'];
+            // Garantir que a lista está visível
+            const termsList = document.getElementById('terms-list');
+            if (termsList) {
+                termsList.style.display = 'block';
+                termsList.style.visibility = 'visible';
+                console.log('Lista de termos forçada a ficar visível');
             }
         }
 
         // Executar quando a página carregar
         function initializePage() {
+            console.log('Inicializando página...');
+            
             const consentCheckbox = document.getElementById('consentCheckbox');
             const acceptBtn = document.getElementById('acceptBtn');
             const declineBtn = document.getElementById('declineBtn');
             const languageButton = document.getElementById('languageButton');
             const languageOptions = document.getElementById('languageOptions');
             const langOptionButtons = document.querySelectorAll('.language-option');
+            
+            // Garantir que todos os elementos da lista estão visíveis
+            const termsList = document.getElementById('terms-list');
+            const termsItems = document.querySelectorAll('#terms-list li');
+            
+            if (termsList) {
+                termsList.style.display = 'block';
+                termsList.style.visibility = 'visible';
+                console.log('Lista principal configurada como visível');
+            }
+            
+            termsItems.forEach((item, index) => {
+                item.style.display = 'list-item';
+                item.style.visibility = 'visible';
+                console.log(`Item ${index + 1} configurado como visível`);
+            });
             
             // Controle do checkbox
             if (consentCheckbox && acceptBtn) {
@@ -452,18 +486,19 @@
             langOptionButtons.forEach(option => {
                 option.addEventListener('click', function() {
                     const lang = this.getAttribute('data-lang');
+                    console.log('Idioma selecionado:', lang);
                     
                     // Atualizar seleção visual
                     langOptionButtons.forEach(opt => opt.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Salvar preferência (sem usar localStorage se não estiver disponível)
+                    // Salvar preferência
                     try {
                         if (typeof(Storage) !== "undefined") {
                             localStorage.setItem('preferredLanguage', lang);
                         }
                     } catch (e) {
-                        // Ignorar erro se localStorage não estiver disponível
+                        console.warn('localStorage não disponível:', e);
                     }
                     
                     // Atualizar conteúdo
@@ -482,6 +517,7 @@
                     const savedLang = localStorage.getItem('preferredLanguage');
                     if (savedLang && translations[savedLang]) {
                         currentLang = savedLang;
+                        console.log('Idioma carregado do localStorage:', currentLang);
                         
                         // Atualizar seleção visual
                         langOptionButtons.forEach(opt => {
@@ -493,11 +529,13 @@
                     }
                 }
             } catch (e) {
-                // Usar idioma padrão se localStorage não funcionar
+                console.warn('Erro ao carregar idioma salvo:', e);
             }
             
             // Aplicar tradução inicial
             updateContent(currentLang);
+            
+            console.log('Página inicializada com sucesso');
         }
 
         // Executar quando DOM estiver pronto
@@ -508,7 +546,22 @@
         }
         
         // Fallback adicional
-        setTimeout(initializePage, 100);
+        window.addEventListener('load', function() {
+            console.log('Window load event - verificando visibilidade da lista');
+            const termsList = document.getElementById('terms-list');
+            if (termsList) {
+                const computedStyle = window.getComputedStyle(termsList);
+                console.log('Display da lista:', computedStyle.display);
+                console.log('Visibility da lista:', computedStyle.visibility);
+                
+                // Forçar visibilidade se necessário
+                if (computedStyle.display === 'none' || computedStyle.visibility === 'hidden') {
+                    termsList.style.display = 'block !important';
+                    termsList.style.visibility = 'visible !important';
+                    console.log('Visibilidade da lista forçada');
+                }
+            }
+        });
     </script>
 </body>
 </html>
