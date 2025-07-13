@@ -15,10 +15,42 @@
             background: white;
         }
         
+        /* Print PDF Button */
+        .print-pdf-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .print-pdf-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+            background: linear-gradient(135deg, #218838, #1ea085);
+        }
+        
+        .print-pdf-btn:active {
+            transform: translateY(0);
+        }
+        
         /* Language Selector */
         .language-selector {
             position: fixed;
-            top: 20px;
+            top: 70px;
             right: 20px;
             z-index: 1000;
             background: rgba(44, 90, 160, 0.95);
@@ -49,35 +81,9 @@
             background: #2c5aa0;
             color: white;
         }
-        /* --- Estilo do Botão de Imprimir --- */
-        .print-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background-color: #2c5aa0;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .print-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        /* --- FIM DO estilo de bot impr --- */
         
         @media print {
-            .language-selector, .print-button { /* --- ATUALIZADO --- */
+            .language-selector, .print-pdf-btn {
                 display: none !important;
             }
             .section {
@@ -259,20 +265,17 @@
         
         /* Responsividade para mobile */
         @media (max-width: 768px) {
-            .language-selector {
+            .print-pdf-btn {
                 top: 10px;
+                right: 10px;
+                padding: 8px 15px;
+                font-size: 11px;
+            }
+            .language-selector {
+                top: 60px;
                 right: 10px;
                 padding: 6px 12px;
             }
-             /* --- Ajuste do botão de imprimir no mobile --- */
-            .print-button {
-                width: 50px;
-                height: 50px;
-                font-size: 22px;
-                bottom: 15px;
-                right: 15px;
-            }
-            /* --- FIM ajusteE --- */
             .header {
                 flex-direction: column;
                 text-align: center;
@@ -292,6 +295,12 @@
     </style>
 </head>
 <body>
+    <!-- Print PDF Button -->
+    <button class="print-pdf-btn" onclick="printToPDF()">
+        <span>📄</span>
+        <span id="print-btn-text">Imprimir PDF</span>
+    </button>
+
     <!-- Language Selector -->
     <div class="language-selector">
         <select id="languageSelect" onchange="changeLanguage()">
@@ -300,11 +309,7 @@
             <option value="pt">🇧🇷 Português</option>
         </select>
     </div>
-<!-- --- NOVO: Botão de Imprimir --- -->
-    <button class="print-button" onclick="window.print()" title="Imprimir / Salvar como PDF">
-        🖨️
-    </button>
-    <!-- --- FIM DO BOTÃO --- -->
+
     <div class="header">
         <div class="photo-container">
             <img src="https://i.imgur.com/SFTfrke.png" alt="Professional photo of Lucas Martins Céspedes" class="photo">
@@ -511,6 +516,11 @@
         <em>Este currículum ha sido actualizado en mayo de 2025 (v3). Para consultar la versión más reciente, visite <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>
     </div>
 
+    <script>
+        // Função para impressão em PDF
+        function printToPDF() {
+            window.print();
+        }
     <script>
         // Objeto completo con todas as traduções
         const translations = {
