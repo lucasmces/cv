@@ -31,6 +31,40 @@
             position: relative;
         }
         
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(44, 90, 160, 0.95);
+            border-radius: 25px;
+            padding: 8px 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        
+        .language-selector select {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            outline: none;
+            cursor: pointer;
+            padding: 2px;
+        }
+        
+        .language-selector select option {
+            background: #2c5aa0;
+            color: white;
+        }
+        
         .header {
             background: #2c5aa0;
             padding: 30px;
@@ -183,85 +217,6 @@
             border-radius: 0 0 10px 10px;
         }
         
-        .language-floater {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        
-        .language-btn {
-            padding: 12px 20px;
-            border-radius: 25px;
-            background: #2c5aa0;
-            color: white;
-            border: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .language-btn:hover {
-            background: #1d4275;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-        }
-        
-        .language-btn::after {
-            content: "▼";
-            font-size: 10px;
-            margin-left: 8px;
-        }
-        
-        .language-options {
-            position: absolute;
-            bottom: 50px;
-            right: 0;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            overflow: hidden;
-            display: none;
-            flex-direction: column;
-            min-width: 150px;
-        }
-        
-        .language-options.show {
-            display: flex;
-        }
-        
-        .language-option {
-            padding: 12px 20px;
-            background: white;
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            transition: background 0.2s;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .language-option:hover {
-            background: #f0f4f8;
-        }
-        
-        .language-option.active {
-            background: #e1e8f0;
-            font-weight: bold;
-        }
-        
-        .language-option::before {
-            content: "•";
-            margin-right: 10px;
-            font-size: 16px;
-        }
-        
         .connection-fallback {
             display: none;
             background: #fff3cd;
@@ -313,7 +268,6 @@
             font-weight: bold;
         }
         
-        /* Força visibilidade de todos os elementos */
         .terms-section,
         .terms-list,
         .terms-list li {
@@ -343,14 +297,14 @@
                 padding: 20px;
             }
             
-            .language-floater {
-                bottom: 15px;
-                right: 15px;
+            .language-selector {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
             }
             
-            .language-btn {
-                padding: 10px 16px;
-                font-size: 13px;
+            .language-selector select {
+                font-size: 11px;
             }
             
             button {
@@ -360,6 +314,15 @@
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="pt">🇧🇷 Português</option>
+        </select>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1 id="header-title">CONFIDENCIALIDAD DE DATOS</h1>
@@ -407,7 +370,7 @@
                     </ul>
                     
                     <div class="contact-email">
-                        <p>Por favor, contácteme directamente para acceder a mi currículum:</p>
+                        <p id="fallback-contact">Por favor, contácteme directamente para acceder a mi currículum:</p>
                         <p><strong>hello@lucasmartins.work</strong></p>
                     </div>
                     
@@ -421,41 +384,31 @@
         </div>
     </div>
 
-    <div class="language-floater">
-        <button class="language-btn" id="languageButton">Cambiar Idioma</button>
-        <div class="language-options" id="languageOptions">
-            <button class="language-option" data-lang="pt-BR">Português</button>
-            <button class="language-option" data-lang="en">English</button>
-            <button class="language-option active" data-lang="es">Español</button>
-        </div>
-    </div>
-
     <script>
-        // Traduções
         const translations = {
-            'pt-BR': {
-                'header-title': 'CONFIDENCIALIDADE DE DADOS',
-                'header-subtitle': 'Proteção de informações pessoais conforme LGPD/GDPR',
-                'terms-title': 'Termos de Uso e Política de Privacidade',
-                'terms-intro': 'Este currículo contém informações confidenciais de Lucas Martins Céspedes. Ao acessar, você concorda com os seguintes termos:',
-                'term-1': 'As informações contidas neste currículo são para uso exclusivo no processo de recrutamento e seleção.',
-                'term-2': 'Você não está autorizado a compartilhar, distribuir ou utilizar estas informações para qualquer outro propósito sem a autorização expressa do titular.',
-                'term-3': 'O titular dos dados está ciente e concorda com a disponibilização deste currículo para os recrutadores, sob estes termos.',
-                'term-4': 'Este currículo está protegido pela Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e Regulamento Geral sobre a Proteção de Dados (GDPR - Regulamento UE 2016/679).',
-                'term-5': 'O acesso não autorizado ou uso indevido destas informações pode resultar em ações legais.',
-                'declaration': 'Declaro estar ciente de que:',
-                'declaration-text': 'Os dados pessoais constantes deste documento são de propriedade exclusiva de Lucas Martins Céspedes e estão sendo disponibilizados para fins específicos de avaliação profissional.',
-                'consent-label': 'Eu concordo com os termos acima e entendo que as informações contidas no currículo são confidenciais. Comprometo-me a não compartilhar ou distribuir estes dados sem a permissão explícita do titular.',
-                'acceptBtn': 'Acessar Currículo',
-                'declineBtn': 'Recusar e Sair',
-                'footer-text': 'cv.lucasmartins.work | Todos os direitos reservados © 2025',
-                'languageButton': 'Alterar Idioma',
-                'fallback-title': '⚠️ Acesso bloqueado por restrições de segurança',
-                'fallback-text': 'Parece que sua rede corporativa (firewall ou VPN) está bloqueando o acesso a este currículo:',
-                'fallback-tip1': 'As políticas de segurança de sua organização podem bloquear o acesso a sites externos',
-                'fallback-tip2': 'Sua VPN corporativa pode estar filtrando este conteúdo',
-                'fallback-tip3': 'Firewalls de rede podem bloquear recursos externos',
-                'retryBtn': 'Tentar novamente'
+            'es': {
+                'header-title': 'CONFIDENCIALIDAD DE DATOS',
+                'header-subtitle': 'Protección de información personal conforme a la GDPR/LGPD',
+                'terms-title': 'Términos de Uso y Política de Privacidad',
+                'terms-intro': 'Este currículum contiene información confidencial de Lucas Martins Céspedes. Al acceder, usted acepta los siguientes términos:',
+                'term-1': 'La información contenida en este currículum es para uso exclusivo en el proceso de reclutamiento y selección.',
+                'term-2': 'No está autorizado a compartir, distribuir o utilizar esta información para cualquier otro propósito sin la autorización expresa del titular.',
+                'term-3': 'El titular de los datos es consciente y acepta la disponibilidad de este currículum para los reclutadores, bajo estos términos.',
+                'term-4': 'Este currículum está protegido por la Ley General de Protección de Datos (LGPD - Ley nº 13.709/2018) y el Reglamento General de Protección de Datos (GDPR - Reglamento UE 2016/679).',
+                'term-5': 'El acceso no autorizado o el uso indebido de esta información puede resultar en acciones legales.',
+                'declaration': 'Declaro estar consciente de que:',
+                'declaration-text': 'Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.',
+                'consent-label': 'Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.',
+                'acceptBtn': 'Acceder al Currículum',
+                'declineBtn': 'Rechazar y Salir',
+                'footer-text': 'cv.lucasmartins.work | Todos los derechos reservados © 2025',
+                'fallback-title': '⚠️ Acceso bloqueado por restricciones de seguridad',
+                'fallback-text': 'Parece que su red corporativa (firewall o VPN) está bloqueando el acceso a este currículum:',
+                'fallback-tip1': 'Las políticas de seguridad de su organización pueden bloquear el acceso a sitios externos',
+                'fallback-tip2': 'Su VPN corporativa podría estar filtrando este contenido',
+                'fallback-tip3': 'Firewalls de red pueden bloquear recursos externos',
+                'fallback-contact': 'Por favor, contácteme directamente para acceder a mi currículum:',
+                'retryBtn': 'Reintentar acceso'
             },
             'en': {
                 'header-title': 'DATA CONFIDENTIALITY',
@@ -473,58 +426,58 @@
                 'acceptBtn': 'Access Resume',
                 'declineBtn': 'Decline and Exit',
                 'footer-text': 'cv.lucasmartins.work | All rights reserved © 2025',
-                'languageButton': 'Change Language',
                 'fallback-title': '⚠️ Access blocked by security restrictions',
                 'fallback-text': 'It appears your corporate network (firewall or VPN) is blocking access to this resume:',
                 'fallback-tip1': 'Your organization security policies may block access to external sites',
                 'fallback-tip2': 'Your corporate VPN might be filtering this content',
                 'fallback-tip3': 'Network firewalls can block external resources',
+                'fallback-contact': 'Please contact me directly to access my resume:',
                 'retryBtn': 'Retry access'
             },
-            'es': {
-                'header-title': 'CONFIDENCIALIDAD DE DATOS',
-                'header-subtitle': 'Protección de información personal conforme a la GDPR/LGPD',
-                'terms-title': 'Términos de Uso y Política de Privacidad',
-                'terms-intro': 'Este currículum contiene información confidencial de Lucas Martins Céspedes. Al acceder, usted acepta los siguientes términos:',
-                'term-1': 'La información contenida en este currículum es para uso exclusivo en el proceso de reclutamiento y selección.',
-                'term-2': 'No está autorizado a compartir, distribuir o utilizar esta información para cualquier otro propósito sin la autorización expresa del titular.',
-                'term-3': 'El titular de los datos es consciente y acepta la disponibilidad de este currículum para los reclutadores, bajo estos términos.',
-                'term-4': 'Este currículum está protegido por la Ley General de Protección de Datos (LGPD - Ley nº 13.709/2018) y el Reglamento General de Protección de Datos (GDPR - Reglamento UE 2016/679).',
-                'term-5': 'El acceso no autorizado o el uso indebido de esta información puede resultar en acciones legales.',
-                'declaration': 'Declaro estar consciente de que:',
-                'declaration-text': 'Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.',
-                'consent-label': 'Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.',
-                'acceptBtn': 'Acceder al Currículum',
-                'declineBtn': 'Rechazar y Salir',
-                'footer-text': 'cv.lucasmartins.work | Todos los derechos reservados © 2025',
-                'languageButton': 'Cambiar Idioma',
-                'fallback-title': '⚠️ Acceso bloqueado por restricciones de seguridad',
-                'fallback-text': 'Parece que su red corporativa (firewall o VPN) está bloqueando el acceso a este currículum:',
-                'fallback-tip1': 'Las políticas de seguridad de su organización pueden bloquear el acceso a sitios externos',
-                'fallback-tip2': 'Su VPN corporativa podría estar filtrando este contenido',
-                'fallback-tip3': 'Firewalls de red pueden bloquear recursos externos',
-                'retryBtn': 'Reintentar acceso'
+            'pt': {
+                'header-title': 'CONFIDENCIALIDADE DE DADOS',
+                'header-subtitle': 'Proteção de informações pessoais conforme LGPD/GDPR',
+                'terms-title': 'Termos de Uso e Política de Privacidade',
+                'terms-intro': 'Este currículo contém informações confidenciais de Lucas Martins Céspedes. Ao acessar, você concorda com os seguintes termos:',
+                'term-1': 'As informações contidas neste currículo são para uso exclusivo no processo de recrutamento e seleção.',
+                'term-2': 'Você não está autorizado a compartilhar, distribuir ou utilizar estas informações para qualquer outro propósito sem a autorização expressa do titular.',
+                'term-3': 'O titular dos dados está ciente e concorda com a disponibilização deste currículo para os recrutadores, sob estes termos.',
+                'term-4': 'Este currículo está protegido pela Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e Regulamento Geral sobre a Proteção de Dados (GDPR - Regulamento UE 2016/679).',
+                'term-5': 'O acesso não autorizado ou uso indevido destas informações pode resultar em ações legais.',
+                'declaration': 'Declaro estar ciente de que:',
+                'declaration-text': 'Os dados pessoais constantes deste documento são de propriedade exclusiva de Lucas Martins Céspedes e estão sendo disponibilizados para fins específicos de avaliação profissional.',
+                'consent-label': 'Eu concordo com os termos acima e entendo que as informações contidas no currículo são confidenciais. Comprometo-me a não compartilhar ou distribuir estes dados sem a permissão explícita do titular.',
+                'acceptBtn': 'Acessar Currículo',
+                'declineBtn': 'Recusar e Sair',
+                'footer-text': 'cv.lucasmartins.work | Todos os direitos reservados © 2025',
+                'fallback-title': '⚠️ Acesso bloqueado por restrições de segurança',
+                'fallback-text': 'Parece que sua rede corporativa (firewall ou VPN) está bloqueando o acesso a este currículo:',
+                'fallback-tip1': 'As políticas de segurança de sua organização podem bloquear o acesso a sites externos',
+                'fallback-tip2': 'Sua VPN corporativa pode estar filtrando este conteúdo',
+                'fallback-tip3': 'Firewalls de rede podem bloquear recursos externos',
+                'fallback-contact': 'Por favor, contate-me diretamente para acessar meu currículo:',
+                'retryBtn': 'Tentar novamente'
             }
         };
 
         let currentLang = 'es';
         let initialized = false;
 
-        function updateContent(lang) {
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect').value;
             currentLang = lang;
-            const translation = translations[lang];
+            const langData = translations[lang];
             
-            if (!translation) return;
+            if (!langData) return;
             
-            Object.keys(translation).forEach(key => {
+            for (const key in langData) {
                 const element = document.getElementById(key);
                 if (element) {
-                    element.textContent = translation[key];
+                    element.textContent = langData[key];
                 }
-            });
+            }
         }
 
-        // Verifica a disponibilidade do recurso
         async function checkResourceAvailability() {
             try {
                 const response = await fetch('multilingual_cv.html', {
@@ -538,20 +491,17 @@
             }
         }
 
-        // Tenta carregar o currículo com fallback
         async function loadCVWithFallback() {
             const acceptBtn = document.getElementById('acceptBtn');
             acceptBtn.disabled = true;
             acceptBtn.textContent = translations[currentLang]['acceptBtn'] + '...';
             
             try {
-                // Tenta o recurso principal
                 const isAvailable = await checkResourceAvailability();
                 
                 if (isAvailable) {
                     window.location.href = 'multilingual_cv.html';
                 } else {
-                    // Se falhar, mostra mensagem explicativa
                     showFallbackMessage();
                 }
             } catch (error) {
@@ -559,7 +509,6 @@
             }
         }
 
-        // Mostra mensagem de fallback
         function showFallbackMessage() {
             document.getElementById('fallbackMessage').style.display = 'block';
         }
@@ -568,22 +517,17 @@
             if (initialized) return;
             initialized = true;
             
-            // Verifica disponibilidade inicial
             checkResourceAvailability().then(isAvailable => {
                 if (!isAvailable) {
                     showFallbackMessage();
                 }
             });
 
-            // Elementos da UI
             const consentCheckbox = document.getElementById('consentCheckbox');
             const acceptBtn = document.getElementById('acceptBtn');
             const declineBtn = document.getElementById('declineBtn');
             const retryBtn = document.getElementById('retryBtn');
-            const languageButton = document.getElementById('languageButton');
-            const languageOptions = document.getElementById('languageOptions');
             
-            // Event Listeners
             if (consentCheckbox && acceptBtn) {
                 consentCheckbox.addEventListener('change', function() {
                     acceptBtn.disabled = !this.checked;
@@ -608,31 +552,6 @@
             if (retryBtn) {
                 retryBtn.addEventListener('click', loadCVWithFallback);
             }
-            
-            if (languageButton && languageOptions) {
-                languageButton.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    languageOptions.classList.toggle('show');
-                });
-                
-                document.addEventListener('click', function(e) {
-                    if (!languageOptions.contains(e.target) && e.target !== languageButton) {
-                        languageOptions.classList.remove('show');
-                    }
-                });
-            }
-            
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    const lang = this.getAttribute('data-lang');
-                    document.querySelectorAll('.language-option').forEach(opt => opt.classList.remove('active'));
-                    this.classList.add('active');
-                    updateContent(lang);
-                    languageOptions.classList.remove('show');
-                });
-            });
-            
-            updateContent(currentLang);
         }
 
         document.addEventListener('DOMContentLoaded', init);
