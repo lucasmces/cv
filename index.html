@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -317,33 +317,33 @@
     <!-- Language Selector -->
     <div class="language-selector">
         <select id="languageSelect" onchange="changeLanguage()">
-            <option value="es">🇪🇸 Español</option>
             <option value="en">🇺🇸 English</option>
+            <option value="es">🇪🇸 Español</option>
             <option value="pt">🇧🇷 Português</option>
         </select>
     </div>
 
     <div class="container">
         <div class="header">
-            <h1 id="header-title">CONFIDENCIALIDAD DE DATOS</h1>
-            <p id="header-subtitle">Protección de información personal conforme a la GDPR/LGPD</p>
+            <h1 id="header-title">DATA CONFIDENTIALITY</h1>
+            <p id="header-subtitle">Personal information protection according to GDPR/LGPD</p>
         </div>
         
         <div class="content">
             <div class="terms-section">
-                <h2 id="terms-title">Términos de Uso y Política de Privacidad</h2>
-                <p id="terms-intro">Este currículum contiene información confidencial de Lucas Martins Céspedes. Al acceder, usted acepta los siguientes términos:</p>
+                <h2 id="terms-title">Terms of Use and Privacy Policy</h2>
+                <p id="terms-intro">This resume contains confidential information of Lucas Martins Céspedes. By accessing it, you agree to the following terms:</p>
                 
                 <ol class="terms-list">
-                    <li id="term-1">La información contenida en este currículum es para uso exclusivo en el proceso de reclutamiento y selección.</li>
-                    <li id="term-2">No está autorizado a compartir, distribuir o utilizar esta información para cualquier otro propósito sin la autorización expresa del titular.</li>
-                    <li id="term-3">El titular de los datos es consciente y acepta la disponibilidad de este currículum para los reclutadores, bajo estos términos.</li>
-                    <li id="term-4">Este currículum está protegido por la Ley General de Protección de Datos (LGPD - Ley nº 13.709/2018) y el Reglamento General de Protección de Datos (GDPR - Reglamento UE 2016/679).</li>
-                    <li id="term-5">El acceso no autorizado o el uso indebido de esta información puede resultar en acciones legales.</li>
+                    <li id="term-1">The information contained in this resume is for exclusive use in the recruitment and selection process.</li>
+                    <li id="term-2">You are not authorized to share, distribute or use this information for any other purpose without the express authorization of the owner.</li>
+                    <li id="term-3">The data owner is aware of and agrees to the provision of this resume to recruiters under these terms.</li>
+                    <li id="term-4">This resume is protected by the Brazilian General Data Protection Law (LGPD - Law No. 13.709/2018) and General Data Protection Regulation (GDPR - EU Regulation 2016/679).</li>
+                    <li id="term-5">Unauthorized access or misuse of this information may result in legal action.</li>
                 </ol>
                 
                 <div class="declaration-section">
-                    <p><strong id="declaration">Declaro estar consciente de que:</strong> <span id="declaration-text">Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.</span></p>
+                    <p><strong id="declaration">I declare that I am aware that:</strong> <span id="declaration-text">The personal data contained in this document are the exclusive property of Lucas Martins Céspedes and are being made available for specific professional evaluation purposes.</span></p>
                 </div>
             </div>
             
@@ -351,65 +351,41 @@
                 <div class="checkbox-container">
                     <input type="checkbox" id="consentCheckbox">
                     <label for="consentCheckbox" id="consent-label">
-                        Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.
+                        I agree to the above terms and understand that the information contained in the resume is confidential. I commit not to share or distribute this data without the explicit permission of the owner.
                     </label>
                 </div>
                 
                 <div class="button-container">
-                    <button id="acceptBtn" disabled>Acceder al Currículum</button>
-                    <button id="declineBtn">Rechazar y Salir</button>
+                    <button id="acceptBtn" disabled>Access Resume</button>
+                    <button id="declineBtn">Decline and Exit</button>
                 </div>
                 
                 <div class="connection-fallback" id="fallbackMessage">
-                    <p id="fallback-title">⚠️ Acceso bloqueado por restricciones de seguridad</p>
-                    <p id="fallback-text">Parece que su red corporativa (firewall o VPN) está bloqueando el acceso a este currículum:</p>
+                    <p id="fallback-title">⚠️ Access blocked by security restrictions</p>
+                    <p id="fallback-text">It appears your corporate network (firewall or VPN) is blocking access to this resume:</p>
                     <ul>
-                        <li id="fallback-tip1">Las políticas de seguridad de su organización pueden bloquear el acceso a sitios externos</li>
-                        <li id="fallback-tip2">Su VPN corporativa podría estar filtrando este contenido</li>
-                        <li id="fallback-tip3">Firewalls de red pueden bloquear recursos externos</li>
+                        <li id="fallback-tip1">Your organization security policies may block access to external sites</li>
+                        <li id="fallback-tip2">Your corporate VPN might be filtering this content</li>
+                        <li id="fallback-tip3">Network firewalls can block external resources</li>
                     </ul>
                     
                     <div class="contact-email">
-                        <p id="fallback-contact">Por favor, contácteme directamente para acceder a mi currículum:</p>
+                        <p id="fallback-contact">Please contact me directly to access my resume:</p>
                         <p><strong>hello@lucasmartins.work</strong></p>
                     </div>
                     
-                    <button class="retry-btn" id="retryBtn">Reintentar acceso</button>
+                    <button class="retry-btn" id="retryBtn">Retry access</button>
                 </div>
             </div>
         </div>
         
         <div class="footer">
-            <p id="footer-text">cv.lucasmartins.work | Todos los derechos reservados © 2025</p>
+            <p id="footer-text">cv.lucasmartins.work | All rights reserved © 2025</p>
         </div>
     </div>
 
     <script>
         const translations = {
-            'es': {
-                'header-title': 'CONFIDENCIALIDAD DE DATOS',
-                'header-subtitle': 'Protección de información personal conforme a la GDPR/LGPD',
-                'terms-title': 'Términos de Uso y Política de Privacidad',
-                'terms-intro': 'Este currículum contiene información confidencial de Lucas Martins Céspedes. Al acceder, usted acepta los siguientes términos:',
-                'term-1': 'La información contenida en este currículum es para uso exclusivo en el proceso de reclutamiento y selección.',
-                'term-2': 'No está autorizado a compartir, distribuir o utilizar esta información para cualquier otro propósito sin la autorización expresa del titular.',
-                'term-3': 'El titular de los datos es consciente y acepta la disponibilidad de este currículum para los reclutadores, bajo estos términos.',
-                'term-4': 'Este currículum está protegido por la Ley General de Protección de Datos (LGPD - Ley nº 13.709/2018) y el Reglamento General de Protección de Datos (GDPR - Reglamento UE 2016/679).',
-                'term-5': 'El acceso no autorizado o el uso indebido de esta información puede resultar en acciones legales.',
-                'declaration': 'Declaro estar consciente de que:',
-                'declaration-text': 'Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.',
-                'consent-label': 'Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.',
-                'acceptBtn': 'Acceder al Currículum',
-                'declineBtn': 'Rechazar y Salir',
-                'footer-text': 'cv.lucasmartins.work | Todos los derechos reservados © 2025',
-                'fallback-title': '⚠️ Acceso bloqueado por restricciones de seguridad',
-                'fallback-text': 'Parece que su red corporativa (firewall o VPN) está bloqueando el acceso a este currículum:',
-                'fallback-tip1': 'Las políticas de seguridad de su organización pueden bloquear el acceso a sitios externos',
-                'fallback-tip2': 'Su VPN corporativa podría estar filtrando este contenido',
-                'fallback-tip3': 'Firewalls de red pueden bloquear recursos externos',
-                'fallback-contact': 'Por favor, contácteme directamente para acceder a mi currículum:',
-                'retryBtn': 'Reintentar acceso'
-            },
             'en': {
                 'header-title': 'DATA CONFIDENTIALITY',
                 'header-subtitle': 'Personal information protection according to GDPR/LGPD',
@@ -433,6 +409,30 @@
                 'fallback-tip3': 'Network firewalls can block external resources',
                 'fallback-contact': 'Please contact me directly to access my resume:',
                 'retryBtn': 'Retry access'
+            },
+            'es': {
+                'header-title': 'CONFIDENCIALIDAD DE DATOS',
+                'header-subtitle': 'Protección de información personal conforme a la GDPR/LGPD',
+                'terms-title': 'Términos de Uso y Política de Privacidad',
+                'terms-intro': 'Este currículum contiene información confidencial de Lucas Martins Céspedes. Al acceder, usted acepta los siguientes términos:',
+                'term-1': 'La información contenida en este currículum es para uso exclusivo en el proceso de reclutamiento y selección.',
+                'term-2': 'No está autorizado a compartir, distribuir o utilizar esta información para cualquier otro propósito sin la autorización expresa del titular.',
+                'term-3': 'El titular de los datos es consciente y acepta la disponibilidad de este currículum para los reclutadores, bajo estos términos.',
+                'term-4': 'Este currículum está protegido por la Ley General de Protección de Datos (LGPD - Ley nº 13.709/2018) y el Reglamento General de Protección de Datos (GDPR - Reglamento UE 2016/679).',
+                'term-5': 'El acceso no autorizado o el uso indebido de esta información puede resultar en acciones legales.',
+                'declaration': 'Declaro estar consciente de que:',
+                'declaration-text': 'Los datos personales contenidos en este documento son de propiedad exclusiva de Lucas Martins Céspedes y se están poniendo a disposición con fines específicos de evaluación profesional.',
+                'consent-label': 'Acepto los términos anteriores y entiendo que la información contenida en el currículum es confidencial. Me comprometo a no compartir ni distribuir estos datos sin el permiso explícito del titular.',
+                'acceptBtn': 'Acceder al Currículum',
+                'declineBtn': 'Rechazar y Salir',
+                'footer-text': 'cv.lucasmartins.work | Todos los derechos reservados © 2025',
+                'fallback-title': '⚠️ Acceso bloqueado por restricciones de seguridad',
+                'fallback-text': 'Parece que su red corporativa (firewall o VPN) está bloqueando el acceso a este currículum:',
+                'fallback-tip1': 'Las políticas de seguridad de su organización pueden bloquear el acceso a sitios externos',
+                'fallback-tip2': 'Su VPN corporativa podría estar filtrando este contenido',
+                'fallback-tip3': 'Firewalls de red pueden bloquear recursos externos',
+                'fallback-contact': 'Por favor, contácteme directamente para acceder a mi currículum:',
+                'retryBtn': 'Reintentar acceso'
             },
             'pt': {
                 'header-title': 'CONFIDENCIALIDADE DE DADOS',
@@ -460,7 +460,7 @@
             }
         };
 
-        let currentLang = 'es';
+        let currentLang = 'en';
         let initialized = false;
 
         function changeLanguage() {
@@ -500,7 +500,8 @@
                 const isAvailable = await checkResourceAvailability();
                 
                 if (isAvailable) {
-                    window.location.href = 'multilingual_cv.html';
+                    // PASSA O IDIOMA ATUAL PARA O CV
+                    window.location.href = `multilingual_cv.html?lang=${currentLang}`;
                 } else {
                     showFallbackMessage();
                 }
