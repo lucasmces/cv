@@ -53,6 +53,9 @@
             .language-selector {
                 display: none !important;
             }
+            .print-button-container {
+                display: none !important;
+            }
             .section {
                 page-break-inside: avoid;
             }
@@ -254,7 +257,24 @@
             text-align: center;
         }
         
-        .footer-note button:hover {
+        .print-button-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .print-button-container button {
+            background: transparent;
+            border: 1px solid #999;
+            color: #666;
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+        
+        .print-button-container button:hover {
             background: #f8f9fa;
             border-color: #2c5aa0;
             color: #2c5aa0;
@@ -519,10 +539,11 @@
     <div class="footer-note" id="footer-note">
         <br>
         <em>Currículo atualizado em outubro de 2025. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>
-        <br><br>
-        <button onclick="printCV()" id="print-btn" style="background: transparent; border: 1px solid #999; color: #666; padding: 6px 15px; border-radius: 4px; font-size: 11px; cursor: pointer; font-style: italic; transition: all 0.3s ease;">
-            📄 Imprimir Currículo
-        </button>
+    </div>
+    
+    <!-- BOTÃO SEPARADO - NÃO SOME AO TROCAR IDIOMA -->
+    <div class="print-button-container">
+        <button onclick="printCV()" id="print-btn">📄 Imprimir Currículo</button>
     </div>
 
     <script>
@@ -680,6 +701,7 @@
             for (const key in langData) {
                 const element = document.getElementById(key);
                 if (element) {
+                    // BOTÃO É ATUALIZADO SEPARADAMENTE
                     if (key === 'print-btn') {
                         element.textContent = langData[key];
                     } else {
@@ -698,6 +720,20 @@
                 };
             }
         }
+
+        // DETECTA IDIOMA DA URL E APLICA AUTOMATICAMENTE
+        function applyLanguageFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang');
+            
+            if (lang && translations[lang]) {
+                document.getElementById('languageSelect').value = lang;
+                changeLanguage();
+            }
+        }
+
+        // Executar ao carregar a página
+        document.addEventListener('DOMContentLoaded', applyLanguageFromURL);
     </script>
 </body>
 </html>
