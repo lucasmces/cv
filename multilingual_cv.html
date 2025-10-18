@@ -697,6 +697,7 @@
         function changeLanguage() {
             const lang = document.getElementById('languageSelect').value;
             const langData = translations[lang];
+            history.pushState({}, '', `?lang=${lang}`);
             
             for (const key in langData) {
                 const element = document.getElementById(key);
