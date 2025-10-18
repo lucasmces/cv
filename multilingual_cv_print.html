@@ -601,6 +601,19 @@
                 }
             }
         }
+                // Detectar idioma da URL e aplicar automaticamente
+        function applyLanguageFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang');
+            
+            if (lang && translations[lang]) {
+                document.getElementById('languageSelect').value = lang;
+                changeLanguage();
+            }
+        }
+        
+        // Executar ao carregar a página
+        document.addEventListener('DOMContentLoaded', applyLanguageFromURL);
     </script>
 </body>
 </html>
