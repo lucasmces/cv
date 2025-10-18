@@ -3,45 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Lucas Martins</title>
+    <title>CV - Lucas Martins (Print Version)</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            line-height: 1.4;
+            line-height: 1.3;
             color: #333;
             max-width: 210mm;
             margin: 0 auto;
-            padding: 15mm;
+            padding: 10mm;
             background: white;
         }
         
         .language-selector {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             z-index: 1000;
             background: rgba(44, 90, 160, 0.95);
-            border-radius: 25px;
-            padding: 8px 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        .language-selector:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            border-radius: 20px;
+            padding: 6px 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         }
         
         .language-selector select {
             background: transparent;
             border: none;
             color: white;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             outline: none;
             cursor: pointer;
-            padding: 2px;
         }
         
         .language-selector select option {
@@ -53,276 +45,212 @@
             .language-selector {
                 display: none !important;
             }
-            .print-button-container {
-                display: none !important;
+            body {
+                padding: 0;
+                margin: 0;
             }
             .section {
                 page-break-inside: avoid;
             }
-            .experience-item, .education-item, .skill-category, .cert-item, .language-item {
+            .experience-item, .education-item {
                 page-break-inside: avoid;
-            }
-            .header {
-                page-break-after: avoid;
-            }
-            body {
-                -webkit-print-color-adjust: exact;
             }
         }
         
         .header {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
             border-bottom: 3px solid #2c5aa0;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
         }
+        
         .photo-container {
             flex-shrink: 0;
         }
+        
         .photo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #2c5aa0;
-            box-shadow: 0 4px 12px rgba(44, 90, 160, 0.2);
+            border: 3px solid #2c5aa0;
+            box-shadow: 0 3px 10px rgba(44, 90, 160, 0.2);
         }
 
         .header-info {
             flex: 1;
         }
+        
         .name {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             color: #2c5aa0;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
+        
         .title {
-            font-size: 16px;
+            font-size: 13px;
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-style: italic;
         }
+        
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            font-size: 12px;
+            gap: 12px;
+            font-size: 11px;
         }
+        
         .contact-info span {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
+        
         .availability-note {
-            margin-top: 10px;
-            font-size: 11px;
+            margin-top: 8px;
+            font-size: 10px;
             font-style: italic;
             color: #555;
             background: #f8f9fa;
-            padding: 8px 12px;
-            border-radius: 4px;
-            border-left: 3px solid #2c5aa0;
+            padding: 6px 10px;
+            border-radius: 3px;
+            border-left: 2px solid #2c5aa0;
         }
+        
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
+        
         .section-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             color: #2c5aa0;
             border-bottom: 2px solid #2c5aa0;
-            padding-bottom: 5px;
-            margin-bottom: 12px;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
+        
         .experience-item, .education-item {
-            margin-bottom: 15px;
-            padding-left: 0;
+            margin-bottom: 10px;
         }
+        
         .job-title {
             font-weight: bold;
             color: #333;
-            font-size: 14px;
+            font-size: 12px;
         }
+        
         .company {
             color: #2c5aa0;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 11px;
         }
+        
         .date-location {
             color: #666;
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
-        .description {
-            font-size: 12px;
-            text-align: justify;
-            line-height: 1.4;
-        }
-        .description ul {
-            margin: 5px 0;
-            padding-left: 15px;
-        }
-        .description li {
+            font-size: 10px;
             margin-bottom: 5px;
         }
+        
+        .description {
+            font-size: 10px;
+            line-height: 1.4;
+        }
+        
+        .description ul {
+            margin: 3px 0;
+            padding-left: 12px;
+        }
+        
+        .description li {
+            margin-bottom: 3px;
+        }
+        
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 10px;
         }
+        
         .skill-category {
             background: #f8f9fa;
-            padding: 12px;
-            border-radius: 5px;
-            border-left: 4px solid #2c5aa0;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 3px solid #2c5aa0;
         }
+        
         .skill-category h4 {
             color: #2c5aa0;
-            margin: 0 0 8px 0;
-            font-size: 13px;
+            margin: 0 0 5px 0;
+            font-size: 11px;
         }
+        
         .skill-category ul {
             margin: 0;
-            padding-left: 15px;
-            font-size: 12px;
+            padding-left: 12px;
+            font-size: 10px;
             list-style: none;
         }
+        
         .skill-category ul li {
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
+        
         .objective {
             background: #f0f4f8;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #2c5aa0;
-            font-size: 13px;
-            text-align: justify;
-            margin-bottom: 20px;
-        }
-        .highlights {
-            background: #e8f4f8;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #2c5aa0;
-            margin-bottom: 20px;
-        }
-        .highlights ul {
-            margin: 5px 0 0 0;
-            padding-left: 20px;
-            font-size: 13px;
-        }
-        .highlights li {
-            margin-bottom: 6px;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 3px solid #2c5aa0;
+            font-size: 11px;
             line-height: 1.4;
+            margin-bottom: 15px;
         }
+        
         .languages {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
             align-items: center;
         }
+        
         .language-item {
             background: #f8f9fa;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 13px;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 11px;
             border: 1px solid #dee2e6;
             white-space: nowrap;
         }
+        
         .certifications {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
             align-items: center;
         }
+        
         .cert-item {
             background: #e8f4f8;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 13px;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 11px;
             border: 1px solid #2c5aa0;
             white-space: nowrap;
         }
+        
         .footer-note {
-            margin-top: 30px;
-            border-top: 1px solid #dee2e6;
-            padding-top: 15px;
-            font-size: 10px;
-            font-style: italic;
-            color: #666;
-            text-align: center;
-        }
-        
-        .print-button-container {
-            text-align: center;
             margin-top: 15px;
-            display: block !important;
-            visibility: visible !important;
-        }
-        
-        .print-button-container button {
-            background: transparent;
-            border: 1px solid #999;
-            color: #666;
-            padding: 6px 15px;
-            border-radius: 4px;
-            font-size: 11px;
-            cursor: pointer;
+            border-top: 1px solid #dee2e6;
+            padding-top: 10px;
+            font-size: 9px;
             font-style: italic;
-            transition: all 0.3s ease;
-            display: inline-block !important;
-        }
-        
-        .print-button-container button:hover {
-            background: #f8f9fa;
-            border-color: #2c5aa0;
-            color: #2c5aa0;
-            transform: translateY(-1px);
-        }
-        
-        @media (max-width: 768px) {
-            .language-selector {
-                top: 10px;
-                right: 10px;
-                padding: 6px 12px;
-            }
-            .header {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            .photo {
-                width: 100px;
-                height: 100px;
-            }
-            .name {
-                font-size: 24px;
-            }
-            .contact-info {
-                justify-content: center;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            .languages {
-                justify-content: center;
-            }
-            .language-item {
-                font-size: 11px;
-                padding: 8px 15px;
-            }
-            .certifications {
-                justify-content: center;
-            }
-            .cert-item {
-                font-size: 11px;
-                padding: 8px 15px;
-                white-space: normal;
-            }
+            color: #666;
+            text-align: center;
         }
     </style>
 </head>
@@ -356,21 +284,7 @@
     <div class="section">
         <div class="section-title" id="profile-title">Perfil Profissional</div>
         <div class="objective" id="profile-content">
-            Profissional com <strong>19+ anos de experiência</strong> combinando auditoria financeira (PwC - Big Four), controles internos multinacionais (GPA/Casino Group) e gestão empresarial (cofundador e sócio da Agência AO4 - <strong>R$ 1M faturamento anual</strong>). Especialista em estruturação de processos <strong>SOx/ITGC</strong>, risk management e governança corporativa.
-            <br><br>
-            Reconhecido por implementar <strong>sistemas data-driven</strong> que transformam gestão operacional: Kanban+Timesheet gerando dashboards executivos para decisões estratégicas baseadas em dados reais. Contribuí para reconhecimento da AO4 como <strong>2º lugar nacional Agência Revelação RD Station 2022</strong>. Atualmente expandindo competências em <strong>Data Analytics e SQL</strong> para unir experiência em controles internos com análise preditiva.
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title" id="highlights-title">Principais Conquistas</div>
-        <div class="highlights" id="highlights-content">
-            <ul>
-                <li><strong>2º lugar nacional</strong> - Agência Revelação RD Station 2022 (competição com 500+ agências)</li>
-                <li><strong>Cofundação de empresa</strong> gerando R$ 1M/ano com <strong>85% retenção de clientes mensais</strong> (+5 anos média)</li>
-                <li><strong>Implementação de sistema de gestão</strong> Kanban+Timesheet em 3 meses, transformando planejamento estratégico em processo data-driven</li>
-                <li><strong>Execução de 300+ testes SOx/ITGC</strong> em ambientes multinacionais com identificação de 40+ desvios críticos</li>
-            </ul>
+            Profissional com <strong>19+ anos de experiência</strong> combinando auditoria financeira (PwC - Big Four), controles internos multinacionais (GPA/Casino Group) e gestão empresarial (cofundador e sócio da Agência AO4 - <strong>R$ 1M faturamento anual</strong>). Especialista em estruturação de processos <strong>SOx/ITGC</strong>, risk management e governança corporativa. Reconhecido por implementar <strong>sistemas data-driven</strong> que transformam gestão operacional. Atualmente expandindo competências em <strong>Data Analytics e SQL</strong> para unir experiência em controles internos com análise preditiva.
         </div>
     </div>
 
@@ -383,11 +297,10 @@
             <div class="date-location" id="job1-date">2018 - Atual (7 anos) | São José do Rio Preto, SP, Brasil</div>
             <div class="description" id="job1-desc">
                 <ul>
-                    <li><strong>Gestão estratégica:</strong> Cofundação e direção de agência com faturamento anual de R$ 1M, liderança de equipe de 12 profissionais e carteira de +20 clientes ativos (85% taxa de retenção, +5 anos média de relacionamento)</li>
-                    <li><strong>Inovação operacional:</strong> Implementei sistema integrado Kanban+Timesheet (iClips) em 3 meses, permitindo mensuração precisa de custo-hora por projeto. Resultado: dashboards mensais rastreando saúde financeira, identificação proativa de projetos com prejuízo e monitoramento de refações - base para planejamento estratégico data-driven</li>
-                    <li><strong>Reconhecimento nacional:</strong> 2º lugar Agência Revelação RD Station 2022. Liderei capacitação de equipe para entrega acelerada e estabeleci parceria comercial estratégica (Silver Partner ativo até hoje)</li>
-                    <li><strong>Compliance e governança:</strong> Arquitetura completa de controles internos LGPD/GDPR para onboarding de clientes, incluindo travas sistêmicas de proteção de dados e documentação de processos</li>
-                    <li><strong>Gestão multifuncional:</strong> Supervisão de operações críticas (finanças, jurídico, tecnologia web, gestão de acessos) com foco em eficiência e mitigação de riscos</li>
+                    <li><strong>Gestão estratégica:</strong> Cofundação e direção com faturamento de R$ 1M/ano, liderança de 12 profissionais e +20 clientes (85% retenção mensal, +5 anos média)</li>
+                    <li><strong>Sistema data-driven:</strong> Implementação Kanban+Timesheet em 3 meses gerando dashboards para decisões baseadas em dados reais e identificação de projetos com prejuízo</li>
+                    <li><strong>Reconhecimento:</strong> 2º lugar nacional Agência Revelação RD Station 2022. Parceria estratégica Silver Partner ativa</li>
+                    <li><strong>Compliance:</strong> Arquitetura de controles LGPD/GDPR para onboarding com travas sistêmicas de proteção de dados</li>
                 </ul>
             </div>
         </div>
@@ -398,10 +311,9 @@
             <div class="date-location" id="job2-date">Agosto 2016 - Maio 2018 (1 ano 10 meses) | São Paulo, Brasil</div>
             <div class="description" id="job2-desc">
                 <ul>
-                    <li><strong>Otimização de controles SOx/ITGC:</strong> Maturação de controles internos Sarbanes-Oxley em ambientes de TI multinacionais, garantindo conformidade com auditorias externas (Deloitte, EY) e consultoria PwC</li>
-                    <li><strong>Testes em larga escala:</strong> Execução de 300+ testes em centenas de sistemas corporativos, identificando 40+ desvios críticos reportados à alta gestão. Implementação de 15 novos controles automáticos e melhorias processuais significativas</li>
-                    <li><strong>Gestão de riscos integrada:</strong> Colaboração com controladoria, compliance e contabilidade em controles financeiros de TI. Mapeamento de riscos críticos/altos/médios com 95% taxa de remediação dentro dos prazos estabelecidos</li>
-                    <li><strong>Controles ITGC:</strong> Melhoria contínua em controles de acessos, change management, operações e desenvolvimento de sistemas (SDLC)</li>
+                    <li><strong>Testes em larga escala:</strong> 300+ testes SOx/ITGC em ambientes multinacionais, identificando 40+ desvios críticos e implementando 15 novos controles automáticos</li>
+                    <li><strong>Gestão integrada:</strong> Colaboração com controladoria, compliance e contabilidade. Mapeamento de riscos com 95% taxa de remediação</li>
+                    <li><strong>Conformidade:</strong> Garantia de compliance com auditorias externas (Deloitte, EY) e consultoria PwC</li>
                 </ul>
             </div>
         </div>
@@ -412,10 +324,9 @@
             <div class="date-location" id="job3-date">Julho 2013 - Junho 2016 (3 anos) | São Paulo, Brasil</div>
             <div class="description" id="job3-desc">
                 <ul>
-                    <li><strong>Auditorias em grandes corporações:</strong> Planejamento e execução de auditorias financeiras em clientes de alto perfil (Itaú, Lenovo, Motorola, Abril Comunicações) sob padrões IFRS/BRGAAP</li>
-                    <li><strong>Avaliação de controles internos:</strong> Mapeamento e teste de controles empresariais, identificação de 20+ achados significativos que geraram melhorias mensuráveis em processos auditados</li>
-                    <li><strong>Crescimento acelerado:</strong> Progressão Trainee → Senior em aproximadamente 3 anos (vs. média de 4-5 anos), reconhecido por qualidade técnica e capacidade analítica</li>
-                    <li><strong>Reporting e stakeholder management:</strong> Elaboração de relatórios de auditoria, pareceres sobre demonstrações financeiras e supervisão de reporting packages complexos</li>
+                    <li><strong>Auditorias corporativas:</strong> Execução de auditorias financeiras em Itaú, Lenovo, Motorola e Abril Comunicações sob padrões IFRS/BRGAAP</li>
+                    <li><strong>Controles internos:</strong> Identificação de 20+ achados significativos gerando melhorias mensuráveis em processos auditados</li>
+                    <li><strong>Crescimento:</strong> Progressão Trainee → Senior em 3 anos, reconhecido por qualidade técnica e capacidade analítica</li>
                 </ul>
             </div>
         </div>
@@ -426,10 +337,8 @@
             <div class="date-location" id="job4-date">Fevereiro 2006 - Março 2012 (6 anos 2 meses) | Mauá, SP, Brasil</div>
             <div class="description" id="job4-desc">
                 <ul>
-                    <li><strong>Administração ERP:</strong> Gestão integral do sistema Microsiga/TOTVS, incluindo parametrizações, customizações e suporte técnico a 50+ usuários</li>
-                    <li><strong>Otimização de processos:</strong> Design e implementação de fluxos de processos otimizados, reduzindo tempo de entrada/saída de dados e aumentando eficiência operacional</li>
-                    <li><strong>Evolução profissional:</strong> Crescimento interno através de 4 posições - Auxiliar Administrativo → Financeiro → Compras → Analista de Sistemas</li>
-                    <li><strong>Infraestrutura tecnológica:</strong> Gestão de infraestrutura de TI e implementação de melhorias em performance de sistemas</li>
+                    <li><strong>Gestão ERP:</strong> Administração integral do Microsiga/TOTVS com suporte a 50+ usuários e otimização de processos</li>
+                    <li><strong>Evolução:</strong> Crescimento através de 4 posições - Auxiliar → Financeiro → Compras → Analista de Sistemas</li>
                 </ul>
             </div>
         </div>
@@ -441,7 +350,7 @@
         <div class="education-item">
             <div class="job-title" id="edu1-title">Especialização Profissional em Análise de Dados com SQL</div>
             <div class="company">DataCamp (online) - Associate Data Analyst Track</div>
-            <div class="date-location" id="edu1-date">2025 (em andamento - conclusão prevista Q2/2025) | Online</div>
+            <div class="date-location" id="edu1-date">2025 (em andamento - conclusão Q2/2025) | Online</div>
         </div>
 
         <div class="education-item">
@@ -531,22 +440,15 @@
         <div class="description" id="additional-content">
             <ul>
                 <li><strong>Disponibilidade:</strong> Imediata para posições remotas, híbridas ou presenciais</li>
-                <li><strong>Mobilidade:</strong> Total flexibilidade geográfica (EU Citizen)</li>
-                <li><strong>Nacionalidade:</strong> Espanhola (EU Citizen - Espanha)</li>
-                <li><strong>Foco profissional:</strong> Controles Internos, Risk Management, Compliance ou transição para Data Analytics/BI</li>
-                <li><strong>Diferenciais:</strong> Visão 360º (auditoria + tecnologia + gestão) | Experiência Big Four + startup | Mindset data-driven</li>
+                <li><strong>Mobilidade:</strong> Total flexibilidade geográfica (EU Citizen - Espanha)</li>
+                <li><strong>Foco:</strong> Controles Internos, Risk Management, Compliance ou transição para Data Analytics/BI</li>
+                <li><strong>Diferenciais:</strong> Visão 360º (auditoria + tecnologia + gestão) | Big Four + startup | Mindset data-driven</li>
             </ul>
         </div>
     </div>
 
     <div class="footer-note" id="footer-note">
-        <br>
-        <em>Currículo atualizado em outubro de 2025. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>
-    </div>
-    
-    <!-- BOTÃO SEPARADO - NÃO SOME AO TROCAR IDIOMA -->
-    <div class="print-button-container">
-        <button onclick="printCV()" id="print-btn">📄 Imprimir Currículo</button>
+        <em>Versão para impressão - Atualizado outubro de 2025 | Versão completa: <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0;">cv.lucasmartins.work</a></strong></em>
     </div>
 
     <script>
@@ -556,25 +458,23 @@
                 'location': 'Disponível internacionalmente',
                 'availability-note': '<strong>Disponibilidade:</strong> Imediata para posições <strong>remotas/híbridas</strong> | EU Citizen (Espanha)',
                 'profile-title': 'Perfil Profissional',
-                'profile-content': 'Profissional com <strong>19+ anos de experiência</strong> combinando auditoria financeira (PwC - Big Four), controles internos multinacionais (GPA/Casino Group) e gestão empresarial (cofundador e sócio da Agência AO4 - <strong>R$ 1M faturamento anual</strong>). Especialista em estruturação de processos <strong>SOx/ITGC</strong>, risk management e governança corporativa.<br><br>Reconhecido por implementar <strong>sistemas data-driven</strong> que transformam gestão operacional: Kanban+Timesheet gerando dashboards executivos para decisões estratégicas baseadas em dados reais. Contribuí para reconhecimento da AO4 como <strong>2º lugar nacional Agência Revelação RD Station 2022</strong>. Atualmente expandindo competências em <strong>Data Analytics e SQL</strong> para unir experiência em controles internos com análise preditiva.',
-                'highlights-title': 'Principais Conquistas',
-                'highlights-content': '<ul><li><strong>2º lugar nacional</strong> - Agência Revelação RD Station 2022 (competição com 500+ agências)</li><li><strong>Cofundação de empresa</strong> gerando R$ 1M/ano com <strong>85% retenção de clientes mensais</strong> (+5 anos média)</li><li><strong>Implementação de sistema de gestão</strong> Kanban+Timesheet em 3 meses, transformando planejamento estratégico em processo data-driven</li><li><strong>Execução de 300+ testes SOx/ITGC</strong> em ambientes multinacionais com identificação de 40+ desvios críticos</li></ul>',
+                'profile-content': 'Profissional com <strong>19+ anos de experiência</strong> combinando auditoria financeira (PwC - Big Four), controles internos multinacionais (GPA/Casino Group) e gestão empresarial (cofundador e sócio da Agência AO4 - <strong>R$ 1M faturamento anual</strong>). Especialista em estruturação de processos <strong>SOx/ITGC</strong>, risk management e governança corporativa. Reconhecido por implementar <strong>sistemas data-driven</strong> que transformam gestão operacional. Atualmente expandindo competências em <strong>Data Analytics e SQL</strong> para unir experiência em controles internos com análise preditiva.',
                 'experience-title': 'Experiência Profissional',
                 'job1-title': 'Cofundador e Sócio - Responsável de Operações',
                 'job1-date': '2018 - Atual (7 anos) | São José do Rio Preto, SP, Brasil',
-                'job1-desc': '<ul><li><strong>Gestão estratégica:</strong> Cofundação e direção de agência com faturamento anual de R$ 1M, liderança de equipe de 12 profissionais e carteira de +20 clientes ativos (85% taxa de retenção, +5 anos média de relacionamento)</li><li><strong>Inovação operacional:</strong> Implementei sistema integrado Kanban+Timesheet (iClips) em 3 meses, permitindo mensuração precisa de custo-hora por projeto. Resultado: dashboards mensais rastreando saúde financeira, identificação proativa de projetos com prejuízo e monitoramento de refações - base para planejamento estratégico data-driven</li><li><strong>Reconhecimento nacional:</strong> 2º lugar Agência Revelação RD Station 2022. Liderei capacitação de equipe para entrega acelerada e estabeleci parceria comercial estratégica (Silver Partner ativo até hoje)</li><li><strong>Compliance e governança:</strong> Arquitetura completa de controles internos LGPD/GDPR para onboarding de clientes, incluindo travas sistêmicas de proteção de dados e documentação de processos</li><li><strong>Gestão multifuncional:</strong> Supervisão de operações críticas (finanças, jurídico, tecnologia web, gestão de acessos) com foco em eficiência e mitigação de riscos</li></ul>',
+                'job1-desc': '<ul><li><strong>Gestão estratégica:</strong> Cofundação e direção com faturamento de R$ 1M/ano, liderança de 12 profissionais e +20 clientes (85% retenção mensal, +5 anos média)</li><li><strong>Sistema data-driven:</strong> Implementação Kanban+Timesheet em 3 meses gerando dashboards para decisões baseadas em dados reais e identificação de projetos com prejuízo</li><li><strong>Reconhecimento:</strong> 2º lugar nacional Agência Revelação RD Station 2022. Parceria estratégica Silver Partner ativa</li><li><strong>Compliance:</strong> Arquitetura de controles LGPD/GDPR para onboarding com travas sistêmicas de proteção de dados</li></ul>',
                 'job2-title': 'Analista - Controles Internos de Tecnologia (SOx/ITGC)',
                 'job2-date': 'Agosto 2016 - Maio 2018 (1 ano 10 meses) | São Paulo, Brasil',
-                'job2-desc': '<ul><li><strong>Otimização de controles SOx/ITGC:</strong> Maturação de controles internos Sarbanes-Oxley em ambientes de TI multinacionais, garantindo conformidade com auditorias externas (Deloitte, EY) e consultoria PwC</li><li><strong>Testes em larga escala:</strong> Execução de 300+ testes em centenas de sistemas corporativos, identificando 40+ desvios críticos reportados à alta gestão. Implementação de 15 novos controles automáticos e melhorias processuais significativas</li><li><strong>Gestão de riscos integrada:</strong> Colaboração com controladoria, compliance e contabilidade em controles financeiros de TI. Mapeamento de riscos críticos/altos/médios com 95% taxa de remediação dentro dos prazos estabelecidos</li><li><strong>Controles ITGC:</strong> Melhoria contínua em controles de acessos, change management, operações e desenvolvimento de sistemas (SDLC)</li></ul>',
+                'job2-desc': '<ul><li><strong>Testes em larga escala:</strong> 300+ testes SOx/ITGC em ambientes multinacionais, identificando 40+ desvios críticos e implementando 15 novos controles automáticos</li><li><strong>Gestão integrada:</strong> Colaboração com controladoria, compliance e contabilidade. Mapeamento de riscos com 95% taxa de remediação</li><li><strong>Conformidade:</strong> Garantia de compliance com auditorias externas (Deloitte, EY) e consultoria PwC</li></ul>',
                 'job3-title': 'Auditor Financeiro',
                 'job3-date': 'Julho 2013 - Junho 2016 (3 anos) | São Paulo, Brasil',
-                'job3-desc': '<ul><li><strong>Auditorias em grandes corporações:</strong> Planejamento e execução de auditorias financeiras em clientes de alto perfil (Itaú, Lenovo, Motorola, Abril Comunicações) sob padrões IFRS/BRGAAP</li><li><strong>Avaliação de controles internos:</strong> Mapeamento e teste de controles empresariais, identificação de 20+ achados significativos que geraram melhorias mensuráveis em processos auditados</li><li><strong>Crescimento acelerado:</strong> Progressão Trainee → Senior em aproximadamente 3 anos (vs. média de 4-5 anos), reconhecido por qualidade técnica e capacidade analítica</li><li><strong>Reporting e stakeholder management:</strong> Elaboração de relatórios de auditoria, pareceres sobre demonstrações financeiras e supervisão de reporting packages complexos</li></ul>',
+                'job3-desc': '<ul><li><strong>Auditorias corporativas:</strong> Execução de auditorias financeiras em Itaú, Lenovo, Motorola e Abril Comunicações sob padrões IFRS/BRGAAP</li><li><strong>Controles internos:</strong> Identificação de 20+ achados significativos gerando melhorias mensuráveis em processos auditados</li><li><strong>Crescimento:</strong> Progressão Trainee → Senior em 3 anos, reconhecido por qualidade técnica e capacidade analítica</li></ul>',
                 'job4-title': 'Analista de Sistemas ERP',
                 'job4-date': 'Fevereiro 2006 - Março 2012 (6 anos 2 meses) | Mauá, SP, Brasil',
-                'job4-desc': '<ul><li><strong>Administração ERP:</strong> Gestão integral do sistema Microsiga/TOTVS, incluindo parametrizações, customizações e suporte técnico a 50+ usuários</li><li><strong>Otimização de processos:</strong> Design e implementação de fluxos de processos otimizados, reduzindo tempo de entrada/saída de dados e aumentando eficiência operacional</li><li><strong>Evolução profissional:</strong> Crescimento interno através de 4 posições - Auxiliar Administrativo → Financeiro → Compras → Analista de Sistemas</li><li><strong>Infraestrutura tecnológica:</strong> Gestão de infraestrutura de TI e implementação de melhorias em performance de sistemas</li></ul>',
+                'job4-desc': '<ul><li><strong>Gestão ERP:</strong> Administração integral do Microsiga/TOTVS com suporte a 50+ usuários e otimização de processos</li><li><strong>Evolução:</strong> Crescimento através de 4 posições - Auxiliar → Financeiro → Compras → Analista de Sistemas</li></ul>',
                 'education-title': 'Formação Acadêmica',
                 'edu1-title': 'Especialização Profissional em Análise de Dados com SQL',
-                'edu1-date': '2025 (em andamento - conclusão prevista Q2/2025) | Online',
+                'edu1-date': '2025 (em andamento - conclusão Q2/2025) | Online',
                 'edu2-title': 'Graduação em Ciências Contábeis',
                 'edu2-date': '2013 - 2015 | São Paulo, Brasil',
                 'edu3-title': 'Graduação em Administração Financeira',
@@ -595,34 +495,31 @@
                 'languages-title': 'Idiomas',
                 'languages-content': '<div class="language-item"><strong>Português:</strong> Nativo</div><div class="language-item"><strong>Inglês:</strong> B1 (conversação)</div><div class="language-item"><strong>Espanhol:</strong> A2 (em estudo)</div>',
                 'additional-title': 'Informações Adicionais',
-                'additional-content': '<ul><li><strong>Disponibilidade:</strong> Imediata para posições remotas, híbridas ou presenciais</li><li><strong>Mobilidade:</strong> Total flexibilidade geográfica (EU Citizen)</li><li><strong>Nacionalidade:</strong> Espanhola (EU Citizen - Espanha)</li><li><strong>Foco profissional:</strong> Controles Internos, Risk Management, Compliance ou transição para Data Analytics/BI</li><li><strong>Diferenciais:</strong> Visão 360º (auditoria + tecnologia + gestão) | Experiência Big Four + startup | Mindset data-driven</li></ul>',
-                'footer-note': '<br><em>Currículo atualizado em outubro de 2025. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>',
-                'print-btn': '📄 Imprimir Currículo'
+                'additional-content': '<ul><li><strong>Disponibilidade:</strong> Imediata para posições remotas, híbridas ou presenciais</li><li><strong>Mobilidade:</strong> Total flexibilidade geográfica (EU Citizen - Espanha)</li><li><strong>Foco:</strong> Controles Internos, Risk Management, Compliance ou transição para Data Analytics/BI</li><li><strong>Diferenciais:</strong> Visão 360º (auditoria + tecnologia + gestão) | Big Four + startup | Mindset data-driven</li></ul>',
+                'footer-note': '<em>Versão para impressão - Atualizado em outubro de 2025 | Versão completa: <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0;">cv.lucasmartins.work</a></strong></em>'
             },
             'es': {
                 'header-title': 'Especialista en Controles Internos & Auditoría | SOx/ITGC | Gestión Empresarial | Análisis de Datos',
                 'location': 'Disponible internacionalmente',
                 'availability-note': '<strong>Disponibilidad:</strong> Inmediata para posiciones <strong>remotas/híbridas</strong> | EU Citizen (España)',
                 'profile-title': 'Perfil Profesional',
-                'profile-content': 'Profesional con <strong>19+ años de experiencia</strong> combinando auditoría financiera (PwC - Big Four), controles internos multinacionales (GPA/Casino Group) y gestión empresarial (cofundador y socio de la Agencia AO4 - <strong>R$ 1M facturación anual</strong>). Especialista en estructuración de procesos <strong>SOx/ITGC</strong>, risk management y gobernanza corporativa.<br><br>Reconocido por implementar <strong>sistemas data-driven</strong> que transforman la gestión operacional: Kanban+Timesheet generando dashboards ejecutivos para decisiones estratégicas basadas en datos reales. Contribuí al reconocimiento de AO4 como <strong>2º lugar nacional Agencia Revelación RD Station 2022</strong>. Actualmente ampliando competencias en <strong>Data Analytics y SQL</strong> para unir experiencia en controles internos con análisis predictivo.',
-                'highlights-title': 'Principales Logros',
-                'highlights-content': '<ul><li><strong>2º lugar nacional</strong> - Agencia Revelación RD Station 2022 (competición con 500+ agencias)</li><li><strong>Cofundación de empresa</strong> generando R$ 1M/año con <strong>85% retención de clientes mensual</strong> (+5 años promedio)</li><li><strong>Implementación de sistema de gestión</strong> Kanban+Timesheet en 3 meses, transformando planificación estratégica en proceso data-driven</li><li><strong>Ejecución de 300+ pruebas SOx/ITGC</strong> en ambientes multinacionales con identificación de 40+ desviaciones críticas</li></ul>',
+                'profile-content': 'Profesional con <strong>19+ años de experiencia</strong> combinando auditoría financiera (PwC - Big Four), controles internos multinacionales (GPA/Casino Group) y gestión empresarial (cofundador y socio de la Agencia AO4 - <strong>R$ 1M facturación anual</strong>). Especialista en estructuración de procesos <strong>SOx/ITGC</strong>, risk management y gobernanza corporativa. Reconocido por implementar <strong>sistemas data-driven</strong> que transforman la gestión operacional. Actualmente ampliando competencias en <strong>Data Analytics y SQL</strong> para unir experiencia en controles internos con análisis predictivo.',
                 'experience-title': 'Experiencia Profesional',
                 'job1-title': 'Cofundador y Socio - Responsable de Operaciones',
                 'job1-date': '2018 - Presente (7 años) | São José do Rio Preto, SP, Brasil',
-                'job1-desc': '<ul><li><strong>Gestión estratégica:</strong> Cofundación y dirección de agencia con facturación anual de R$ 1M, liderazgo de equipo de 12 profesionales y cartera de +20 clientes activos (85% tasa de retención, +5 años promedio de relación)</li><li><strong>Innovación operacional:</strong> Implementé sistema integrado Kanban+Timesheet (iClips) en 3 meses, permitiendo medición precisa de costo-hora por proyecto. Resultado: dashboards mensuales rastreando salud financiera, identificación proactiva de proyectos con pérdida y monitoreo de refacciones - base para planificación estratégica data-driven</li><li><strong>Reconocimiento nacional:</strong> 2º lugar Agencia Revelación RD Station 2022. Lideré capacitación de equipo para entrega acelerada y establecí alianza comercial estratégica (Silver Partner activo hasta hoy)</li><li><strong>Compliance y gobernanza:</strong> Arquitectura completa de controles internos LGPD/GDPR para onboarding de clientes, incluyendo trabas sistémicas de protección de datos y documentación de procesos</li><li><strong>Gestión multifuncional:</strong> Supervisión de operaciones críticas (finanzas, legal, tecnología web, gestión de accesos) con enfoque en eficiencia y mitigación de riesgos</li></ul>',
+                'job1-desc': '<ul><li><strong>Gestión estratégica:</strong> Cofundación y dirección con facturación de R$ 1M/año, liderazgo de 12 profesionales y +20 clientes (85% retención mensual, +5 años promedio)</li><li><strong>Sistema data-driven:</strong> Implementación Kanban+Timesheet en 3 meses generando dashboards para decisiones basadas en datos reales e identificación de proyectos con pérdida</li><li><strong>Reconocimiento:</strong> 2º lugar nacional Agencia Revelación RD Station 2022. Alianza estratégica Silver Partner activa</li><li><strong>Compliance:</strong> Arquitectura de controles LGPD/GDPR para onboarding con trabas sistémicas de protección de datos</li></ul>',
                 'job2-title': 'Analista - Controles Internos de Tecnología (SOx/ITGC)',
                 'job2-date': 'Agosto 2016 - Mayo 2018 (1 año 10 meses) | São Paulo, Brasil',
-                'job2-desc': '<ul><li><strong>Optimización de controles SOx/ITGC:</strong> Maduración de controles internos Sarbanes-Oxley en ambientes de TI multinacionales, garantizando conformidad con auditorías externas (Deloitte, EY) y consultoría PwC</li><li><strong>Pruebas a gran escala:</strong> Ejecución de 300+ pruebas en cientos de sistemas corporativos, identificando 40+ desviaciones críticas reportadas a la alta dirección. Implementación de 15 nuevos controles automáticos y mejoras procesales significativas</li><li><strong>Gestión de riesgos integrada:</strong> Colaboración con contraloría, compliance y contabilidad en controles financieros de TI. Mapeo de riesgos críticos/altos/medios con 95% tasa de remediación dentro de los plazos establecidos</li><li><strong>Controles ITGC:</strong> Mejora continua en controles de accesos, change management, operaciones y desarrollo de sistemas (SDLC)</li></ul>',
+                'job2-desc': '<ul><li><strong>Pruebas a gran escala:</strong> 300+ pruebas SOx/ITGC en ambientes multinacionales, identificando 40+ desviaciones críticas e implementando 15 nuevos controles automáticos</li><li><strong>Gestión integrada:</strong> Colaboración con contraloría, compliance y contabilidad. Mapeo de riesgos con 95% tasa de remediación</li><li><strong>Conformidad:</strong> Garantía de compliance con auditorías externas (Deloitte, EY) y consultoría PwC</li></ul>',
                 'job3-title': 'Auditor Financiero',
                 'job3-date': 'Julio 2013 - Junio 2016 (3 años) | São Paulo, Brasil',
-                'job3-desc': '<ul><li><strong>Auditorías en grandes corporaciones:</strong> Planificación y ejecución de auditorías financieras en clientes de alto perfil (Itaú, Lenovo, Motorola, Abril Comunicações) bajo estándares IFRS/BRGAAP</li><li><strong>Evaluación de controles internos:</strong> Mapeo y prueba de controles empresariales, identificación de 20+ hallazgos significativos que generaron mejoras mensurables en procesos auditados</li><li><strong>Crecimiento acelerado:</strong> Progresión Trainee → Senior en aproximadamente 3 años (vs. promedio de 4-5 años), reconocido por calidad técnica y capacidad analítica</li><li><strong>Reporting y stakeholder management:</strong> Elaboración de informes de auditoría, dictámenes sobre estados financieros y supervisión de reporting packages complejos</li></ul>',
+                'job3-desc': '<ul><li><strong>Auditorías corporativas:</strong> Ejecución de auditorías financieras en Itaú, Lenovo, Motorola y Abril Comunicações bajo normas IFRS/BRGAAP</li><li><strong>Controles internos:</strong> Identificación de 20+ hallazgos significativos generando mejoras mensurables en procesos auditados</li><li><strong>Crecimiento:</strong> Progresión Trainee → Senior en 3 años, reconocido por calidad técnica y capacidad analítica</li></ul>',
                 'job4-title': 'Analista de Sistemas ERP',
                 'job4-date': 'Febrero 2006 - Marzo 2012 (6 años 2 meses) | Mauá, SP, Brasil',
-                'job4-desc': '<ul><li><strong>Administración ERP:</strong> Gestión integral del sistema Microsiga/TOTVS, incluyendo parametrizaciones, personalizaciones y soporte técnico a 50+ usuarios</li><li><strong>Optimización de procesos:</strong> Diseño e implementación de flujos de procesos optimizados, reduciendo tiempo de entrada/salida de datos y aumentando eficiencia operacional</li><li><strong>Evolución profesional:</strong> Crecimiento interno a través de 4 posiciones - Auxiliar Administrativo → Financiero → Compras → Analista de Sistemas</li><li><strong>Infraestructura tecnológica:</strong> Gestión de infraestructura de TI e implementación de mejoras en performance de sistemas</li></ul>',
+                'job4-desc': '<ul><li><strong>Gestión ERP:</strong> Administración integral del Microsiga/TOTVS con soporte a 50+ usuarios y optimización de procesos</li><li><strong>Evolución:</strong> Crecimiento a través de 4 posiciones - Auxiliar → Financiero → Compras → Analista de Sistemas</li></ul>',
                 'education-title': 'Formación Académica',
                 'edu1-title': 'Especialización Profesional en Análisis de Datos con SQL',
-                'edu1-date': '2025 (en curso - conclusión prevista Q2/2025) | Online',
+                'edu1-date': '2025 (en curso - conclusión Q2/2025) | Online',
                 'edu2-title': 'Grado en Ciencias Contables',
                 'edu2-date': '2013 - 2015 | São Paulo, Brasil',
                 'edu3-title': 'Grado en Administración Financiera',
@@ -643,34 +540,31 @@
                 'languages-title': 'Idiomas',
                 'languages-content': '<div class="language-item"><strong>Portugués:</strong> Nativo</div><div class="language-item"><strong>Inglés:</strong> B1 (conversación)</div><div class="language-item"><strong>Español:</strong> A2 (en estudio)</div>',
                 'additional-title': 'Información Adicional',
-                'additional-content': '<ul><li><strong>Disponibilidad:</strong> Inmediata para posiciones remotas, híbridas o presenciales</li><li><strong>Movilidad:</strong> Total flexibilidad geográfica (EU Citizen)</li><li><strong>Nacionalidad:</strong> Española (EU Citizen - España)</li><li><strong>Enfoque profesional:</strong> Controles Internos, Risk Management, Compliance o transición a Data Analytics/BI</li><li><strong>Diferenciales:</strong> Visión 360º (auditoría + tecnología + gestión) | Experiencia Big Four + startup | Mindset data-driven</li></ul>',
-                'footer-note': '<br><em>Currículum actualizado en octubre de 2025. Versión siempre actualizada disponible en <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>',
-                'print-btn': '📄 Imprimir Currículum'
+                'additional-content': '<ul><li><strong>Disponibilidad:</strong> Inmediata para posiciones remotas, híbridas o presenciales</li><li><strong>Movilidad:</strong> Total flexibilidad geográfica (EU Citizen - España)</li><li><strong>Enfoque:</strong> Controles Internos, Risk Management, Compliance o transición a Data Analytics/BI</li><li><strong>Diferenciales:</strong> Visión 360º (auditoría + tecnología + gestión) | Big Four + startup | Mindset data-driven</li></ul>',
+                'footer-note': '<em>Versión para impresión - Actualizado en octubre de 2025 | Versión completa: <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0;">cv.lucasmartins.work</a></strong></em>'
             },
             'en': {
                 'header-title': 'Internal Controls & Audit Specialist | SOx/ITGC | Business Management | Data Analytics',
                 'location': 'Available internationally',
                 'availability-note': '<strong>Availability:</strong> Immediate for <strong>remote/hybrid</strong> positions | EU Citizen (Spain)',
                 'profile-title': 'Professional Profile',
-                'profile-content': 'Professional with <strong>19+ years of experience</strong> combining financial audit (PwC - Big Four), multinational internal controls (GPA/Casino Group) and business management (co-founder and partner at Agência AO4 - <strong>R$ 1M annual revenue</strong>). Specialist in <strong>SOx/ITGC</strong> process structuring, risk management and corporate governance.<br><br>Recognized for implementing <strong>data-driven systems</strong> that transform operational management: Kanban+Timesheet generating executive dashboards for strategic decisions based on real data. Contributed to AO4\'s recognition as <strong>2nd place nationally at RD Station Breakthrough Agency 2022</strong>. Currently expanding competencies in <strong>Data Analytics and SQL</strong> to unite internal controls experience with predictive analysis.',
-                'highlights-title': 'Key Achievements',
-                'highlights-content': '<ul><li><strong>2nd place nationally</strong> - RD Station Breakthrough Agency 2022 (competition with 500+ agencies)</li><li><strong>Company co-founding</strong> generating R$ 1M/year with <strong>85% monthly client retention</strong> (+5 years average)</li><li><strong>Management system implementation</strong> Kanban+Timesheet in 3 months, transforming strategic planning into data-driven process</li><li><strong>Execution of 300+ SOx/ITGC tests</strong> in multinational environments with identification of 40+ critical deviations</li></ul>',
+                'profile-content': 'Professional with <strong>19+ years of experience</strong> combining financial audit (PwC - Big Four), multinational internal controls (GPA/Casino Group) and business management (co-founder and partner at Agência AO4 - <strong>R$ 1M annual revenue</strong>). Specialist in <strong>SOx/ITGC</strong> process structuring, risk management and corporate governance. Recognized for implementing <strong>data-driven systems</strong> that transform operational management. Currently expanding competencies in <strong>Data Analytics and SQL</strong> to unite internal controls experience with predictive analysis.',
                 'experience-title': 'Professional Experience',
                 'job1-title': 'Co-founder and Partner - Operations Manager',
                 'job1-date': '2018 - Present (7 years) | São José do Rio Preto, SP, Brazil',
-                'job1-desc': '<ul><li><strong>Strategic management:</strong> Co-founding and directing an agency with annual revenue of R$ 1M, leading a team of 12 professionals and portfolio of +20 active clients (85% retention rate, +5 years average relationship)</li><li><strong>Operational innovation:</strong> Implemented integrated Kanban+Timesheet system (iClips) in 3 months, enabling precise cost-per-hour measurement per project. Result: monthly dashboards tracking financial health, proactive identification of unprofitable projects and rework monitoring - foundation for data-driven strategic planning</li><li><strong>National recognition:</strong> 2nd place RD Station Breakthrough Agency 2022. Led team training for accelerated delivery and established strategic commercial partnership (active Silver Partner today)</li><li><strong>Compliance and governance:</strong> Complete architecture of LGPD/GDPR internal controls for client onboarding, including systemic data protection locks and process documentation</li><li><strong>Multifunctional management:</strong> Supervision of critical operations (finance, legal, web technology, access management) focused on efficiency and risk mitigation</li></ul>',
+                'job1-desc': '<ul><li><strong>Strategic management:</strong> Co-founding and directing with R$ 1M/year revenue, leading 12 professionals and +20 clients (85% monthly retention, +5 years average)</li><li><strong>Data-driven system:</strong> Kanban+Timesheet implementation in 3 months generating dashboards for real data-based decisions and unprofitable project identification</li><li><strong>Recognition:</strong> 2nd place nationally RD Station Breakthrough Agency 2022. Active strategic Silver Partner partnership</li><li><strong>Compliance:</strong> LGPD/GDPR controls architecture for onboarding with systemic data protection locks</li></ul>',
                 'job2-title': 'Analyst - Technology Internal Controls (SOx/ITGC)',
                 'job2-date': 'August 2016 - May 2018 (1 year 10 months) | São Paulo, Brazil',
-                'job2-desc': '<ul><li><strong>SOx/ITGC controls optimization:</strong> Maturation of Sarbanes-Oxley internal controls in multinational IT environments, ensuring compliance with external audits (Deloitte, EY) and PwC consulting</li><li><strong>Large-scale testing:</strong> Execution of 300+ tests across hundreds of corporate systems, identifying 40+ critical deviations reported to senior management. Implementation of 15 new automated controls and significant process improvements</li><li><strong>Integrated risk management:</strong> Collaboration with controllership, compliance and accounting in IT financial controls. Critical/high/medium risk mapping with 95% remediation rate within established deadlines</li><li><strong>ITGC controls:</strong> Continuous improvement in access controls, change management, operations and systems development (SDLC)</li></ul>',
+                'job2-desc': '<ul><li><strong>Large-scale testing:</strong> 300+ SOx/ITGC tests in multinational environments, identifying 40+ critical deviations and implementing 15 new automated controls</li><li><strong>Integrated management:</strong> Collaboration with controllership, compliance and accounting. Risk mapping with 95% remediation rate</li><li><strong>Compliance:</strong> Ensuring compliance with external audits (Deloitte, EY) and PwC consulting</li></ul>',
                 'job3-title': 'Financial Auditor',
                 'job3-date': 'July 2013 - June 2016 (3 years) | São Paulo, Brazil',
-                'job3-desc': '<ul><li><strong>Audits in major corporations:</strong> Planning and execution of financial audits for high-profile clients (Itaú, Lenovo, Motorola, Abril Comunicações) under IFRS/BRGAAP standards</li><li><strong>Internal controls assessment:</strong> Mapping and testing of business controls, identification of 20+ significant findings that generated measurable improvements in audited processes</li><li><strong>Accelerated growth:</strong> Progression Trainee → Senior in approximately 3 years (vs. average of 4-5 years), recognized for technical quality and analytical capability</li><li><strong>Reporting and stakeholder management:</strong> Preparation of audit reports, opinions on financial statements and supervision of complex reporting packages</li></ul>',
+                'job3-desc': '<ul><li><strong>Corporate audits:</strong> Financial audit execution at Itaú, Lenovo, Motorola and Abril Comunicações under IFRS/BRGAAP standards</li><li><strong>Internal controls:</strong> Identification of 20+ significant findings generating measurable improvements in audited processes</li><li><strong>Growth:</strong> Progression Trainee → Senior in 3 years, recognized for technical quality and analytical capability</li></ul>',
                 'job4-title': 'ERP Systems Analyst',
                 'job4-date': 'February 2006 - March 2012 (6 years 2 months) | Mauá, SP, Brazil',
-                'job4-desc': '<ul><li><strong>ERP administration:</strong> Comprehensive management of Microsiga/TOTVS system, including parameterizations, customizations and technical support to 50+ users</li><li><strong>Process optimization:</strong> Design and implementation of optimized process flows, reducing data input/output time and increasing operational efficiency</li><li><strong>Professional evolution:</strong> Internal growth through 4 positions - Administrative Assistant → Financial → Purchasing → Systems Analyst</li><li><strong>Technology infrastructure:</strong> IT infrastructure management and implementation of system performance improvements</li></ul>',
+                'job4-desc': '<ul><li><strong>ERP management:</strong> Comprehensive Microsiga/TOTVS administration with support to 50+ users and process optimization</li><li><strong>Evolution:</strong> Growth through 4 positions - Assistant → Financial → Purchasing → Systems Analyst</li></ul>',
                 'education-title': 'Academic Education',
                 'edu1-title': 'Professional Specialization in Data Analysis with SQL',
-                'edu1-date': '2025 (ongoing - expected completion Q2/2025) | Online',
+                'edu1-date': '2025 (ongoing - completion Q2/2025) | Online',
                 'edu2-title': 'Degree in Accounting Sciences',
                 'edu2-date': '2013 - 2015 | São Paulo, Brazil',
                 'edu3-title': 'Degree in Financial Administration',
@@ -691,9 +585,8 @@
                 'languages-title': 'Languages',
                 'languages-content': '<div class="language-item"><strong>Portuguese:</strong> Native</div><div class="language-item"><strong>English:</strong> B1 (conversation)</div><div class="language-item"><strong>Spanish:</strong> A2 (studying)</div>',
                 'additional-title': 'Additional Information',
-                'additional-content': '<ul><li><strong>Availability:</strong> Immediate for remote, hybrid or on-site positions</li><li><strong>Mobility:</strong> Full geographic flexibility (EU Citizen)</li><li><strong>Nationality:</strong> Spanish (EU Citizen - Spain)</li><li><strong>Professional focus:</strong> Internal Controls, Risk Management, Compliance or transition to Data Analytics/BI</li><li><strong>Differentials:</strong> 360º vision (audit + technology + management) | Big Four + startup experience | Data-driven mindset</li></ul>',
-                'footer-note': '<br><em>Resume updated Octuber 2025. Always updated version available at <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>',
-                'print-btn': '📄 Print Resume'
+                'additional-content': '<ul><li><strong>Availability:</strong> Immediate for remote, hybrid or on-site positions</li><li><strong>Mobility:</strong> Full geographic flexibility (EU Citizen - Spain)</li><li><strong>Focus:</strong> Internal Controls, Risk Management, Compliance or transition to Data Analytics/BI</li><li><strong>Differentials:</strong> 360º vision (audit + technology + management) | Big Four + startup | Data-driven mindset</li></ul>',
+                'footer-note': '<em>Print version - Updated October 2025 | Full version: <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0;">cv.lucasmartins.work</a></strong></em>'
             }
         };
 
@@ -704,23 +597,8 @@
             for (const key in langData) {
                 const element = document.getElementById(key);
                 if (element) {
-                    // BOTÃO É ATUALIZADO SEPARADAMENTE
-                    if (key === 'print-btn') {
-                        element.textContent = langData[key];
-                    } else {
-                        element.innerHTML = langData[key];
-                    }
+                    element.innerHTML = langData[key];
                 }
-            }
-        }
-
-        function printCV() {
-            const currentLang = document.getElementById('languageSelect').value;
-            const printWindow = window.open(`multilingual_cv_print.html?lang=${currentLang}`, '_blank');
-            if (printWindow) {
-                printWindow.onload = function() {
-                    printWindow.print();
-                };
             }
         }
 
@@ -732,12 +610,6 @@
             if (lang && translations[lang]) {
                 document.getElementById('languageSelect').value = lang;
                 changeLanguage();
-            } else {
-                // Se não houver idioma na URL, garante que o botão está em português (padrão)
-                const printBtn = document.getElementById('print-btn');
-                if (printBtn) {
-                    printBtn.textContent = '📄 Imprimir Currículo';
-                }
             }
         }
 
