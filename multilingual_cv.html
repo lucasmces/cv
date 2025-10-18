@@ -690,7 +690,8 @@
         }
 
         function printCV() {
-            const printWindow = window.open('multilingual_cv_print.html', '_blank');
+            const currentLang = document.getElementById('languageSelect').value;
+            const printWindow = window.open(`multilingual_cv_print.html?lang=${currentLang}`, '_blank');
             if (printWindow) {
                 printWindow.onload = function() {
                     printWindow.print();
