@@ -260,6 +260,8 @@
         .print-button-container {
             text-align: center;
             margin-top: 15px;
+            display: block !important;
+            visibility: visible !important;
         }
         
         .print-button-container button {
@@ -272,6 +274,7 @@
             cursor: pointer;
             font-style: italic;
             transition: all 0.3s ease;
+            display: inline-block !important;
         }
         
         .print-button-container button:hover {
@@ -729,6 +732,12 @@
             if (lang && translations[lang]) {
                 document.getElementById('languageSelect').value = lang;
                 changeLanguage();
+            } else {
+                // Se não houver idioma na URL, garante que o botão está em português (padrão)
+                const printBtn = document.getElementById('print-btn');
+                if (printBtn) {
+                    printBtn.textContent = '📄 Imprimir Currículo';
+                }
             }
         }
 
