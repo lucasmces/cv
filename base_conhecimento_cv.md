@@ -80,8 +80,19 @@ O GPA é um dos maiores grupos varejistas do Brasil, controlado pelo Grupo Casin
 
 **Execução de Testes SOx/ITGC:**
 - Execução de testes de controles internos de tecnologia em ambiente multinacional
-- Os testes cobriram áreas como: gestão de acessos, segregação de funções, change management, backup e recuperação, segurança de sistemas
 - Trabalho com múltiplos sistemas e ambientes tecnológicos
+
+**Áreas de Testes Específicos:**
+- Gestão de Acessos (concessão, revogação, revisão periódica)
+- Acessos Privilegiados (administradores, superusuários)
+- Segurança da Informação
+- Gerenciamento de Mudanças (Change Management)
+- Desenvolvimento de Sistemas
+- Segregação de Funções (SoD)
+
+**Testes de Interface:**
+- Elaboração e atualização de testes de interface entre sistemas
+- Validação de integrações e transferência de dados entre aplicações
 
 **Interação com Áreas de TI:**
 - Solicitação de evidências diretamente às áreas de TI responsáveis
@@ -108,6 +119,11 @@ O GPA é um dos maiores grupos varejistas do Brasil, controlado pelo Grupo Casin
 - Avaliação de processos de gestão de mudanças (change management)
 - Revisão de RFCs (Request for Change) e seus fluxos de aprovação
 - Verificação de segregação de funções em processos de mudança
+
+**Orientação e Consultoria Interna:**
+- Orientação às áreas de TI sobre cultura de riscos e controles
+- Disseminação da importância dos controles internos
+- Explicação sobre necessidade dos planos de ação elaborados
 
 **Trabalho Interdepartamental:**
 - Trabalho conjunto com áreas de controladoria e contabilidade
@@ -139,16 +155,26 @@ Durante seu período na PwC, Lucas participou de auditorias em clientes de grand
 
 #### Responsabilidades e Realizações Detalhadas
 
-**Execução de Auditorias Financeiras:**
-- Auditorias de demonstrações financeiras sob padrões IFRS e BR GAAP
-- Planejamento e execução de procedimentos de auditoria
-- Avaliação de riscos de auditoria e definição de abordagem
+**Planejamento de Auditoria:**
+- Elaboração de planejamento de auditoria
+- Definição de abordagem e escopo
+- Avaliação de riscos de auditoria
+
+**Controles Internos:**
+- Levantamento, mapeamento e formalização dos Controles Internos das empresas auditadas
+- Avaliação da efetividade dos controles
+- Discussão de recomendações e plano de ações para melhoria dos processos
 
 **Testes Substantivos:**
 - Vouching: verificação de documentação suporte para transações
 - Recálculos: verificação matemática de saldos e transações
 - Confirmações: circularização de saldos com terceiros
 - Análise de conciliações: revisão de conciliações bancárias, contábeis e outras
+
+**Revisões Analíticas:**
+- Revisão analítica de Balanço Patrimonial
+- Revisão analítica de DRE (Demonstração do Resultado do Exercício)
+- Análise de variações e tendências
 
 **Circularização:**
 - Envio e controle de cartas de confirmação para clientes
@@ -160,11 +186,17 @@ Durante seu período na PwC, Lucas participou de auditorias em clientes de grand
 - Participação em inventários em diversas regiões do Brasil
 - Testes de contagem e verificação de procedimentos de controle
 
+**Reporting Package:**
+- Acompanhamento, revisão e validação de Reporting Package
+- Relevante para clientes multinacionais com reporte para matriz
+
 **Análises Contábeis:**
 - Revisão de provisões e estimativas contábeis
 - Análise de contratos para correto tratamento contábil
 - Avaliação de contingências e passivos
 - Testes de cut-off (corte de período)
+- Análise e revisão das práticas contábeis
+- Procedimentos de auditoria de revisão limitada
 
 **Documentação:**
 - Preparação de papéis de trabalho (working papers)
@@ -173,8 +205,8 @@ Durante seu período na PwC, Lucas participou de auditorias em clientes de grand
 
 **Relatórios:**
 - Participação na revisão de relatórios de auditoria
-- Contribuição para pareceres sobre demonstrações financeiras
-- Documentação de pontos de atenção e recomendações
+- Elaboração e revisão de pareceres sobre demonstrações financeiras
+- Trabalho sob normas IFRS e BRGAAP
 
 **Progressão de Carreira:**
 - Entrou como Trainee em 2013
@@ -440,11 +472,15 @@ O registro no CRC é obrigatório para exercício da profissão de contador no B
 - Destacar experiência PwC e GPA
 - Enfatizar conhecimento SOx/ITGC
 - Mencionar clientes atendidos (Itaú, Lenovo, etc.)
+- Destacar elaboração de planejamento de auditoria
+- Mencionar trabalho com Reporting Package
 
 **Para posições de controles internos:**
 - Enfatizar experiência GPA
 - Destacar conhecimento em testes e documentação
 - Mencionar trabalho com auditorias externas
+- Destacar testes de interface entre sistemas
+- Mencionar orientação às áreas de TI sobre cultura de riscos
 
 **Para posições administrativas/gestão:**
 - Destacar experiência AO4
@@ -469,6 +505,43 @@ O registro no CRC é obrigatório para exercício da profissão de contador no B
 | 2016-2018 | GPA (Casino) | Analista de Controles Internos SOx/ITGC |
 | 2018-atual | Agência AO4 | Cofundador - Responsável de Operações |
 | atual | DataCamp | Curso de SQL e Análise de Dados |
+
+---
+
+## Texto para LinkedIn (Sobre)
+
+### Versão em Português
+Comecei a trabalhar em 2006, aos 18 anos, numa metalúrgica no ABC Paulista. Em 6 anos, passei de auxiliar administrativo a analista de sistemas ERP — uma escola prática de processos, compras, financeiro e tecnologia.
+
+Depois vieram 3 anos na PwC, auditando empresas como Itaú, Lenovo e Motorola. Foi onde aprendi o rigor técnico da auditoria externa e a importância de documentar bem o que se faz. Em seguida, fui para o GPA (Grupo Casino) trabalhar com controles internos de TI, executando testes SOx/ITGC e dando suporte às auditorias da Deloitte e EY.
+
+Em 2018, cofundei a Agência AO4, onde sigo até hoje cuidando de operações, financeiro e tecnologia. Montei sistemas de gestão que nos permitiram acompanhar custos por projeto e tomar decisões baseadas em dados reais — não em achismo.
+
+Tenho formação em Ciências Contábeis (FECAP) e Administração (Metodista), registro ativo no CRC, e atualmente estudo SQL e análise de dados pelo DataCamp.
+
+Busco oportunidades em Auditoria, Controles Internos ou Gestão de Riscos. Também estou aberto a posições administrativas ou de análise de dados. Disponibilidade imediata, cidadão europeu (Espanha).
+
+### Versão em Espanhol
+Empecé a trabajar en 2006, a los 18 años, en una metalúrgica en Brasil. En 6 años, pasé de auxiliar administrativo a analista de sistemas ERP — una escuela práctica de procesos, compras, finanzas y tecnología.
+
+Después vinieron 3 años en PwC, auditando empresas como Itaú, Lenovo y Motorola. Fue donde aprendí el rigor técnico de la auditoría externa y la importancia de documentar bien lo que se hace. Luego fui a GPA (Grupo Casino) para trabajar con controles internos de TI, ejecutando pruebas SOx/ITGC y dando soporte a las auditorías de Deloitte y EY.
+
+En 2018, cofundé la Agencia AO4, donde sigo hasta hoy gestionando operaciones, finanzas y tecnología. Monté sistemas de gestión que nos permitieron acompañar costos por proyecto y tomar decisiones basadas en datos reales.
+
+Tengo formación en Ciencias Contables y Administración, registro profesional activo (CRC Brasil), y actualmente estudio SQL y análisis de datos.
+
+Busco oportunidades en Auditoría, Controles Internos o Gestión de Riesgos. También abierto a posiciones administrativas o de análisis de datos. Disponibilidad inmediata, ciudadano de la Unión Europea (España).
+
+### Versão em Inglês
+I started working in 2006, at 18, in a metallurgical company in Brazil. Over 6 years, I went from administrative assistant to ERP systems analyst — a hands-on school in processes, purchasing, finance, and technology.
+
+Then came 3 years at PwC, auditing companies like Itaú, Lenovo, and Motorola. That's where I learned the technical rigor of external audit and the importance of proper documentation. After that, I joined GPA (Casino Group) to work with IT internal controls, running SOx/ITGC tests and supporting audits by Deloitte and EY.
+
+In 2018, I co-founded Agência AO4, where I still manage operations, finance, and technology. I built management systems that allowed us to track costs per project and make decisions based on real data.
+
+I have degrees in Accounting and Business Administration, an active CRC registration (Brazil), and I'm currently studying SQL and data analysis.
+
+Looking for opportunities in Audit, Internal Controls, or Risk Management. Also open to administrative or data analysis roles. Immediate availability, EU citizen (Spain).
 
 ---
 
