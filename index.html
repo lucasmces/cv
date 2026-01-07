@@ -517,7 +517,10 @@
         function init() {
             if (initialized) return;
             initialized = true;
-            
+
+            // Aplica o idioma padrão (espanhol) ao carregar
+            changeLanguage();
+
             checkResourceAvailability().then(isAvailable => {
                 if (!isAvailable) {
                     showFallbackMessage();
