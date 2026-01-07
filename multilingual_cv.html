@@ -329,9 +329,9 @@
 <body>
     <div class="language-selector">
         <select id="languageSelect" onchange="changeLanguage()">
-            <option value="pt">🇧🇷 Português</option>
             <option value="es">🇪🇸 Español</option>
             <option value="en">🇺🇸 English</option>
+            <option value="pt">🇧🇷 Português</option>
         </select>
     </div>
 
@@ -667,12 +667,12 @@
             }
         }
 
-        // DETECTA IDIOMA DA URL E APLICA AUTOMATICAMENTE
+        // DETECTA IDIOMA DA URL E APLICA AUTOMATICAMENTE (padrão: espanhol)
         function applyLanguageFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
-            const lang = urlParams.get('lang');
-            
-            if (lang && translations[lang]) {
+            const lang = urlParams.get('lang') || 'es';
+
+            if (translations[lang]) {
                 document.getElementById('languageSelect').value = lang;
                 changeLanguage();
             }
