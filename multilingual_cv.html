@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Lucas Martins</title>
+    <title>CV - Lucas Martins Cespedes</title>
+    <meta name="description" content="CV de Lucas Martins Cespedes - Controles Internos, Auditoría y Gestión Empresarial. Experiencia en Big Four (PwC), multinacional (GPA/Casino) y emprendimiento.">
+    <meta name="keywords" content="CV, currículum, Lucas Martins, controles internos, auditoría, SOx, ITGC, PwC, GPA, contador">
+    <meta name="author" content="Lucas Martins Cespedes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cv.lucasmartins.work/">
+    <meta property="og:title" content="CV - Lucas Martins Cespedes">
+    <meta property="og:description" content="Controles Internos, Auditoría y Gestión Empresarial. Experiencia en Big Four, multinacional y emprendimiento.">
+    <meta property="og:image" content="https://i.imgur.com/WsckeA8.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://cv.lucasmartins.work/">
+    <meta property="twitter:title" content="CV - Lucas Martins Cespedes">
+    <meta property="twitter:description" content="Controles Internos, Auditoría y Gestión Empresarial. Experiencia en Big Four, multinacional y emprendimiento.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%232c5aa0' width='100' height='100' rx='15'/><text x='50' y='65' font-family='Arial' font-size='45' font-weight='bold' fill='white' text-anchor='middle'>LM</text></svg>">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -22,31 +41,49 @@
             z-index: 1000;
             background: rgba(44, 90, 160, 0.95);
             border-radius: 25px;
-            padding: 8px 15px;
+            padding: 6px 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            display: flex;
+            gap: 5px;
         }
-        
+
         .language-selector:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.25);
         }
-        
-        .language-selector select {
+
+        .lang-btn {
             background: transparent;
-            border: none;
-            color: white;
-            font-size: 12px;
+            border: 2px solid transparent;
+            color: rgba(255,255,255,0.7);
+            font-size: 11px;
             font-weight: bold;
-            outline: none;
             cursor: pointer;
-            padding: 2px;
+            padding: 4px 8px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
         }
-        
-        .language-selector select option {
-            background: #2c5aa0;
+
+        .lang-btn:hover {
             color: white;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .lang-btn.active {
+            color: white;
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Animação suave na troca de idioma */
+        .header, .section, .footer-note, .print-button-container {
+            transition: opacity 0.3s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
         }
         
         @media print {
@@ -327,11 +364,9 @@
 </head>
 <body>
     <div class="language-selector">
-        <select id="languageSelect" onchange="changeLanguage()">
-            <option value="es">🇪🇸 Español</option>
-            <option value="en">🇺🇸 English</option>
-            <option value="pt">🇧🇷 Português</option>
-        </select>
+        <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
+        <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" data-lang="pt" onclick="setLanguage('pt')">PT</button>
     </div>
 
     <div class="header">
@@ -453,13 +488,13 @@
 
         <div class="education-item">
             <div class="job-title" id="edu1-title">Ciências Contábeis</div>
-            <div class="company">FECAP - Fundação Escola de Comércio Álvares Penteado</div>
+            <div class="company"><span id="edu1-school">FECAP - Fundação Escola de Comércio Álvares Penteado</span> <span id="edu1-context" style="font-weight: normal; font-style: italic;">(pioneira em contabilidade no Brasil, fundada em 1902)</span></div>
             <div class="date-location" id="edu1-date">2013 - 2015 | São Paulo, SP, Brasil</div>
         </div>
 
         <div class="education-item">
             <div class="job-title" id="edu2-title">Administração Financeira</div>
-            <div class="company">Universidade Metodista de São Paulo</div>
+            <div class="company"><span id="edu2-school">Universidade Metodista de São Paulo</span> <span id="edu2-context" style="font-weight: normal; font-style: italic;">(melhor universidade privada do ABC paulista)</span></div>
             <div class="date-location" id="edu2-date">2007 - 2011 | São Bernardo do Campo, SP, Brasil</div>
         </div>
 
@@ -505,8 +540,9 @@
     </div>
 
     <div class="footer-note" id="footer-note">
-        <br>
         <em>Currículo atualizado em janeiro de 2026. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>
+        <br>
+        <span id="footer-langs" style="font-size: 10px;">Também disponível em: <a href="?lang=en" style="color: #2c5aa0;">English</a> | <a href="?lang=es" style="color: #2c5aa0;">Español</a></span>
     </div>
     
     <!-- BOTÃO SEPARADO - NÃO SOME AO TROCAR IDIOMA -->
@@ -540,8 +576,12 @@
                 'job4-desc': '<ul><li>Gestão do sistema ERP, incluindo parametrizações, customizações e suporte aos usuários</li><li>Atuação em compras e suporte à documentação da área comercial</li><li>Melhoria de fluxos e processos internos</li><li>Evolução de Auxiliar Administrativo a Analista de Sistemas ao longo de 6 anos</li><li>Suporte à infraestrutura de TI</li></ul>',
                 'education-title': 'Formação Acadêmica',
                 'edu1-title': 'Ciências Contábeis',
+                'edu1-school': 'FECAP - Fundação Escola de Comércio Álvares Penteado',
+                'edu1-context': '(pioneira em contabilidade no Brasil, fundada em 1902)',
                 'edu1-date': '2013 - 2015 | São Paulo, SP, Brasil',
                 'edu2-title': 'Administração Financeira',
+                'edu2-school': 'Universidade Metodista de São Paulo',
+                'edu2-context': '(melhor universidade privada do ABC paulista)',
                 'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brasil',
                 'edu3-title': 'Análise de Dados com SQL',
                 'edu3-date': 'Em andamento',
@@ -553,7 +593,7 @@
                 'languages-content': '<div class="language-item"><strong>Português:</strong> Nativo</div><div class="language-item"><strong>Inglês:</strong> B1 funcional, em aprimoramento</div><div class="language-item"><strong>Espanhol:</strong> B1, em aprimoramento</div>',
                 'additional-title': 'Informações Adicionais',
                 'additional-content': '<ul><li><strong>Disponibilidade:</strong> Imediata para posições remotas, híbridas ou presenciais</li><li><strong>Nacionalidade:</strong> Espanhola (cidadão da União Europeia)</li><li><strong>Foco:</strong> Auditoria, Controles Internos e Gestão de Riscos. Também aberto a posições administrativas ou de Análise de Dados.</li></ul>',
-                'footer-note': '<br><em>Currículo atualizado em janeiro de 2026. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>',
+                'footer-note': '<em>Currículo atualizado em janeiro de 2026. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">Também disponível em: <a href="?lang=en" style="color: #2c5aa0;">English</a> | <a href="?lang=es" style="color: #2c5aa0;">Español</a></span>',
                 'print-btn': '📄 Imprimir Currículo'
             },
             'es': {
@@ -580,8 +620,12 @@
                 'job4-desc': '<ul><li>Gestión del sistema ERP, incluyendo parametrizaciones, personalizaciones y soporte a los usuarios</li><li>Actuación en compras y soporte a la documentación del área comercial</li><li>Mejora de flujos y procesos internos</li><li>Evolución de Auxiliar Administrativo a Analista de Sistemas a lo largo de 6 años</li><li>Soporte a la infraestructura de TI</li></ul>',
                 'education-title': 'Formación Académica',
                 'edu1-title': 'Ciencias Contables',
+                'edu1-school': 'FECAP - Fundação Escola de Comércio Álvares Penteado',
+                'edu1-context': '(pionera en contabilidad en Brasil, fundada en 1902)',
                 'edu1-date': '2013 - 2015 | São Paulo, SP, Brasil',
                 'edu2-title': 'Administración Financiera',
+                'edu2-school': 'Universidade Metodista de São Paulo',
+                'edu2-context': '(mejor universidad privada del ABC paulista, región industrial de São Paulo)',
                 'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brasil',
                 'edu3-title': 'Análisis de Datos con SQL',
                 'edu3-date': 'En curso',
@@ -593,7 +637,7 @@
                 'languages-content': '<div class="language-item"><strong>Portugués:</strong> Nativo</div><div class="language-item"><strong>Inglés:</strong> B1 funcional, en mejora</div><div class="language-item"><strong>Español:</strong> B1, en mejora</div>',
                 'additional-title': 'Información Adicional',
                 'additional-content': '<ul><li><strong>Disponibilidad:</strong> Inmediata para posiciones remotas, híbridas o presenciales</li><li><strong>Nacionalidad:</strong> Española (ciudadano de la Unión Europea)</li><li><strong>Enfoque:</strong> Auditoría, Controles Internos y Gestión de Riesgos. También abierto a posiciones administrativas o de Análisis de Datos.</li></ul>',
-                'footer-note': '<br><em>Currículum actualizado en enero de 2026. Versión siempre actualizada disponible en <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>',
+                'footer-note': '<em>Currículum actualizado en enero de 2026. Versión siempre actualizada disponible en <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">También disponible en: <a href="?lang=en" style="color: #2c5aa0;">English</a> | <a href="?lang=pt" style="color: #2c5aa0;">Português</a></span>',
                 'print-btn': '📄 Imprimir Currículum'
             },
             'en': {
@@ -620,8 +664,12 @@
                 'job4-desc': '<ul><li>ERP system management, including parameterizations, customizations and user support</li><li>Work in purchasing and support to commercial area documentation</li><li>Improvement of internal flows and processes</li><li>Evolution from Administrative Assistant to Systems Analyst over 6 years</li><li>IT infrastructure support</li></ul>',
                 'education-title': 'Education',
                 'edu1-title': 'Accounting',
+                'edu1-school': 'FECAP - Fundação Escola de Comércio Álvares Penteado',
+                'edu1-context': '(pioneer in accounting education in Brazil, founded 1902)',
                 'edu1-date': '2013 - 2015 | São Paulo, SP, Brazil',
                 'edu2-title': 'Business Administration',
+                'edu2-school': 'Universidade Metodista de São Paulo',
+                'edu2-context': '(top private university in the ABC industrial region of São Paulo)',
                 'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brazil',
                 'edu3-title': 'Data Analysis with SQL',
                 'edu3-date': 'Ongoing',
@@ -633,27 +681,48 @@
                 'languages-content': '<div class="language-item"><strong>Portuguese:</strong> Native</div><div class="language-item"><strong>English:</strong> Functional B1, improving</div><div class="language-item"><strong>Spanish:</strong> B1, improving</div>',
                 'additional-title': 'Additional Information',
                 'additional-content': '<ul><li><strong>Availability:</strong> Immediate for remote, hybrid or on-site positions</li><li><strong>Nationality:</strong> Spanish (European Union citizen)</li><li><strong>Focus:</strong> Audit, Internal Controls and Risk Management. Also open to administrative or Data Analysis positions.</li></ul>',
-                'footer-note': '<br><em>Resume updated January 2026. Always updated version available at <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>',
+                'footer-note': '<em>Resume updated January 2026. Always updated version available at <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">Also available in: <a href="?lang=es" style="color: #2c5aa0;">Español</a> | <a href="?lang=pt" style="color: #2c5aa0;">Português</a></span>',
                 'print-btn': '📄 Print Resume'
             }
         };
 
-        function changeLanguage() {
-            const lang = document.getElementById('languageSelect').value;
-            const langData = translations[lang];
-            history.pushState({}, '', `?lang=${lang}`);
-            
-            for (const key in langData) {
-                const element = document.getElementById(key);
-                if (element) {
-                    // BOTÃO É ATUALIZADO SEPARADAMENTE
-                    if (key === 'print-btn') {
-                        element.textContent = langData[key];
-                    } else {
-                        element.innerHTML = langData[key];
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+
+            // Animação de fade out
+            const elements = document.querySelectorAll('.header, .section, .footer-note, .print-button-container');
+            elements.forEach(el => el.classList.add('fade-out'));
+
+            setTimeout(() => {
+                // Atualiza conteúdo
+                const langData = translations[lang];
+                history.pushState({}, '', `?lang=${lang}`);
+
+                for (const key in langData) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        if (key === 'print-btn') {
+                            element.textContent = langData[key];
+                        } else {
+                            element.innerHTML = langData[key];
+                        }
                     }
                 }
-            }
+
+                // Atualiza botão ativo
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+
+                // Animação de fade in
+                elements.forEach(el => el.classList.remove('fade-out'));
+            }, 150);
+        }
+
+        // Mantém compatibilidade com função antiga
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect')?.value || 'es';
+            setLanguage(lang);
         }
 
         function printCV() {
@@ -676,8 +745,22 @@
             const showPhoto = urlParams.get('photo') === 'true';
 
             if (translations[lang]) {
-                document.getElementById('languageSelect').value = lang;
-                changeLanguage();
+                // Aplica idioma sem animação no carregamento inicial
+                const langData = translations[lang];
+                for (const key in langData) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        if (key === 'print-btn') {
+                            element.textContent = langData[key];
+                        } else {
+                            element.innerHTML = langData[key];
+                        }
+                    }
+                }
+                // Marca botão ativo
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
             }
 
             // Mostrar foto se parametro photo=true
@@ -688,6 +771,14 @@
 
         // Executar ao carregar a página
         document.addEventListener('DOMContentLoaded', applyLanguageFromURL);
+
+        // Interceptar Ctrl+P / Cmd+P para redirecionar para versão print
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                printCV();
+            }
+        });
     </script>
 </body>
 </html>
