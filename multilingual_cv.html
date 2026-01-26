@@ -6,8 +6,8 @@
     <title>CV - Lucas Martins</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.4;
+            font-family: 'Georgia', serif;
+            line-height: 1.5;
             color: #333;
             max-width: 210mm;
             margin: 0 auto;
@@ -80,16 +80,19 @@
         }
         .photo-container {
             flex-shrink: 0;
+            display: none;
+        }
+        .photo-container.show {
+            display: block;
         }
         .photo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #2c5aa0;
-            box-shadow: 0 4px 12px rgba(44, 90, 160, 0.2);
+            border: 3px solid #2c5aa0;
+            box-shadow: 0 3px 10px rgba(44, 90, 160, 0.2);
         }
-
         .header-info {
             flex: 1;
         }
@@ -295,10 +298,6 @@
                 text-align: center;
                 gap: 20px;
             }
-            .photo {
-                width: 100px;
-                height: 100px;
-            }
             .name {
                 font-size: 24px;
             }
@@ -336,8 +335,8 @@
     </div>
 
     <div class="header">
-        <div class="photo-container">
-            <img src="https://i.imgur.com/WsckeA8.png" alt="Professional photo of Lucas Martins Céspedes" class="photo">
+        <div class="photo-container" id="photo-container">
+            <img src="https://i.imgur.com/WsckeA8.png" alt="Lucas Martins Cespedes" class="photo">
         </div>
         <div class="header-info">
             <div class="name">LUCAS MARTINS CESPEDES</div>
@@ -659,7 +658,10 @@
 
         function printCV() {
             const currentLang = document.getElementById('languageSelect').value;
-            const printWindow = window.open(`multilingual_cv_print.html?lang=${currentLang}`, '_blank');
+            const urlParams = new URLSearchParams(window.location.search);
+            const showPhoto = urlParams.get('photo') === 'true';
+            const photoParam = showPhoto ? '&photo=true' : '';
+            const printWindow = window.open(`multilingual_cv_print.html?lang=${currentLang}${photoParam}`, '_blank');
             if (printWindow) {
                 printWindow.onload = function() {
                     printWindow.print();
@@ -671,10 +673,16 @@
         function applyLanguageFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const lang = urlParams.get('lang') || 'es';
+            const showPhoto = urlParams.get('photo') === 'true';
 
             if (translations[lang]) {
                 document.getElementById('languageSelect').value = lang;
                 changeLanguage();
+            }
+
+            // Mostrar foto se parametro photo=true
+            if (showPhoto) {
+                document.getElementById('photo-container').classList.add('show');
             }
         }
 

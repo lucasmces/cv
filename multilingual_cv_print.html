@@ -5,42 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Lucas Martins (Print Version)</title>
     <style>
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.3;
+            font-family: 'Georgia', serif;
+            line-height: 1.25;
             color: #333;
             max-width: 210mm;
             margin: 0 auto;
-            padding: 10mm;
+            padding: 6mm;
             background: white;
+            font-size: 9px;
         }
-        
+
         .language-selector {
             position: fixed;
-            top: 15px;
-            right: 15px;
+            top: 10px;
+            right: 10px;
             z-index: 1000;
             background: rgba(44, 90, 160, 0.95);
-            border-radius: 20px;
-            padding: 6px 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            padding: 4px 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-        
+
         .language-selector select {
             background: transparent;
             border: none;
             color: white;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: bold;
             outline: none;
             cursor: pointer;
         }
-        
+
         .language-selector select option {
             background: #2c5aa0;
             color: white;
         }
-        
+
         @media print {
             .language-selector {
                 display: none !important;
@@ -49,234 +55,216 @@
                 padding: 0;
                 margin: 0;
             }
-            .section {
-                page-break-inside: avoid;
-            }
-            .experience-item, .education-item {
-                page-break-inside: avoid;
-            }
         }
-        
+
         .header {
             display: flex;
-            align-items: center;
-            gap: 20px;
-            border-bottom: 3px solid #2c5aa0;
-            padding-bottom: 12px;
-            margin-bottom: 15px;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 2px solid #2c5aa0;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
         }
-        
+
         .photo-container {
             flex-shrink: 0;
+            display: none;
         }
-        
+
+        .photo-container.show {
+            display: block;
+        }
+
         .photo {
-            width: 100px;
-            height: 100px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #2c5aa0;
-            box-shadow: 0 3px 10px rgba(44, 90, 160, 0.2);
+            border: 2px solid #2c5aa0;
         }
 
         .header-info {
             flex: 1;
         }
-        
+
         .name {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: bold;
             color: #2c5aa0;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
         }
-        
+
         .title {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 10px;
+            font-size: 10px;
+            color: #555;
+            margin-bottom: 6px;
             font-style: italic;
+            line-height: 1.3;
         }
-        
+
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            font-size: 11px;
+            gap: 10px;
+            font-size: 9px;
         }
-        
+
         .contact-info span {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
         }
-        
+
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         .availability-note {
-            margin-top: 8px;
-            font-size: 10px;
+            margin-top: 5px;
+            font-size: 8px;
             font-style: italic;
             color: #555;
-            background: #f8f9fa;
-            padding: 6px 10px;
-            border-radius: 3px;
+            background: #f5f7fa;
+            padding: 4px 8px;
+            border-radius: 2px;
             border-left: 2px solid #2c5aa0;
         }
-        
+
         .section {
-            margin-bottom: 14px;
+            margin-bottom: 8px;
         }
-        
+
         .section-title {
-            font-size: 14px;
+            font-size: 11px;
             font-weight: bold;
             color: #2c5aa0;
-            border-bottom: 2px solid #2c5aa0;
-            padding-bottom: 3px;
-            margin-bottom: 8px;
+            border-bottom: 1px solid #2c5aa0;
+            padding-bottom: 2px;
+            margin-bottom: 5px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
+
         .experience-item, .education-item {
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
-        
+
         .job-title {
             font-weight: bold;
             color: #333;
-            font-size: 12px;
+            font-size: 10px;
         }
-        
+
         .company {
             color: #2c5aa0;
             font-weight: bold;
-            font-size: 11px;
+            font-size: 9px;
         }
-        
+
         .date-location {
             color: #666;
-            font-size: 10px;
-            margin-bottom: 5px;
-        }
-        
-        .description {
-            font-size: 10px;
-            line-height: 1.4;
-        }
-        
-        .description ul {
-            margin: 3px 0;
-            padding-left: 12px;
-        }
-        
-        .description li {
+            font-size: 8px;
             margin-bottom: 3px;
         }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+
+        .description {
+            font-size: 8.5px;
+            line-height: 1.3;
         }
-        
-        .skill-category {
-            background: #f8f9fa;
-            padding: 8px;
-            border-radius: 4px;
-            border-left: 3px solid #2c5aa0;
-        }
-        
-        .skill-category h4 {
-            color: #2c5aa0;
-            margin: 0 0 5px 0;
-            font-size: 11px;
-        }
-        
-        .skill-category ul {
-            margin: 0;
+
+        .description ul {
+            margin: 2px 0;
             padding-left: 12px;
-            font-size: 10px;
-            list-style: none;
         }
-        
-        .skill-category ul li {
-            margin-bottom: 2px;
+
+        .description li {
+            margin-bottom: 1px;
         }
-        
+
         .objective {
-            background: #f0f4f8;
-            padding: 10px;
-            border-radius: 4px;
-            border-left: 3px solid #2c5aa0;
-            font-size: 11px;
-            line-height: 1.4;
-            margin-bottom: 15px;
+            background: #f5f7fa;
+            padding: 6px 8px;
+            border-radius: 3px;
+            border-left: 2px solid #2c5aa0;
+            font-size: 9px;
+            line-height: 1.35;
         }
-        
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
         .languages {
             display: flex;
-            gap: 12px;
+            gap: 8px;
             flex-wrap: wrap;
-            align-items: center;
         }
-        
+
         .language-item {
-            background: #f8f9fa;
-            padding: 8px 15px;
-            border-radius: 15px;
-            font-size: 11px;
-            border: 1px solid #dee2e6;
-            white-space: nowrap;
+            background: #f5f7fa;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 8.5px;
+            border: 1px solid #ddd;
         }
-        
+
         .certifications {
             display: flex;
-            gap: 12px;
+            gap: 8px;
             flex-wrap: wrap;
-            align-items: center;
         }
-        
+
         .cert-item {
-            background: #e8f4f8;
-            padding: 8px 15px;
-            border-radius: 4px;
-            font-size: 11px;
+            background: #e8f0f8;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 8.5px;
             border: 1px solid #2c5aa0;
-            white-space: nowrap;
         }
-        
+
         .footer-note {
-            margin-top: 15px;
-            border-top: 1px solid #dee2e6;
-            padding-top: 10px;
-            font-size: 9px;
+            margin-top: 8px;
+            border-top: 1px solid #ddd;
+            padding-top: 5px;
+            font-size: 8px;
             font-style: italic;
             color: #666;
             text-align: center;
+        }
+
+        .footer-note a {
+            color: #2c5aa0;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="language-selector">
         <select id="languageSelect" onchange="changeLanguage()">
-            <option value="es">🇪🇸 Español</option>
-            <option value="en">🇺🇸 English</option>
-            <option value="pt">🇧🇷 Português</option>
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+            <option value="pt">PT</option>
         </select>
     </div>
 
     <div class="header">
-        <div class="photo-container">
-            <img src="https://i.imgur.com/WsckeA8.png" alt="Professional photo of Lucas Martins Céspedes" class="photo">
+        <div class="photo-container" id="photo-container">
+            <img src="https://i.imgur.com/WsckeA8.png" alt="Lucas Martins Cespedes" class="photo">
         </div>
         <div class="header-info">
             <div class="name">LUCAS MARTINS CESPEDES</div>
-            <div class="title" id="header-title">Controles Internos, Auditoria e Gestão Empresarial. Trajetória construída entre Big Four, multinacional e empreendedorismo</div>
+            <div class="title" id="header-title">Controles Internos, Auditoria e Gestao Empresarial. Trajetoria construida entre Big Four, multinacional e empreendedorismo</div>
             <div class="contact-info">
-                <span><a href="mailto:hello@lucasmartins.work" style="color: inherit; text-decoration: none;">hello@lucasmartins.work</a></span>
-                <span><a href="https://wa.me/34687409930" target="_blank" style="color: inherit; text-decoration: none;">+34 687 40 99 30</a> <span id="phone-note" style="font-size: 9px; font-style: italic;">(preferencialmente WhatsApp)</span></span>
-                <span><a href="https://linkedin.com/in/lucasmces" target="_blank" style="color: inherit; text-decoration: none;">linkedin.com/in/lucasmces</a></span>
+                <span><a href="mailto:hello@lucasmartins.work">hello@lucasmartins.work</a></span>
+                <span><a href="https://wa.me/34687409930" target="_blank">+34 687 40 99 30</a> <span id="phone-note" style="font-size: 8px; font-style: italic;">(WhatsApp)</span></span>
+                <span><a href="https://linkedin.com/in/lucasmces" target="_blank">linkedin.com/in/lucasmces</a></span>
             </div>
             <div class="availability-note" id="availability-note">
-                <strong>Disponibilidade:</strong> Imediata para posições <strong>remotas/híbridas</strong> | <span id="location">Disponível internacionalmente</span> | EU Citizen (Espanha)
+                <strong>Disponibilidade:</strong> Imediata para posicoes <strong>remotas/hibridas</strong> | Disponivel internacionalmente | EU Citizen (Espanha)
             </div>
         </div>
     </div>
@@ -284,41 +272,36 @@
     <div class="section">
         <div class="section-title" id="profile-title">Perfil Profissional</div>
         <div class="objective" id="profile-content">
-            Comecei minha carreira profissional em 2006, em uma indústria metalúrgica, onde evoluí de Auxiliar Administrativo a Analista de Sistemas ERP ao longo de 6 anos. Depois passei pela auditoria contábil na PwC e por controles internos no GPA (Grupo Casino). Em 2018, cofundei a Agência AO4, onde gerencio equipe e operações há 7 anos. Com formação em Ciências Contábeis e Administração, tenho experiência sólida em processos SOx/ITGC, gestão de riscos e governança corporativa. Atualmente estudo SQL e análise de dados para complementar minha experiência em controles internos.
+            Carreira iniciada em 2006 em metalurgica, evoluindo de Auxiliar Administrativo a Analista de Sistemas ERP em 6 anos. Experiencia em auditoria externa na PwC (3 anos) e controles internos SOx/ITGC no GPA - Grupo Casino (2 anos). Desde 2018, cofundador e responsavel por operacoes na Agencia AO4. Formacao em Ciencias Contabeis (FECAP) e Administracao (Metodista), com registro CRC ativo. Atualmente estudando SQL e analise de dados.
         </div>
     </div>
 
     <div class="section">
-        <div class="section-title" id="experience-title">Experiência Profissional</div>
-        
+        <div class="section-title" id="experience-title">Experiencia Profissional</div>
+
         <div class="experience-item">
-            <div class="job-title" id="job1-title">Cofundador e Sócio - Responsável de Operações</div>
-            <div class="company">Agência AO4 - Comunicação e Tecnologia</div>
-            <div class="date-location" id="job1-date">2018 - Atual (7 anos) | São José do Rio Preto, SP, Brasil</div>
+            <div class="job-title" id="job1-title">Cofundador e Socio - Responsavel de Operacoes</div>
+            <div class="company">Agencia AO4 - Comunicacao e Tecnologia</div>
+            <div class="date-location" id="job1-date">2018 - Atual (7 anos) | Sao Jose do Rio Preto, SP, Brasil</div>
             <div class="description" id="job1-desc">
                 <ul>
-                    <li>Cofundação e gestão da agência, com carteira de clientes estável (média de 5 anos de relacionamento)</li>
-                    <li>Implementei sistema Kanban + Timesheet que permitiu acompanhar custos por projeto e identificar ineficiências</li>
-                    <li>2º lugar no prêmio Agência Revelação RD Station 2022</li>
-                    <li>Estruturei processos de onboarding de clientes e documentação de procedimentos internos</li>
-                    <li>Responsável pelo financeiro e operações da empresa, incluindo contratos, tecnologia e controle de acessos</li>
+                    <li>Gestao da agencia com carteira de clientes estavel (media de 5 anos de relacionamento)</li>
+                    <li>Implementacao de sistema Kanban + Timesheet para controle de custos por projeto</li>
+                    <li>2o lugar no premio Agencia Revelacao RD Station 2022</li>
+                    <li>Responsavel pelo financeiro, operacoes, contratos e tecnologia</li>
                 </ul>
             </div>
         </div>
 
         <div class="experience-item">
             <div class="job-title" id="job2-title">Analista - Controles Internos de Tecnologia (SOx/ITGC)</div>
-            <div class="company">GPA (Grupo Pão de Açúcar) - Conglomerado Casino</div>
-            <div class="date-location" id="job2-date">Agosto 2016 - Maio 2018 (1 ano 10 meses) | São Paulo, Brasil</div>
+            <div class="company">GPA (Grupo Pao de Acucar) - Conglomerado Casino</div>
+            <div class="date-location" id="job2-date">Ago 2016 - Mai 2018 (1 ano 10 meses) | Sao Paulo, Brasil</div>
             <div class="description" id="job2-desc">
                 <ul>
-                    <li>Execução de testes SOx/ITGC em ambiente multinacional</li>
-                    <li>Testes de gestão de acessos, concessão/revogação, acessos privilegiados, segurança da informação e desenvolvimento de sistemas</li>
-                    <li>Elaboração e atualização de testes de interface entre sistemas</li>
-                    <li>Solicitação de evidências e walkthroughs diretamente com áreas de TI</li>
-                    <li>Documentação de processos, fluxos e matrizes de riscos e controles</li>
-                    <li>Suporte às auditorias externas (Deloitte, EY)</li>
-                    <li>Orientação às áreas de TI sobre cultura de riscos e controles</li>
+                    <li>Execucao de testes SOx/ITGC: gestao de acessos, seguranca da informacao, desenvolvimento de sistemas</li>
+                    <li>Documentacao de processos, fluxos e matrizes de riscos e controles</li>
+                    <li>Suporte as auditorias externas (Deloitte, EY) e orientacao a areas de TI</li>
                 </ul>
             </div>
         </div>
@@ -326,214 +309,208 @@
         <div class="experience-item">
             <div class="job-title" id="job3-title">Auditor Externo</div>
             <div class="company">PwC Brasil (Big Four)</div>
-            <div class="date-location" id="job3-date">Julho 2013 - Junho 2016 (3 anos) | São Paulo, Brasil</div>
+            <div class="date-location" id="job3-date">Jul 2013 - Jun 2016 (3 anos) | Sao Paulo, Brasil</div>
             <div class="description" id="job3-desc">
                 <ul>
-                    <li>Auditorias financeiras em clientes como Itaú, Lenovo, Motorola e Abril Comunicações</li>
-                    <li>Elaboração de planejamento de auditoria</li>
-                    <li>Levantamento, mapeamento e formalização de Controles Internos das empresas auditadas</li>
-                    <li>Testes substantivos: vouching, recálculos, confirmações e análise de conciliações</li>
-                    <li>Revisão analítica de Balanço Patrimonial e DRE</li>
-                    <li>Acompanhamento, revisão e validação de Reporting Package</li>
-                    <li>Revisões de relatórios de auditoria e pareceres (IFRS/BRGAAP)</li>
+                    <li>Auditorias financeiras em clientes como Itau, Lenovo, Motorola e Abril Comunicacoes</li>
+                    <li>Levantamento e formalizacao de Controles Internos, testes substantivos e revisao analitica</li>
+                    <li>Revisoes de relatorios e pareceres sobre demonstracoes financeiras (IFRS/BRGAAP)</li>
                 </ul>
             </div>
         </div>
 
         <div class="experience-item">
             <div class="job-title" id="job4-title">Analista de Sistemas ERP</div>
-            <div class="company">Metalúrgica Andromeda Ltda.</div>
-            <div class="date-location" id="job4-date">Fevereiro 2006 - Março 2012 (6 anos 2 meses) | Mauá, SP, Brasil</div>
+            <div class="company">Metalurgica Andromeda Ltda.</div>
+            <div class="date-location" id="job4-date">Fev 2006 - Mar 2012 (6 anos) | Maua, SP, Brasil</div>
             <div class="description" id="job4-desc">
                 <ul>
-                    <li>Gestão do sistema ERP, incluindo parametrizações, customizações e suporte aos usuários</li>
-                    <li>Atuação em compras e suporte à documentação da área comercial</li>
-                    <li>Melhoria de fluxos e processos internos</li>
-                    <li>Evolução de Auxiliar Administrativo a Analista de Sistemas ao longo de 6 anos</li>
+                    <li>Gestao do sistema ERP, parametrizacoes e suporte aos usuarios</li>
+                    <li>Evolucao de Auxiliar Administrativo a Analista de Sistemas ao longo de 6 anos</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-title" id="education-title">Formação Acadêmica</div>
+    <div class="two-columns">
+        <div>
+            <div class="section">
+                <div class="section-title" id="education-title">Formacao Academica</div>
+                <div class="education-item">
+                    <div class="job-title" id="edu1-title">Ciencias Contabeis</div>
+                    <div class="company">FECAP</div>
+                    <div class="date-location" id="edu1-date">2013 - 2015 | Sao Paulo</div>
+                </div>
+                <div class="education-item">
+                    <div class="job-title" id="edu2-title">Administracao Financeira</div>
+                    <div class="company">Universidade Metodista de Sao Paulo</div>
+                    <div class="date-location" id="edu2-date">2007 - 2011 | Sao Bernardo do Campo</div>
+                </div>
+                <div class="education-item">
+                    <div class="job-title" id="edu3-title">Analise de Dados com SQL</div>
+                    <div class="company">DataCamp (online)</div>
+                    <div class="date-location" id="edu3-date">Em andamento</div>
+                </div>
+            </div>
 
-        <div class="education-item">
-            <div class="job-title" id="edu1-title">Ciências Contábeis</div>
-            <div class="company">FECAP - Fundação Escola de Comércio Álvares Penteado</div>
-            <div class="date-location" id="edu1-date">2013 - 2015 | São Paulo, SP, Brasil</div>
+            <div class="section">
+                <div class="section-title" id="certifications-title">Certificacoes</div>
+                <div class="certifications" id="certifications-content">
+                    <div class="cert-item"><strong>CRC Brasil</strong> - Registro profissional</div>
+                </div>
+            </div>
         </div>
 
-        <div class="education-item">
-            <div class="job-title" id="edu2-title">Administração Financeira</div>
-            <div class="company">Universidade Metodista de São Paulo</div>
-            <div class="date-location" id="edu2-date">2007 - 2011 | São Bernardo do Campo, SP, Brasil</div>
-        </div>
+        <div>
+            <div class="section">
+                <div class="section-title" id="skills-title">Competencias Tecnicas</div>
+                <div class="objective" id="skills-content">
+                    Controles Internos SOx/ITGC, Auditoria Financeira, Gestao de Riscos, Segregacao de Funcoes. Experiencia com sistemas ERP, Excel avancado, mapeamento de processos. SQL e analise de dados em desenvolvimento.
+                </div>
+            </div>
 
-        <div class="education-item">
-            <div class="job-title" id="edu3-title">Análise de Dados com SQL</div>
-            <div class="company">DataCamp (online)</div>
-            <div class="date-location" id="edu3-date">Em andamento</div>
-        </div>
-    </div>
+            <div class="section">
+                <div class="section-title" id="languages-title">Idiomas</div>
+                <div class="languages" id="languages-content">
+                    <div class="language-item"><strong>Portugues:</strong> Nativo</div>
+                    <div class="language-item"><strong>Ingles:</strong> B1</div>
+                    <div class="language-item"><strong>Espanhol:</strong> B1</div>
+                </div>
+            </div>
 
-    <div class="section">
-        <div class="section-title" id="skills-title">Competências Técnicas</div>
-        <div class="objective" id="skills-content">
-            Controles Internos SOx/ITGC, Auditoria Financeira, Gestão de Riscos e Segregação de Funções. Experiência prática com sistemas ERP, Excel avançado e mapeamento de processos. Atualmente desenvolvendo habilidades em SQL e análise de dados.
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title" id="certifications-title">Certificações</div>
-        <div class="certifications" id="certifications-content">
-            <div class="cert-item"><strong>CRC Brasil</strong> - Registro profissional</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title" id="languages-title">Idiomas</div>
-        <div class="languages" id="languages-content">
-            <div class="language-item"><strong>Português:</strong> Nativo</div>
-            <div class="language-item"><strong>Inglês:</strong> B1 funcional, em aprimoramento</div>
-            <div class="language-item"><strong>Espanhol:</strong> B1, em aprimoramento</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title" id="additional-title">Informações Adicionais</div>
-        <div class="description" id="additional-content">
-            <ul>
-                <li><strong>Disponibilidade:</strong> Imediata para posições remotas, híbridas ou presenciais</li>
-                <li><strong>Nacionalidade:</strong> Espanhola (cidadão da União Europeia)</li>
-                <li><strong>Foco:</strong> Auditoria, Controles Internos e Gestão de Riscos. Também aberto a posições administrativas ou de Análise de Dados.</li>
-            </ul>
+            <div class="section">
+                <div class="section-title" id="additional-title">Informacoes Adicionais</div>
+                <div class="description" id="additional-content">
+                    <ul>
+                        <li><strong>Disponibilidade:</strong> Imediata (remoto, hibrido ou presencial)</li>
+                        <li><strong>Nacionalidade:</strong> Espanhola (cidadao UE)</li>
+                        <li><strong>Foco:</strong> Auditoria, Controles Internos, Gestao de Riscos, Analise de Dados</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="footer-note" id="footer-note">
-        <em>Versão para impressão - Atualizado janeiro de 2026 | Versão completa: <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0;">cv.lucasmartins.work</a></strong></em>
+        <em>Versao para impressao - Atualizado janeiro de 2026 | Versao completa: <strong><a href="https://cv.lucasmartins.work" target="_blank">cv.lucasmartins.work</a></strong></em>
     </div>
 
     <script>
         const translations = {
             'pt': {
-                'header-title': 'Controles Internos, Auditoria e Gestão Empresarial. Trajetória construída entre Big Four, multinacional e empreendedorismo',
-                'phone-note': '(preferencialmente WhatsApp)',
-                'location': 'Disponível internacionalmente',
-                'availability-note': '<strong>Disponibilidade:</strong> Imediata para posições <strong>remotas/híbridas</strong> | <span id="location">Disponível internacionalmente</span> | EU Citizen (Espanha)',
+                'header-title': 'Controles Internos, Auditoria e Gestao Empresarial. Trajetoria construida entre Big Four, multinacional e empreendedorismo',
+                'phone-note': '(WhatsApp)',
+                'availability-note': '<strong>Disponibilidade:</strong> Imediata para posicoes <strong>remotas/hibridas</strong> | Disponivel internacionalmente | EU Citizen (Espanha)',
                 'profile-title': 'Perfil Profissional',
-                'profile-content': 'Comecei minha carreira em 2006, numa metalúrgica no ABC Paulista. Em 6 anos, passei de auxiliar administrativo a analista de sistemas ERP, uma escola prática de processos, compras, financeiro e tecnologia. Depois vieram 3 anos na PwC, auditando empresas como Itaú, Lenovo e Motorola. Foi onde aprendi o rigor técnico da auditoria externa e a importância de documentar bem o que se faz. Em seguida, fui para o GPA (Grupo Casino) trabalhar com controles internos de TI, executando testes SOx/ITGC e dando suporte às auditorias da Deloitte e EY. Em 2018, cofundei a Agência AO4, onde sigo até hoje cuidando de operações, financeiro e tecnologia. Tenho formação em Ciências Contábeis (FECAP) e Administração (Metodista), registro no CRC, e atualmente estudo SQL e análise de dados pelo DataCamp.',
-                'experience-title': 'Experiência Profissional',
-                'job1-title': 'Cofundador e Sócio - Responsável de Operações',
-                'job1-date': '2018 - Atual (7 anos) | São José do Rio Preto, SP, Brasil',
-                'job1-desc': '<ul><li>Cofundação e gestão da agência, com carteira de clientes estável (média de 5 anos de relacionamento)</li><li>Implementei sistema Kanban + Timesheet que permitiu acompanhar custos por projeto e identificar ineficiências</li><li>2º lugar no prêmio Agência Revelação RD Station 2022</li><li>Estruturei processos de onboarding de clientes e documentação de procedimentos internos</li><li>Responsável pelo financeiro e operações da empresa, incluindo contratos, tecnologia e controle de acessos</li></ul>',
+                'profile-content': 'Carreira iniciada em 2006 em metalurgica, evoluindo de Auxiliar Administrativo a Analista de Sistemas ERP em 6 anos. Experiencia em auditoria externa na PwC (3 anos) e controles internos SOx/ITGC no GPA - Grupo Casino (2 anos). Desde 2018, cofundador e responsavel por operacoes na Agencia AO4. Formacao em Ciencias Contabeis (FECAP) e Administracao (Metodista), com registro CRC ativo. Atualmente estudando SQL e analise de dados.',
+                'experience-title': 'Experiencia Profissional',
+                'job1-title': 'Cofundador e Socio - Responsavel de Operacoes',
+                'job1-date': '2018 - Atual (7 anos) | Sao Jose do Rio Preto, SP, Brasil',
+                'job1-desc': '<ul><li>Gestao da agencia com carteira de clientes estavel (media de 5 anos de relacionamento)</li><li>Implementacao de sistema Kanban + Timesheet para controle de custos por projeto</li><li>2o lugar no premio Agencia Revelacao RD Station 2022</li><li>Responsavel pelo financeiro, operacoes, contratos e tecnologia</li></ul>',
                 'job2-title': 'Analista - Controles Internos de Tecnologia (SOx/ITGC)',
-                'job2-date': 'Agosto 2016 - Maio 2018 (1 ano 10 meses) | São Paulo, Brasil',
-                'job2-desc': '<ul><li>Execução de testes SOx/ITGC em ambiente multinacional</li><li>Testes de gestão de acessos, concessão/revogação, acessos privilegiados, segurança da informação e desenvolvimento de sistemas</li><li>Elaboração e atualização de testes de interface entre sistemas</li><li>Solicitação de evidências e walkthroughs diretamente com áreas de TI</li><li>Documentação de processos, fluxos e matrizes de riscos e controles</li><li>Suporte às auditorias externas (Deloitte, EY)</li><li>Orientação às áreas de TI sobre cultura de riscos e controles</li></ul>',
+                'job2-date': 'Ago 2016 - Mai 2018 (1 ano 10 meses) | Sao Paulo, Brasil',
+                'job2-desc': '<ul><li>Execucao de testes SOx/ITGC: gestao de acessos, seguranca da informacao, desenvolvimento de sistemas</li><li>Documentacao de processos, fluxos e matrizes de riscos e controles</li><li>Suporte as auditorias externas (Deloitte, EY) e orientacao a areas de TI</li></ul>',
                 'job3-title': 'Auditor Externo',
-                'job3-date': 'Julho 2013 - Junho 2016 (3 anos) | São Paulo, Brasil',
-                'job3-desc': '<ul><li>Auditorias financeiras em clientes como Itaú, Lenovo, Motorola e Abril Comunicações</li><li>Elaboração de planejamento de auditoria</li><li>Levantamento, mapeamento e formalização de Controles Internos das empresas auditadas</li><li>Testes substantivos: vouching, recálculos, confirmações e análise de conciliações</li><li>Revisão analítica de Balanço Patrimonial e DRE</li><li>Acompanhamento, revisão e validação de Reporting Package</li><li>Revisões de relatórios de auditoria e pareceres (IFRS/BRGAAP)</li></ul>',
+                'job3-date': 'Jul 2013 - Jun 2016 (3 anos) | Sao Paulo, Brasil',
+                'job3-desc': '<ul><li>Auditorias financeiras em clientes como Itau, Lenovo, Motorola e Abril Comunicacoes</li><li>Levantamento e formalizacao de Controles Internos, testes substantivos e revisao analitica</li><li>Revisoes de relatorios e pareceres sobre demonstracoes financeiras (IFRS/BRGAAP)</li></ul>',
                 'job4-title': 'Analista de Sistemas ERP',
-                'job4-date': 'Fevereiro 2006 - Março 2012 (6 anos 2 meses) | Mauá, SP, Brasil',
-                'job4-desc': '<ul><li>Gestão do sistema ERP, incluindo parametrizações, customizações e suporte aos usuários</li><li>Atuação em compras e suporte à documentação da área comercial</li><li>Melhoria de fluxos e processos internos</li><li>Evolução de Auxiliar Administrativo a Analista de Sistemas ao longo de 6 anos</li></ul>',
-                'education-title': 'Formação Acadêmica',
-                'edu1-title': 'Ciências Contábeis',
-                'edu1-date': '2013 - 2015 | São Paulo, SP, Brasil',
-                'edu2-title': 'Administração Financeira',
-                'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brasil',
-                'edu3-title': 'Análise de Dados com SQL',
+                'job4-date': 'Fev 2006 - Mar 2012 (6 anos) | Maua, SP, Brasil',
+                'job4-desc': '<ul><li>Gestao do sistema ERP, parametrizacoes e suporte aos usuarios</li><li>Evolucao de Auxiliar Administrativo a Analista de Sistemas ao longo de 6 anos</li></ul>',
+                'education-title': 'Formacao Academica',
+                'edu1-title': 'Ciencias Contabeis',
+                'edu1-date': '2013 - 2015 | Sao Paulo',
+                'edu2-title': 'Administracao Financeira',
+                'edu2-date': '2007 - 2011 | Sao Bernardo do Campo',
+                'edu3-title': 'Analise de Dados com SQL',
                 'edu3-date': 'Em andamento',
-                'skills-title': 'Competências Técnicas',
-                'skills-content': 'Controles Internos SOx/ITGC, Auditoria Financeira, Gestão de Riscos e Segregação de Funções. Experiência prática com sistemas ERP, Excel avançado e mapeamento de processos. Atualmente desenvolvendo habilidades em SQL e análise de dados.',
-                'certifications-title': 'Certificações',
+                'skills-title': 'Competencias Tecnicas',
+                'skills-content': 'Controles Internos SOx/ITGC, Auditoria Financeira, Gestao de Riscos, Segregacao de Funcoes. Experiencia com sistemas ERP, Excel avancado, mapeamento de processos. SQL e analise de dados em desenvolvimento.',
+                'certifications-title': 'Certificacoes',
                 'certifications-content': '<div class="cert-item"><strong>CRC Brasil</strong> - Registro profissional</div>',
                 'languages-title': 'Idiomas',
-                'languages-content': '<div class="language-item"><strong>Português:</strong> Nativo</div><div class="language-item"><strong>Inglês:</strong> B1 funcional, em aprimoramento</div><div class="language-item"><strong>Espanhol:</strong> B1, em aprimoramento</div>',
-                'additional-title': 'Informações Adicionais',
-                'additional-content': '<ul><li><strong>Disponibilidade:</strong> Imediata para posições remotas, híbridas ou presenciais</li><li><strong>Nacionalidade:</strong> Espanhola (cidadão da União Europeia)</li><li><strong>Foco:</strong> Auditoria, Controles Internos e Gestão de Riscos. Também aberto a posições administrativas ou de Análise de Dados.</li></ul>',
-                'footer-note': '<em>Versão para impressão - Atualizado janeiro de 2026 | Versão completa: <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0;">cv.lucasmartins.work</a></strong></em>'
+                'languages-content': '<div class="language-item"><strong>Portugues:</strong> Nativo</div><div class="language-item"><strong>Ingles:</strong> B1</div><div class="language-item"><strong>Espanhol:</strong> B1</div>',
+                'additional-title': 'Informacoes Adicionais',
+                'additional-content': '<ul><li><strong>Disponibilidade:</strong> Imediata (remoto, hibrido ou presencial)</li><li><strong>Nacionalidade:</strong> Espanhola (cidadao UE)</li><li><strong>Foco:</strong> Auditoria, Controles Internos, Gestao de Riscos, Analise de Dados</li></ul>',
+                'footer-note': '<em>Versao para impressao - Atualizado janeiro de 2026 | Versao completa: <strong><a href="https://cv.lucasmartins.work" target="_blank">cv.lucasmartins.work</a></strong></em>'
             },
             'es': {
-                'header-title': 'Controles Internos, Auditoría y Gestión Empresarial. Trayectoria construida entre Big Four, multinacional y emprendimiento',
-                'phone-note': '(preferiblemente WhatsApp)',
-                'location': 'Disponible internacionalmente',
-                'availability-note': '<strong>Disponibilidad:</strong> Inmediata para posiciones <strong>remotas/híbridas</strong> | <span id="location">Disponible internacionalmente</span> | Ciudadano UE (España)',
+                'header-title': 'Controles Internos, Auditoria y Gestion Empresarial. Trayectoria construida entre Big Four, multinacional y emprendimiento',
+                'phone-note': '(WhatsApp)',
+                'availability-note': '<strong>Disponibilidad:</strong> Inmediata para posiciones <strong>remotas/hibridas</strong> | Disponible internacionalmente | Ciudadano UE (Espana)',
                 'profile-title': 'Perfil Profesional',
-                'profile-content': 'Empecé mi carrera en 2006, en una metalúrgica en la región del ABC Paulista, Brasil. En 6 años, pasé de auxiliar administrativo a analista de sistemas ERP, una escuela práctica de procesos, compras, finanzas y tecnología. Después vinieron 3 años en PwC, auditando empresas como Itaú, Lenovo y Motorola. Fue donde aprendí el rigor técnico de la auditoría externa y la importancia de documentar bien lo que se hace. Luego fui al GPA (Grupo Casino) para trabajar con controles internos de TI, ejecutando pruebas SOx/ITGC y dando soporte a las auditorías de Deloitte y EY. En 2018, cofundé la Agencia AO4, donde sigo hasta hoy gestionando operaciones, finanzas y tecnología. Tengo formación en Ciencias Contables (FECAP, São Paulo) y Administración (Metodista, São Paulo), registro profesional CRC, y actualmente estudio SQL y análisis de datos en DataCamp.',
+                'profile-content': 'Carrera iniciada en 2006 en metalurgica, evolucionando de Auxiliar Administrativo a Analista de Sistemas ERP en 6 anos. Experiencia en auditoria externa en PwC (3 anos) y controles internos SOx/ITGC en GPA - Grupo Casino (2 anos). Desde 2018, cofundador y responsable de operaciones en Agencia AO4. Formacion en Ciencias Contables (FECAP) y Administracion (Metodista), con registro CRC activo. Actualmente estudiando SQL y analisis de datos.',
                 'experience-title': 'Experiencia Profesional',
                 'job1-title': 'Cofundador y Socio - Responsable de Operaciones',
-                'job1-date': '2018 - Presente (7 años) | São José do Rio Preto, SP, Brasil',
-                'job1-desc': '<ul><li>Cofundación y gestión de la agencia, con cartera de clientes estable (promedio de 5 años de relación)</li><li>Implementé sistema Kanban + Timesheet que permitió acompañar costos por proyecto e identificar ineficiencias</li><li>2º lugar en el premio Agencia Revelación RD Station 2022</li><li>Estructuré procesos de onboarding de clientes y documentación de procedimientos internos</li><li>Responsable del financiero y operaciones de la empresa, incluyendo contratos, tecnología y control de accesos</li></ul>',
-                'job2-title': 'Analista - Controles Internos de Tecnología (SOx/ITGC)',
-                'job2-date': 'Agosto 2016 - Mayo 2018 (1 año 10 meses) | São Paulo, Brasil',
-                'job2-desc': '<ul><li>Ejecución de pruebas SOx/ITGC en ambiente multinacional</li><li>Pruebas de gestión de accesos, concesión/revocación, accesos privilegiados, seguridad de la información y desarrollo de sistemas</li><li>Elaboración y actualización de pruebas de interfaz entre sistemas</li><li>Solicitud de evidencias y walkthroughs directamente con áreas de TI</li><li>Documentación de procesos, flujos y matrices de riesgos y controles</li><li>Soporte a las auditorías externas (Deloitte, EY)</li><li>Orientación a las áreas de TI sobre cultura de riesgos y controles</li></ul>',
+                'job1-date': '2018 - Presente (7 anos) | Sao Jose do Rio Preto, SP, Brasil',
+                'job1-desc': '<ul><li>Gestion de la agencia con cartera de clientes estable (promedio de 5 anos de relacion)</li><li>Implementacion de sistema Kanban + Timesheet para control de costos por proyecto</li><li>2o lugar en el premio Agencia Revelacion RD Station 2022</li><li>Responsable del financiero, operaciones, contratos y tecnologia</li></ul>',
+                'job2-title': 'Analista - Controles Internos de Tecnologia (SOx/ITGC)',
+                'job2-date': 'Ago 2016 - May 2018 (1 ano 10 meses) | Sao Paulo, Brasil',
+                'job2-desc': '<ul><li>Ejecucion de pruebas SOx/ITGC: gestion de accesos, seguridad de la informacion, desarrollo de sistemas</li><li>Documentacion de procesos, flujos y matrices de riesgos y controles</li><li>Soporte a auditorias externas (Deloitte, EY) y orientacion a areas de TI</li></ul>',
                 'job3-title': 'Auditor Externo',
-                'job3-date': 'Julio 2013 - Junio 2016 (3 años) | São Paulo, Brasil',
-                'job3-desc': '<ul><li>Auditorías financieras en clientes como Itaú, Lenovo, Motorola y Abril Comunicações</li><li>Elaboración de planificación de auditoría</li><li>Levantamiento, mapeo y formalización de Controles Internos de las empresas auditadas</li><li>Pruebas sustantivas: vouching, recálculos, confirmaciones y análisis de conciliaciones</li><li>Revisión analítica de Balance y Estado de Resultados</li><li>Acompañamiento, revisión y validación de Reporting Package</li><li>Revisiones de informes de auditoría y dictámenes (IFRS/BRGAAP)</li></ul>',
+                'job3-date': 'Jul 2013 - Jun 2016 (3 anos) | Sao Paulo, Brasil',
+                'job3-desc': '<ul><li>Auditorias financieras en clientes como Itau, Lenovo, Motorola y Abril Comunicacoes</li><li>Levantamiento y formalizacion de Controles Internos, pruebas sustantivas y revision analitica</li><li>Revisiones de informes y dictamenes sobre estados financieros (IFRS/BRGAAP)</li></ul>',
                 'job4-title': 'Analista de Sistemas ERP',
-                'job4-date': 'Febrero 2006 - Marzo 2012 (6 años 2 meses) | Mauá, SP, Brasil',
-                'job4-desc': '<ul><li>Gestión del sistema ERP, incluyendo parametrizaciones, personalizaciones y soporte a los usuarios</li><li>Actuación en compras y soporte a la documentación del área comercial</li><li>Mejora de flujos y procesos internos</li><li>Evolución de Auxiliar Administrativo a Analista de Sistemas a lo largo de 6 años</li></ul>',
-                'education-title': 'Formación Académica',
+                'job4-date': 'Feb 2006 - Mar 2012 (6 anos) | Maua, SP, Brasil',
+                'job4-desc': '<ul><li>Gestion del sistema ERP, parametrizaciones y soporte a los usuarios</li><li>Evolucion de Auxiliar Administrativo a Analista de Sistemas a lo largo de 6 anos</li></ul>',
+                'education-title': 'Formacion Academica',
                 'edu1-title': 'Ciencias Contables',
-                'edu1-date': '2013 - 2015 | São Paulo, SP, Brasil',
-                'edu2-title': 'Administración Financiera',
-                'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brasil',
-                'edu3-title': 'Análisis de Datos con SQL',
+                'edu1-date': '2013 - 2015 | Sao Paulo',
+                'edu2-title': 'Administracion Financiera',
+                'edu2-date': '2007 - 2011 | Sao Bernardo do Campo',
+                'edu3-title': 'Analisis de Datos con SQL',
                 'edu3-date': 'En curso',
-                'skills-title': 'Competencias Técnicas',
-                'skills-content': 'Controles Internos SOx/ITGC, Auditoría Financiera, Gestión de Riesgos y Segregación de Funciones. Experiencia práctica con sistemas ERP, Excel avanzado y mapeo de procesos. Actualmente desarrollando habilidades en SQL y análisis de datos.',
+                'skills-title': 'Competencias Tecnicas',
+                'skills-content': 'Controles Internos SOx/ITGC, Auditoria Financiera, Gestion de Riesgos, Segregacion de Funciones. Experiencia con sistemas ERP, Excel avanzado, mapeo de procesos. SQL y analisis de datos en desarrollo.',
                 'certifications-title': 'Certificaciones',
                 'certifications-content': '<div class="cert-item"><strong>CRC Brasil</strong> - Registro profesional</div>',
                 'languages-title': 'Idiomas',
-                'languages-content': '<div class="language-item"><strong>Portugués:</strong> Nativo</div><div class="language-item"><strong>Inglés:</strong> B1 funcional, en mejora</div><div class="language-item"><strong>Español:</strong> B1, en mejora</div>',
-                'additional-title': 'Información Adicional',
-                'additional-content': '<ul><li><strong>Disponibilidad:</strong> Inmediata para posiciones remotas, híbridas o presenciales</li><li><strong>Nacionalidad:</strong> Española (ciudadano de la Unión Europea)</li><li><strong>Enfoque:</strong> Auditoría, Controles Internos y Gestión de Riesgos. También abierto a posiciones administrativas o de Análisis de Datos.</li></ul>',
-                'footer-note': '<em>Versión para impresión - Actualizado enero de 2026 | Versión completa: <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0;">cv.lucasmartins.work</a></strong></em>'
+                'languages-content': '<div class="language-item"><strong>Portugues:</strong> Nativo</div><div class="language-item"><strong>Ingles:</strong> B1</div><div class="language-item"><strong>Espanol:</strong> B1</div>',
+                'additional-title': 'Informacion Adicional',
+                'additional-content': '<ul><li><strong>Disponibilidad:</strong> Inmediata (remoto, hibrido o presencial)</li><li><strong>Nacionalidad:</strong> Espanola (ciudadano UE)</li><li><strong>Enfoque:</strong> Auditoria, Controles Internos, Gestion de Riesgos, Analisis de Datos</li></ul>',
+                'footer-note': '<em>Version para impresion - Actualizado enero de 2026 | Version completa: <strong><a href="https://cv.lucasmartins.work" target="_blank">cv.lucasmartins.work</a></strong></em>'
             },
             'en': {
                 'header-title': 'Internal Controls, Audit and Business Management. Career built across Big Four, multinational and entrepreneurship',
-                'phone-note': '(preferably WhatsApp)',
-                'location': 'Available internationally',
-                'availability-note': '<strong>Availability:</strong> Immediate for <strong>remote/hybrid</strong> positions | <span id="location">Available internationally</span> | EU Citizen (Spain)',
+                'phone-note': '(WhatsApp)',
+                'availability-note': '<strong>Availability:</strong> Immediate for <strong>remote/hybrid</strong> positions | Available internationally | EU Citizen (Spain)',
                 'profile-title': 'Professional Profile',
-                'profile-content': 'I started my career in 2006 at a metallurgical company in the ABC Paulista region, Brazil. Over 6 years, I went from administrative assistant to ERP systems analyst, a hands-on school in processes, purchasing, finance, and technology. Then came 3 years at PwC, auditing companies like Itaú, Lenovo, and Motorola. That is where I learned the technical rigor of external audit and the importance of proper documentation. After that, I joined GPA (Casino Group) to work with IT internal controls, running SOx/ITGC tests and supporting audits by Deloitte and EY. In 2018, I co-founded Agência AO4, where I still manage operations, finance, and technology. I have degrees in Accounting (FECAP, São Paulo) and Business Administration (Metodista, São Paulo), a CRC professional registration, and I am currently studying SQL and data analysis on DataCamp.',
+                'profile-content': 'Career started in 2006 at a metallurgical company, evolving from Administrative Assistant to ERP Systems Analyst in 6 years. Experience in external audit at PwC (3 years) and SOx/ITGC internal controls at GPA - Casino Group (2 years). Since 2018, co-founder and operations manager at Agencia AO4. Degrees in Accounting (FECAP) and Business Administration (Metodista), with active CRC registration. Currently studying SQL and data analysis.',
                 'experience-title': 'Professional Experience',
                 'job1-title': 'Co-founder and Partner - Operations Manager',
-                'job1-date': '2018 - Present (7 years) | São José do Rio Preto, SP, Brazil',
-                'job1-desc': '<ul><li>Co-founding and management of the agency, with stable client portfolio (average of 5 years relationship)</li><li>Implemented Kanban + Timesheet system that enabled tracking costs per project and identifying inefficiencies</li><li>2nd place at RD Station Breakthrough Agency Award 2022</li><li>Structured client onboarding processes and internal procedures documentation</li><li>Responsible for finance and operations, including contracts, technology and access control</li></ul>',
+                'job1-date': '2018 - Present (7 years) | Sao Jose do Rio Preto, SP, Brazil',
+                'job1-desc': '<ul><li>Agency management with stable client portfolio (average 5 years relationship)</li><li>Implementation of Kanban + Timesheet system for project cost control</li><li>2nd place at RD Station Breakthrough Agency Award 2022</li><li>Responsible for finance, operations, contracts and technology</li></ul>',
                 'job2-title': 'Analyst - Technology Internal Controls (SOx/ITGC)',
-                'job2-date': 'August 2016 - May 2018 (1 year 10 months) | São Paulo, Brazil',
-                'job2-desc': '<ul><li>Execution of SOx/ITGC tests in multinational environment</li><li>Access management, granting/revocation, privileged access, information security and system development testing</li><li>Development and update of interface tests between systems</li><li>Evidence requests and walkthroughs directly with IT areas</li><li>Documentation of processes, flows and risk and control matrices</li><li>Support to external audits (Deloitte, EY)</li><li>Guidance to IT areas on risk and control culture</li></ul>',
+                'job2-date': 'Aug 2016 - May 2018 (1 year 10 months) | Sao Paulo, Brazil',
+                'job2-desc': '<ul><li>Execution of SOx/ITGC tests: access management, information security, system development</li><li>Documentation of processes, flows and risk and control matrices</li><li>Support to external audits (Deloitte, EY) and guidance to IT areas</li></ul>',
                 'job3-title': 'External Auditor',
-                'job3-date': 'July 2013 - June 2016 (3 years) | São Paulo, Brazil',
-                'job3-desc': '<ul><li>Financial audits for clients such as Itaú, Lenovo, Motorola and Abril Comunicações</li><li>Audit planning preparation</li><li>Survey, mapping and formalization of Internal Controls of audited companies</li><li>Substantive tests: vouching, recalculations, confirmations and reconciliation analysis</li><li>Analytical review of Balance Sheet and Income Statement</li><li>Follow-up, review and validation of Reporting Package</li><li>Reviews of audit reports and opinions (IFRS/BRGAAP)</li></ul>',
+                'job3-date': 'Jul 2013 - Jun 2016 (3 years) | Sao Paulo, Brazil',
+                'job3-desc': '<ul><li>Financial audits for clients such as Itau, Lenovo, Motorola and Abril Comunicacoes</li><li>Internal Controls survey and formalization, substantive tests and analytical review</li><li>Reviews of audit reports and opinions on financial statements (IFRS/BRGAAP)</li></ul>',
                 'job4-title': 'ERP Systems Analyst',
-                'job4-date': 'February 2006 - March 2012 (6 years 2 months) | Mauá, SP, Brazil',
-                'job4-desc': '<ul><li>ERP system management, including parameterizations, customizations and user support</li><li>Work in purchasing and support to commercial area documentation</li><li>Improvement of internal flows and processes</li><li>Evolution from Administrative Assistant to Systems Analyst over 6 years</li></ul>',
+                'job4-date': 'Feb 2006 - Mar 2012 (6 years) | Maua, SP, Brazil',
+                'job4-desc': '<ul><li>ERP system management, parameterizations and user support</li><li>Evolution from Administrative Assistant to Systems Analyst over 6 years</li></ul>',
                 'education-title': 'Education',
                 'edu1-title': 'Accounting',
-                'edu1-date': '2013 - 2015 | São Paulo, SP, Brazil',
+                'edu1-date': '2013 - 2015 | Sao Paulo',
                 'edu2-title': 'Business Administration',
-                'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brazil',
+                'edu2-date': '2007 - 2011 | Sao Bernardo do Campo',
                 'edu3-title': 'Data Analysis with SQL',
                 'edu3-date': 'Ongoing',
                 'skills-title': 'Technical Skills',
-                'skills-content': 'SOx/ITGC Internal Controls, Financial Audit, Risk Management and Segregation of Duties. Practical experience with ERP systems, advanced Excel and process mapping. Currently developing skills in SQL and data analysis.',
+                'skills-content': 'SOx/ITGC Internal Controls, Financial Audit, Risk Management, Segregation of Duties. Experience with ERP systems, advanced Excel, process mapping. SQL and data analysis in development.',
                 'certifications-title': 'Certifications',
                 'certifications-content': '<div class="cert-item"><strong>CRC Brazil</strong> - Professional registration</div>',
                 'languages-title': 'Languages',
-                'languages-content': '<div class="language-item"><strong>Portuguese:</strong> Native</div><div class="language-item"><strong>English:</strong> Functional B1, improving</div><div class="language-item"><strong>Spanish:</strong> B1, improving</div>',
+                'languages-content': '<div class="language-item"><strong>Portuguese:</strong> Native</div><div class="language-item"><strong>English:</strong> B1</div><div class="language-item"><strong>Spanish:</strong> B1</div>',
                 'additional-title': 'Additional Information',
-                'additional-content': '<ul><li><strong>Availability:</strong> Immediate for remote, hybrid or on-site positions</li><li><strong>Nationality:</strong> Spanish (European Union citizen)</li><li><strong>Focus:</strong> Audit, Internal Controls and Risk Management. Also open to administrative or Data Analysis positions.</li></ul>',
-                'footer-note': '<em>Print version - Updated January 2026 | Full version: <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0;">cv.lucasmartins.work</a></strong></em>'
+                'additional-content': '<ul><li><strong>Availability:</strong> Immediate (remote, hybrid or on-site)</li><li><strong>Nationality:</strong> Spanish (EU citizen)</li><li><strong>Focus:</strong> Audit, Internal Controls, Risk Management, Data Analysis</li></ul>',
+                'footer-note': '<em>Print version - Updated January 2026 | Full version: <strong><a href="https://cv.lucasmartins.work" target="_blank">cv.lucasmartins.work</a></strong></em>'
             }
         };
 
         function changeLanguage() {
             const lang = document.getElementById('languageSelect').value;
             const langData = translations[lang];
-            
+
             for (const key in langData) {
                 const element = document.getElementById(key);
                 if (element) {
@@ -542,18 +519,22 @@
             }
         }
 
-        // DETECTA IDIOMA DA URL E APLICA AUTOMATICAMENTE (padrão: espanhol)
         function applyLanguageFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const lang = urlParams.get('lang') || 'es';
+            const showPhoto = urlParams.get('photo') === 'true';
 
             if (translations[lang]) {
                 document.getElementById('languageSelect').value = lang;
                 changeLanguage();
             }
+
+            // Mostrar foto se parametro photo=true
+            if (showPhoto) {
+                document.getElementById('photo-container').classList.add('show');
+            }
         }
 
-        // Executar ao carregar a página
         document.addEventListener('DOMContentLoaded', applyLanguageFromURL);
     </script>
 </body>
