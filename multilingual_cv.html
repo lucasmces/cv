@@ -726,8 +726,8 @@
         }
 
         function printCV() {
-            const currentLang = document.getElementById('languageSelect').value;
             const urlParams = new URLSearchParams(window.location.search);
+            const currentLang = urlParams.get('lang') || document.querySelector('.lang-btn.active')?.dataset.lang || 'es';
             const showPhoto = urlParams.get('photo') === 'true';
             const photoParam = showPhoto ? '&photo=true' : '';
             const printWindow = window.open(`multilingual_cv_print.html?lang=${currentLang}${photoParam}`, '_blank');
