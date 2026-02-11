@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="{{IDIOMA}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{NOME}} - CV</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.35;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 8mm;
+            background: white;
+            font-size: 11px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            border-bottom: 2px solid #2c5aa0;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .header-info {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 2px;
+        }
+
+        .title {
+            font-size: 10px;
+            color: #555;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 9px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .availability-note {
+            margin-top: 4px;
+            font-size: 9px;
+            font-style: italic;
+            color: #555;
+            background: #f5f7fa;
+            padding: 3px 6px;
+            border-radius: 2px;
+            border-left: 2px solid #2c5aa0;
+        }
+
+        .section {
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: #2c5aa0;
+            border-bottom: 1px solid #2c5aa0;
+            padding-bottom: 2px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 6px;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 10px;
+        }
+
+        .company {
+            color: #2c5aa0;
+            font-weight: bold;
+            font-size: 9px;
+        }
+
+        .date-location {
+            color: #666;
+            font-size: 9px;
+            margin-bottom: 2px;
+        }
+
+        .description {
+            font-size: 9px;
+            line-height: 1.35;
+        }
+
+        .description ul {
+            margin: 2px 0;
+            padding-left: 12px;
+        }
+
+        .description li {
+            margin-bottom: 1px;
+        }
+
+        .objective {
+            background: #f5f7fa;
+            padding: 5px 8px;
+            border-radius: 3px;
+            border-left: 2px solid #2c5aa0;
+            font-size: 9px;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .languages {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background: #f5f7fa;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 9px;
+            border: 1px solid #ddd;
+        }
+
+        .certifications {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .cert-item {
+            background: #e8f0f8;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 9px;
+            border: 1px solid #2c5aa0;
+        }
+
+        .footer-note {
+            margin-top: 8px;
+            border-top: 1px solid #ddd;
+            padding-top: 5px;
+            font-size: 8px;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+        }
+
+        .footer-note a {
+            color: #2c5aa0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-info">
+            <div class="name">{{NOME}}</div>
+            <div class="title">{{TITULO_PROFISSIONAL}}</div>
+            <div class="contact-info">
+                <span><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></span>
+                <span><a href="https://wa.me/{{TELEFONE_LINK}}" target="_blank">{{TELEFONE}}</a></span>
+                <span><a href="https://linkedin.com/in/{{LINKEDIN_USER}}" target="_blank">{{LINKEDIN}}</a></span>
+            </div>
+            <div class="availability-note">
+                {{DISPONIBILIDADE}}
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">{{TITULO_SECAO_PERFIL}}</div>
+        <div class="objective">
+            {{PERFIL}}
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">{{TITULO_SECAO_EXPERIENCIA}}</div>
+
+        {{EXPERIENCIAS}}
+        <!--
+        Repetir este bloco para cada experiência:
+
+        <div class="experience-item">
+            <div class="job-title">{{CARGO}}</div>
+            <div class="company">{{EMPRESA}}</div>
+            <div class="date-location">{{PERIODO}}</div>
+            <div class="description">
+                {{DESCRICAO}}
+            </div>
+        </div>
+        -->
+    </div>
+
+    <div class="section page-break">
+        <div class="section-title">{{TITULO_SECAO_EDUCACAO}}</div>
+
+        {{EDUCACAO}}
+        <!--
+        Repetir este bloco para cada formação:
+
+        <div class="education-item">
+            <div class="job-title">{{CURSO}}</div>
+            <div class="company"><span>{{INSTITUICAO}}</span> <span style="font-weight: normal; font-style: italic;">{{CONTEXTO_INSTITUICAO}}</span></div>
+            <div class="date-location">{{PERIODO_EDU}}</div>
+        </div>
+        -->
+    </div>
+
+    <div class="section">
+        <div class="section-title">{{TITULO_SECAO_COMPETENCIAS}}</div>
+        <div class="objective">
+            {{COMPETENCIAS}}
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">{{TITULO_SECAO_CERTIFICACOES}}</div>
+        <div class="certifications">
+            {{CERTIFICACOES}}
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">{{TITULO_SECAO_IDIOMAS}}</div>
+        <div class="languages">
+            {{IDIOMAS}}
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">{{TITULO_SECAO_INFO_ADICIONAL}}</div>
+        <div class="description">
+            {{INFO_ADICIONAL}}
+        </div>
+    </div>
+
+    <div class="footer-note">
+        {{FOOTER}}
+    </div>
+</body>
+</html>
