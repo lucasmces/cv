@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Lucas Martins Cespedes</title>
-    <meta name="description" content="CV de Lucas Martins Cespedes - Controles Internos, Auditoría y Gestión Empresarial. Experiencia en Big Four (PwC), multinacional (GPA/Casino) y emprendimiento.">
-    <meta name="keywords" content="CV, currículum, Lucas Martins, controles internos, auditoría, SOx, ITGC, PwC, GPA, contador">
+    <meta name="description" content="CV de Lucas Martins Cespedes - Auditoria, Controles Internos SOx/ITGC e Finanças Corporativas.">
+    <meta name="keywords" content="CV, currículum, Lucas Martins, controles internos, auditoría, SOx, ITGC, PwC, GPA, contador, finanzas corporativas">
     <meta name="author" content="Lucas Martins Cespedes">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cv.lucasmartins.work/">
     <meta property="og:title" content="CV - Lucas Martins Cespedes">
-    <meta property="og:description" content="Controles Internos, Auditoría y Gestión Empresarial. Experiencia en Big Four, multinacional y emprendimiento.">
+    <meta property="og:description" content="Auditoria, Controles Internos SOx/ITGC e Finanças Corporativas.">
     <meta property="og:image" content="https://i.imgur.com/Dy6VyYn.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary">
     <meta property="twitter:url" content="https://cv.lucasmartins.work/">
     <meta property="twitter:title" content="CV - Lucas Martins Cespedes">
-    <meta property="twitter:description" content="Controles Internos, Auditoría y Gestión Empresarial. Experiencia en Big Four, multinacional y emprendimiento.">
+    <meta property="twitter:description" content="Auditoria, Controles Internos SOx/ITGC e Finanças Corporativas.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%232c5aa0' width='100' height='100' rx='15'/><text x='50' y='65' font-family='Arial' font-size='45' font-weight='bold' fill='white' text-anchor='middle'>LM</text></svg>">
@@ -33,7 +33,7 @@
             padding: 15mm;
             background: white;
         }
-        
+
         .language-selector {
             position: fixed;
             top: 20px;
@@ -77,7 +77,7 @@
             border-color: rgba(255,255,255,0.5);
         }
 
-        /* Animação suave na troca de idioma */
+        /* Animacao suave na troca de idioma */
         .header, .section, .footer-note, .print-button-container {
             transition: opacity 0.3s ease;
         }
@@ -85,7 +85,7 @@
         .fade-out {
             opacity: 0;
         }
-        
+
         @media print {
             .language-selector {
                 display: none !important;
@@ -106,7 +106,7 @@
                 -webkit-print-color-adjust: exact;
             }
         }
-        
+
         .header {
             display: flex;
             align-items: center;
@@ -192,6 +192,12 @@
             font-weight: bold;
             font-size: 13px;
         }
+        .company-context {
+            font-size: 12px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
         .date-location {
             color: #666;
             font-size: 12px;
@@ -211,7 +217,7 @@
         }
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 15px;
         }
         .skill-category {
@@ -225,14 +231,10 @@
             margin: 0 0 8px 0;
             font-size: 13px;
         }
-        .skill-category ul {
+        .skill-category p {
             margin: 0;
-            padding-left: 15px;
             font-size: 12px;
-            list-style: none;
-        }
-        .skill-category ul li {
-            margin-bottom: 4px;
+            line-height: 1.4;
         }
         .objective {
             background: #f0f4f8;
@@ -242,22 +244,6 @@
             font-size: 13px;
             text-align: justify;
             margin-bottom: 20px;
-        }
-        .highlights {
-            background: #e8f4f8;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #2c5aa0;
-            margin-bottom: 20px;
-        }
-        .highlights ul {
-            margin: 5px 0 0 0;
-            padding-left: 20px;
-            font-size: 13px;
-        }
-        .highlights li {
-            margin-bottom: 6px;
-            line-height: 1.4;
         }
         .languages {
             display: flex;
@@ -296,12 +282,12 @@
             color: #666;
             text-align: center;
         }
-        
+
         .print-button-container {
             text-align: center;
             margin-top: 15px;
         }
-        
+
         .print-button-container button {
             background: transparent;
             border: 1px solid #999;
@@ -313,14 +299,14 @@
             font-style: italic;
             transition: all 0.3s ease;
         }
-        
+
         .print-button-container button:hover {
             background: #f8f9fa;
             border-color: #2c5aa0;
             color: #2c5aa0;
             transform: translateY(-1px);
         }
-        
+
         @media (max-width: 768px) {
             body {
                 padding: 5mm;
@@ -347,9 +333,6 @@
             }
             .contact-info {
                 justify-content: center;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr;
             }
             .languages {
                 justify-content: center;
@@ -382,109 +365,90 @@
         </div>
         <div class="header-info">
             <div class="name">Lucas Martins Cespedes</div>
-            <div class="title" id="header-title">Controles Internos, Auditoria e Gestão Empresarial. Trajetória construída entre Big Four, multinacional e empreendedorismo</div>
+            <div class="title" id="header-title">Auditoria, Controles Internos SOx/ITGC e Finanças Corporativas</div>
             <div class="contact-info">
-                <span>📧 <a href="mailto:hello@lucasmartins.work" style="color: inherit; text-decoration: none;">hello@lucasmartins.work</a></span>
-                <span>🔗 <a href="https://wa.me/34687409930" target="_blank" style="color: inherit; text-decoration: none;">+34 687 40 99 30</a> <span id="phone-note" style="font-size: 10px; font-style: italic;">(preferencialmente WhatsApp)</span></span>
+                <span>📧 <a href="mailto:lucas.mces@proton.me" style="color: inherit; text-decoration: none;">lucas.mces@proton.me</a></span>
+                <span>🔗 <a href="https://wa.me/34687409930" target="_blank" style="color: inherit; text-decoration: none;">+34 687 409 930</a></span>
                 <span>🔗 <a href="https://linkedin.com/in/lucasmces" target="_blank" style="color: inherit; text-decoration: none;">linkedin.com/in/lucasmces</a></span>
             </div>
             <div class="availability-note" id="availability-note">
-                <strong>Disponibilidade:</strong> Imediata para posições <strong>remotas/híbridas</strong> | <span id="location">Disponível internacionalmente</span> | EU Citizen (Espanha)
+                <span id="location">Madrid e arredores, Espanha</span> · Cidadania espanhola · Cidadão da União Europeia
             </div>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-title" id="profile-title">Perfil Profissional</div>
+        <div class="section-title" id="profile-title">Resumo Profissional</div>
         <div class="objective" id="profile-content">
-            Comecei minha carreira profissional em 2006, em uma indústria metalúrgica, onde evoluí de Auxiliar Administrativo a Analista de Sistemas ERP ao longo de 6 anos. Depois passei pela auditoria contábil na PwC e por controles internos no GPA (Grupo Casino). Em 2018, cofundei a Agência AO4, onde gerencio equipe e operações há 7 anos.
+            Ao longo de 19 anos, construí minha carreira na intersecção entre números, processos e pessoas. Passei pela auditoria externa na PwC, auditando mais de 60 empresas de grande porte em setores como serviços financeiros, tecnologia, saúde e energia. Mergulhei nos controles internos SOx/ITGC do maior grupo varejista do Brasil, onde mapeei todo o ambiente de controles de TI e antecipei desvios antes que chegassem à auditoria externa. E empreendi por 7 anos, assumindo a gestão operacional e financeira de uma empresa com equipe de até 14 pessoas e mais de 200 clientes atendidos.
             <br><br>
-            Com formação em Ciências Contábeis e Administração, tenho experiência sólida em processos SOx/ITGC, gestão de riscos e governança corporativa. Na AO4, estruturei sistemas de gestão que permitiram acompanhar custos por projeto e tomar decisões baseadas em dados reais. Atualmente estudo SQL e análise de dados para complementar minha experiência em controles internos.
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title" id="highlights-title">Principais Conquistas</div>
-        <div class="highlights" id="highlights-content">
-            <ul>
-                <li>2º lugar no prêmio Agência Revelação RD Station 2022</li>
-                <li>Cofundação e gestão da Agência AO4 desde 2018, com clientes que permanecem há mais de 5 anos</li>
-                <li>Estruturação de sistema de gestão (Kanban + Timesheet) que permitiu acompanhar custos por projeto e identificar ineficiências</li>
-                <li>Execução de mais de 300 testes SOx/ITGC, identificando 40+ desvios críticos em ambiente multinacional</li>
-            </ul>
+            Esse percurso me deu uma perspectiva rara: a de quem já auditou e a de quem já geriu. Sei onde os riscos se escondem porque já os procurei como auditor — e sei por que processos falham porque já fui responsável por fazê-los funcionar. Com cidadania espanhola, busco retornar ao ambiente corporativo na Europa em auditoria, controles internos ou finanças corporativas.
         </div>
     </div>
 
     <div class="section">
         <div class="section-title" id="experience-title">Experiência Profissional</div>
-        
+
         <div class="experience-item">
-            <div class="job-title" id="job1-title">Cofundador e Sócio - Responsável de Operações</div>
-            <div class="company">Agência AO4 - Comunicação e Tecnologia</div>
-            <div class="date-location" id="job1-date">2018 - Atual (7 anos) | São José do Rio Preto, SP, Brasil</div>
+            <div class="job-title" id="job1-title">Cofundador e Sócio-Administrador</div>
+            <div class="company" id="job1-company">AO4 Comunicação e Tecnologia</div>
+            <div class="date-location" id="job1-date">Mai 2018 - Presente | São José do Rio Preto, Brasil</div>
+            <div class="company-context" id="job1-context">Empresa de comunicação e tecnologia digital. Responsável integral pela gestão operacional, financeira e estratégica do negócio.</div>
             <div class="description" id="job1-desc">
                 <ul>
-                    <li>Cofundação e gestão da agência, com carteira de clientes estável (média de 5 anos de relacionamento)</li>
-                    <li>Implementei sistema Kanban + Timesheet que permitiu acompanhar custos por projeto e identificar ineficiências</li>
-                    <li>2º lugar no prêmio Agência Revelação RD Station 2022</li>
-                    <li>Estruturei processos de onboarding de clientes e documentação de procedimentos internos</li>
-                    <li>Responsável pelo financeiro e operações da empresa, incluindo contratos, tecnologia e controle de acessos</li>
+                    <li>Estruturou a gestão financeira completa da empresa: fluxo de caixa, orçamento, DRE gerencial e análise de rentabilidade por cliente e projeto, com todas as decisões ancoradas em dados concretos.</li>
+                    <li>Liderou equipe de até 14 funcionários, conduzindo recrutamento, desenvolvimento e alocação de recursos com foco em eficiência e resultado.</li>
+                    <li>Implementou sistema Kanban integrado a Timesheet, permitindo mapear custos por projeto, identificar gargalos operacionais e realocar esforços com mais precisão.</li>
+                    <li>Desenvolveu dashboards financeiros com KPIs estratégicos e operacionais que se tornaram a base para decisões de investimento, corte e crescimento.</li>
+                    <li>Automatizou fluxos operacionais com Zapier, Make, APIs e webhooks, eliminando tarefas manuais repetitivas e redirecionando o tempo da equipe para trabalho de maior valor.</li>
+                    <li>Administrou portfólio de aproximadamente 200 clientes ao longo da operação, com carteira ativa que chegou a 45 clientes simultâneos de fee mensal.</li>
+                    <li>Conquistou o Prêmio RD Station Agência Revelação (2022), reconhecimento nacional por desempenho comercial e performance de vendas.</li>
                 </ul>
             </div>
         </div>
 
         <div class="experience-item">
-            <div class="job-title" id="job2-title">Analista - Controles Internos de Tecnologia (SOx/ITGC)</div>
-            <div class="company">GPA (Grupo Pão de Açúcar) - Conglomerado Casino</div>
-            <div class="date-location" id="job2-date">Agosto 2016 - Maio 2018 (1 ano 10 meses) | São Paulo, Brasil</div>
+            <div class="job-title" id="job2-title">Analista de Controles Internos de TI (SOx, ITGC)</div>
+            <div class="company" id="job2-company">GPA — Grupo Pão de Açúcar</div>
+            <div class="date-location" id="job2-date">Ago 2016 - Mai 2018 | São Paulo, Brasil</div>
+            <div class="company-context" id="job2-context">Maior grupo varejista do Brasil à época, com operações multinacionais em supermercados, hipermercados, atacado e e-commerce. Auditorias externas conduzidas por EY e Deloitte; testes internos realizados pela PwC.</div>
             <div class="description" id="job2-desc">
                 <ul>
-                    <li>Execução de testes SOx/ITGC em ambiente multinacional</li>
-                    <li>Testes de gestão de acessos, concessão/revogação, acessos privilegiados, segurança da informação e desenvolvimento de sistemas</li>
-                    <li>Elaboração e atualização de testes de interface entre sistemas</li>
-                    <li>Solicitação de evidências e walkthroughs diretamente com áreas de TI</li>
-                    <li>Documentação de processos, fluxos e matrizes de riscos e controles</li>
-                    <li>Acompanhamento de planos de ação para remediação de desvios</li>
-                    <li>Suporte às auditorias externas (Deloitte, EY), incluindo controle e acompanhamento das demandas de evidências</li>
-                    <li>Avaliação de processos de change management (RFCs, aprovações)</li>
-                    <li>Orientação às áreas de TI sobre cultura de riscos e controles</li>
-                    <li>Reuniões com gestores de TI e trabalho conjunto com controladoria e contabilidade</li>
+                    <li>Executou testes SOx/ITGC em ambiente corporativo multinacional, cobrindo mais de 200 sistemas e aplicações incluindo SAP, mainframes IBM e bases SQL.</li>
+                    <li>Mapeou a totalidade dos controles ITGC em fluxograma integrado, revelando conexões entre controles e lacunas que não eram visíveis na documentação existente.</li>
+                    <li>Identificou aproximadamente 20 novos testes a partir desse mapeamento, antecipando e corrigindo desvios de forma proativa antes da chegada da auditoria externa.</li>
+                    <li>Conduziu testes de gestão de acessos (concessão, revogação, acessos privilegiados), interfaces entre sistemas e avaliação de processos de change management.</li>
+                    <li>Documentou processos, fluxos e matrizes de riscos e controles, além de coletar evidências e conduzir walkthroughs com áreas de TI.</li>
+                    <li>Coordenou o suporte às auditorias externas da Deloitte e EY, gerenciando demandas de evidências e acompanhando planos de ação para remediação de desvios.</li>
+                    <li>Orientou áreas de TI sobre cultura de riscos e controles, traduzindo exigências de compliance em linguagem acessível para equipes técnicas.</li>
                 </ul>
             </div>
         </div>
 
         <div class="experience-item">
-            <div class="job-title" id="job3-title">Auditor Externo</div>
-            <div class="company">PwC Brasil (Big Four)</div>
-            <div class="date-location" id="job3-date">Julho 2013 - Junho 2016 (3 anos) | São Paulo, Brasil</div>
+            <div class="job-title" id="job3-title">Auditor</div>
+            <div class="company" id="job3-company">PwC Brasil (PricewaterhouseCoopers)</div>
+            <div class="date-location" id="job3-date">Jul 2013 - Jun 2016 | São Paulo, Brasil</div>
             <div class="description" id="job3-desc">
                 <ul>
-                    <li>Auditorias financeiras em clientes como Itaú, Lenovo, Motorola e Abril Comunicações</li>
-                    <li>Elaboração de planejamento de auditoria</li>
-                    <li>Levantamento, mapeamento e formalização de Controles Internos das empresas auditadas</li>
-                    <li>Testes substantivos: vouching, recálculos, confirmações e análise de conciliações</li>
-                    <li>Revisão analítica de Balanço Patrimonial e DRE</li>
-                    <li>Circularização de clientes, fornecedores e bancos</li>
-                    <li>Acompanhamento de inventário físico em diversas regiões do Brasil</li>
-                    <li>Acompanhamento, revisão e validação de Reporting Package</li>
-                    <li>Revisão de provisões, estimativas e contratos para correto tratamento contábil</li>
-                    <li>Testes de cut-off e preparação de papéis de trabalho</li>
-                    <li>Revisões de relatórios de auditoria e pareceres sobre demonstrações financeiras (IFRS/BRGAAP)</li>
+                    <li>Auditou mais de 60 clientes de grande porte ao longo de 3 anos, em setores como serviços financeiros (Itaú, PayPal, Cardif/BNP Paribas), tecnologia (Lenovo, EMC), saúde (Hospital Albert Einstein, Fleury), indústria química (Covestro, ECOLAB), varejo e luxo (ROLEX, Luxottica) e energia (Contour Global).</li>
+                    <li>Elaborou planejamentos de auditoria e realizou levantamento, mapeamento e formalização de controles internos nos engajamentos.</li>
+                    <li>Revisou analiticamente demonstrações financeiras (Balanço Patrimonial e DRE), aplicando testes substantivos de vouching, recálculos, confirmações e conciliações.</li>
+                    <li>Supervisionou e atuou em mais de 10 inventários físicos em diferentes regiões do Brasil, coordenando equipes em campo e garantindo aderência aos procedimentos de auditoria.</li>
+                    <li>Validou reporting packages, provisões, estimativas e contratos, com elaboração completa de papéis de trabalho conforme normas IFRS e BR GAAP.</li>
+                    <li>Integrou a equipe do Projeto REX (Forensinc), engajamento especial de consultoria investigativa envolvendo apuração de vazamento de dados em grande corporação brasileira.</li>
                 </ul>
             </div>
         </div>
 
         <div class="experience-item">
-            <div class="job-title" id="job4-title">Analista de Sistemas ERP</div>
-            <div class="company">Metalúrgica Andromeda Ltda.</div>
-            <div class="date-location" id="job4-date">Fevereiro 2006 - Março 2012 (6 anos 2 meses) | Mauá, SP, Brasil</div>
+            <div class="job-title" id="job4-title">Analista de Suporte Computacional</div>
+            <div class="company" id="job4-company">Metalúrgica Andrômeda Ltda.</div>
+            <div class="date-location" id="job4-date">Fev 2006 - Mar 2012 | Mauá, Brasil</div>
             <div class="description" id="job4-desc">
                 <ul>
-                    <li>Gestão do sistema ERP, incluindo parametrizações, customizações e suporte aos usuários</li>
-                    <li>Atuação em compras e suporte à documentação da área comercial</li>
-                    <li>Melhoria de fluxos e processos internos</li>
-                    <li>Evolução de Auxiliar Administrativo a Analista de Sistemas ao longo de 6 anos</li>
-                    <li>Suporte à infraestrutura de TI</li>
+                    <li>Progrediu de Auxiliar de Escritório a Analista em 6 anos, com 5 promoções consecutivas passando por áreas financeira, de compras e de tecnologia.</li>
+                    <li>Encabeçou a implantação técnica do ERP Microsiga/TOTVS: configuração, parametrização, desenho de fluxos de processos e treinamento de aproximadamente 10 usuários.</li>
                 </ul>
             </div>
         </div>
@@ -494,35 +458,46 @@
         <div class="section-title" id="education-title">Formação Acadêmica</div>
 
         <div class="education-item">
-            <div class="job-title" id="edu1-title">Ciências Contábeis</div>
-            <div class="company"><span id="edu1-school">FECAP - Fundação Escola de Comércio Álvares Penteado</span> <span id="edu1-context" style="font-weight: normal; font-style: italic;">(pioneira em contabilidade no Brasil, fundada em 1902)</span></div>
-            <div class="date-location" id="edu1-date">2013 - 2015 | São Paulo, SP, Brasil</div>
+            <div class="job-title" id="edu1-title">Bacharelado em Ciências Contábeis</div>
+            <div class="company"><span id="edu1-school">FECAP (Centro Universitário Álvares Penteado)</span></div>
+            <div class="date-location" id="edu1-date">2013 - 2015 | São Paulo, Brasil</div>
         </div>
 
         <div class="education-item">
-            <div class="job-title" id="edu2-title">Administração Financeira</div>
-            <div class="company"><span id="edu2-school">Universidade Metodista de São Paulo</span> <span id="edu2-context" style="font-weight: normal; font-style: italic;">(melhor universidade privada do ABC paulista)</span></div>
-            <div class="date-location" id="edu2-date">2007 - 2011 | São Bernardo do Campo, SP, Brasil</div>
+            <div class="job-title" id="edu2-title">Bacharelado em Administração de Empresas (Hab. Administração Financeira)</div>
+            <div class="company"><span id="edu2-school">Universidade Metodista de São Paulo</span></div>
+            <div class="date-location" id="edu2-date">2007 - 2011 | São Bernardo do Campo, Brasil</div>
         </div>
+    </div>
 
-        <div class="education-item">
-            <div class="job-title" id="edu3-title">Análise de Dados com SQL</div>
-            <div class="company">DataCamp (online)</div>
-            <div class="date-location" id="edu3-date">Em andamento</div>
+    <div class="section">
+        <div class="section-title" id="certifications-title">Certificações e Desenvolvimento Contínuo</div>
+        <div class="certifications" id="certifications-content">
+            <div class="cert-item"><strong>CRC</strong> (Conselho Regional de Contabilidade), Brasil · Registro inativo, reativável</div>
+            <div class="cert-item"><strong>Data Analyst Associate</strong>, DataCamp · Em andamento</div>
+            <div class="cert-item">Aulas particulares de Espanhol e Inglês · Em andamento</div>
         </div>
     </div>
 
     <div class="section">
         <div class="section-title" id="skills-title">Competências Técnicas</div>
-        <div class="objective" id="skills-content">
-            Controles Internos SOx/ITGC, Auditoria Financeira, Gestão de Riscos e Segregação de Funções. Experiência prática com sistemas ERP, Excel avançado e mapeamento de processos. Atualmente desenvolvendo habilidades em SQL e análise de dados.
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title" id="certifications-title">Certificações</div>
-        <div class="certifications" id="certifications-content">
-            <div class="cert-item"><strong>CRC Brasil</strong> - Registro profissional</div>
+        <div class="skills-grid" id="skills-content">
+            <div class="skill-category">
+                <h4 id="skill-cat1-title">Auditoria e Controles</h4>
+                <p id="skill-cat1-content">Auditoria externa e interna, SOx, ITGC, testes substantivos, walkthroughs, matrizes de riscos e controles, COSO, gestão de acessos, segregação de funções, change management, IFRS, BR GAAP</p>
+            </div>
+            <div class="skill-category">
+                <h4 id="skill-cat2-title">Finanças e Contabilidade</h4>
+                <p id="skill-cat2-content">Demonstrações financeiras, fluxo de caixa, conciliações, provisões, planejamento financeiro, orçamento, DRE gerencial, reporting packages</p>
+            </div>
+            <div class="skill-category">
+                <h4 id="skill-cat3-title">Tecnologia</h4>
+                <p id="skill-cat3-content">SAP (contexto de auditoria), TOTVS Microsiga (implantação), ACL Analytics, Excel avançado, SQL (em desenvolvimento), automação de processos (Zapier, Make, APIs, webhooks)</p>
+            </div>
+            <div class="skill-category">
+                <h4 id="skill-cat4-title">Gestão</h4>
+                <p id="skill-cat4-content">Liderança de equipes (até 14 pessoas), gestão de projetos, finanças empresariais, contratos, compras, implementação de processos e KPIs</p>
+            </div>
         </div>
     </div>
 
@@ -530,8 +505,8 @@
         <div class="section-title" id="languages-title">Idiomas</div>
         <div class="languages" id="languages-content">
             <div class="language-item"><strong>Português:</strong> Nativo</div>
-            <div class="language-item"><strong>Inglês:</strong> B1 funcional, em aprimoramento</div>
-            <div class="language-item"><strong>Espanhol:</strong> B1, em aprimoramento</div>
+            <div class="language-item"><strong>Espanhol:</strong> B1 (em evolução, com aulas particulares)</div>
+            <div class="language-item"><strong>Inglês:</strong> B1 (em evolução, com aulas particulares)</div>
         </div>
     </div>
 
@@ -539,169 +514,184 @@
         <div class="section-title" id="additional-title">Informações Adicionais</div>
         <div class="description" id="additional-content">
             <ul>
-                <li><strong>Disponibilidade:</strong> Imediata para posições remotas, híbridas ou presenciais</li>
-                <li><strong>Nacionalidade:</strong> Espanhola (cidadão da União Europeia)</li>
-                <li><strong>Foco:</strong> Auditoria, Controles Internos e Gestão de Riscos. Também aberto a posições administrativas ou de Análise de Dados.</li>
+                <li>Disponibilidade imediata</li>
+                <li>Aberto a modelo presencial, híbrido ou remoto</li>
+                <li>Disponibilidade para viagens</li>
             </ul>
         </div>
     </div>
 
     <div class="footer-note" id="footer-note">
-        <em>Currículo atualizado em janeiro de 2026. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>
+        <em>Currículo atualizado em fevereiro de 2026. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em>
         <br>
         <span id="footer-langs" style="font-size: 10px;">Também disponível em: <a href="?lang=en" style="color: #2c5aa0;">English</a> | <a href="?lang=es" style="color: #2c5aa0;">Español</a></span>
     </div>
-    
-    <!-- BOTÃO SEPARADO - NÃO SOME AO TROCAR IDIOMA -->
+
+    <!-- BOTAO SEPARADO - NAO SOME AO TROCAR IDIOMA -->
     <div class="print-button-container">
-        <button onclick="printCV()" id="print-btn">📄 Imprimir Currículo</button>
+        <button onclick="printCV()" id="print-btn">Imprimir Currículo</button>
     </div>
 
     <script>
         const translations = {
             'pt': {
-                'header-title': 'Controles Internos, Auditoria e Gestão Empresarial. Trajetória construída entre Big Four, multinacional e empreendedorismo',
-                'phone-note': '(preferencialmente WhatsApp)',
-                'location': 'Disponível internacionalmente',
-                'availability-note': '<strong>Disponibilidade:</strong> Imediata para posições <strong>remotas/híbridas</strong> | <span id="location">Disponível internacionalmente</span> | EU Citizen (Espanha)',
-                'profile-title': 'Perfil Profissional',
-                'profile-content': 'Comecei minha carreira em 2006, numa metalúrgica no ABC Paulista. Em 6 anos, passei de auxiliar administrativo a analista de sistemas ERP, uma escola prática de processos, compras, financeiro e tecnologia.<br><br>Depois vieram 3 anos na PwC, auditando empresas como Itaú, Lenovo e Motorola. Foi onde aprendi o rigor técnico da auditoria externa e a importância de documentar bem o que se faz. Em seguida, fui para o GPA (Grupo Casino) trabalhar com controles internos de TI, executando testes SOx/ITGC e dando suporte às auditorias da Deloitte e EY.<br><br>Em 2018, cofundei a Agência AO4, onde sigo até hoje cuidando de operações, financeiro e tecnologia. Montei sistemas de gestão que permitiram acompanhar custos por projeto e tomar decisões baseadas em dados reais.<br><br>Tenho formação em Ciências Contábeis (FECAP) e Administração (Metodista), registro no CRC, e atualmente estudo SQL e análise de dados pelo DataCamp.',
-                'highlights-title': 'Principais Conquistas',
-                'highlights-content': '<ul><li>2º lugar no prêmio Agência Revelação RD Station 2022</li><li>Cofundação e gestão da Agência AO4 desde 2018, com clientes que permanecem há mais de 5 anos</li><li>Estruturação de sistema de gestão (Kanban + Timesheet) que permitiu acompanhar custos por projeto e identificar ineficiências</li><li>Execução de mais de 300 testes SOx/ITGC, identificando 40+ desvios críticos em ambiente multinacional</li></ul>',
+                'header-title': 'Auditoria, Controles Internos SOx/ITGC e Finanças Corporativas',
+                'availability-note': '<span id="location">Madrid e arredores, Espanha</span> · Cidadania espanhola · Cidadão da União Europeia',
+                'profile-title': 'Resumo Profissional',
+                'profile-content': 'Ao longo de 19 anos, construí minha carreira na intersecção entre números, processos e pessoas. Passei pela auditoria externa na PwC, auditando mais de 60 empresas de grande porte em setores como serviços financeiros, tecnologia, saúde e energia. Mergulhei nos controles internos SOx/ITGC do maior grupo varejista do Brasil, onde mapeei todo o ambiente de controles de TI e antecipei desvios antes que chegassem à auditoria externa. E empreendi por 7 anos, assumindo a gestão operacional e financeira de uma empresa com equipe de até 14 pessoas e mais de 200 clientes atendidos.<br><br>Esse percurso me deu uma perspectiva rara: a de quem já auditou e a de quem já geriu. Sei onde os riscos se escondem porque já os procurei como auditor — e sei por que processos falham porque já fui responsável por fazê-los funcionar. Com cidadania espanhola, busco retornar ao ambiente corporativo na Europa em auditoria, controles internos ou finanças corporativas.',
                 'experience-title': 'Experiência Profissional',
-                'job1-title': 'Cofundador e Sócio - Responsável de Operações',
-                'job1-date': '2018 - Atual (7 anos) | São José do Rio Preto, SP, Brasil',
-                'job1-desc': '<ul><li>Cofundação e gestão da agência, com carteira de clientes estável (média de 5 anos de relacionamento)</li><li>Implementei sistema Kanban + Timesheet que permitiu acompanhar custos por projeto e identificar ineficiências</li><li>2º lugar no prêmio Agência Revelação RD Station 2022</li><li>Estruturei processos de onboarding de clientes e documentação de procedimentos internos</li><li>Responsável pelo financeiro e operações da empresa, incluindo contratos, tecnologia e controle de acessos</li></ul>',
-                'job2-title': 'Analista - Controles Internos de Tecnologia (SOx/ITGC)',
-                'job2-date': 'Agosto 2016 - Maio 2018 (1 ano 10 meses) | São Paulo, Brasil',
-                'job2-desc': '<ul><li>Execução de testes SOx/ITGC em ambiente multinacional</li><li>Testes de gestão de acessos, concessão/revogação, acessos privilegiados, segurança da informação e desenvolvimento de sistemas</li><li>Elaboração e atualização de testes de interface entre sistemas</li><li>Solicitação de evidências e walkthroughs diretamente com áreas de TI</li><li>Documentação de processos, fluxos e matrizes de riscos e controles</li><li>Acompanhamento de planos de ação para remediação de desvios</li><li>Suporte às auditorias externas (Deloitte, EY), incluindo controle e acompanhamento das demandas de evidências</li><li>Avaliação de processos de change management (RFCs, aprovações)</li><li>Orientação às áreas de TI sobre cultura de riscos e controles</li><li>Reuniões com gestores de TI e trabalho conjunto com controladoria e contabilidade</li></ul>',
-                'job3-title': 'Auditor Externo',
-                'job3-date': 'Julho 2013 - Junho 2016 (3 anos) | São Paulo, Brasil',
-                'job3-desc': '<ul><li>Auditorias financeiras em clientes como Itaú, Lenovo, Motorola e Abril Comunicações</li><li>Elaboração de planejamento de auditoria</li><li>Levantamento, mapeamento e formalização de Controles Internos das empresas auditadas</li><li>Testes substantivos: vouching, recálculos, confirmações e análise de conciliações</li><li>Revisão analítica de Balanço Patrimonial e DRE</li><li>Circularização de clientes, fornecedores e bancos</li><li>Acompanhamento de inventário físico em diversas regiões do Brasil</li><li>Acompanhamento, revisão e validação de Reporting Package</li><li>Revisão de provisões, estimativas e contratos para correto tratamento contábil</li><li>Testes de cut-off e preparação de papéis de trabalho</li><li>Revisões de relatórios de auditoria e pareceres sobre demonstrações financeiras (IFRS/BRGAAP)</li></ul>',
-                'job4-title': 'Analista de Sistemas ERP',
-                'job4-date': 'Fevereiro 2006 - Março 2012 (6 anos 2 meses) | Mauá, SP, Brasil',
-                'job4-desc': '<ul><li>Gestão do sistema ERP, incluindo parametrizações, customizações e suporte aos usuários</li><li>Atuação em compras e suporte à documentação da área comercial</li><li>Melhoria de fluxos e processos internos</li><li>Evolução de Auxiliar Administrativo a Analista de Sistemas ao longo de 6 anos</li><li>Suporte à infraestrutura de TI</li></ul>',
+                'job1-title': 'Cofundador e Sócio-Administrador',
+                'job1-company': 'AO4 Comunicação e Tecnologia',
+                'job1-date': 'Mai 2018 - Presente | São José do Rio Preto, Brasil',
+                'job1-context': 'Empresa de comunicação e tecnologia digital. Responsável integral pela gestão operacional, financeira e estratégica do negócio.',
+                'job1-desc': '<ul><li>Estruturou a gestão financeira completa da empresa: fluxo de caixa, orçamento, DRE gerencial e análise de rentabilidade por cliente e projeto, com todas as decisões ancoradas em dados concretos.</li><li>Liderou equipe de até 14 funcionários, conduzindo recrutamento, desenvolvimento e alocação de recursos com foco em eficiência e resultado.</li><li>Implementou sistema Kanban integrado a Timesheet, permitindo mapear custos por projeto, identificar gargalos operacionais e realocar esforços com mais precisão.</li><li>Desenvolveu dashboards financeiros com KPIs estratégicos e operacionais que se tornaram a base para decisões de investimento, corte e crescimento.</li><li>Automatizou fluxos operacionais com Zapier, Make, APIs e webhooks, eliminando tarefas manuais repetitivas e redirecionando o tempo da equipe para trabalho de maior valor.</li><li>Administrou portfólio de aproximadamente 200 clientes ao longo da operação, com carteira ativa que chegou a 45 clientes simultâneos de fee mensal.</li><li>Conquistou o Prêmio RD Station Agência Revelação (2022), reconhecimento nacional por desempenho comercial e performance de vendas.</li></ul>',
+                'job2-title': 'Analista de Controles Internos de TI (SOx, ITGC)',
+                'job2-company': 'GPA — Grupo Pão de Açúcar',
+                'job2-date': 'Ago 2016 - Mai 2018 | São Paulo, Brasil',
+                'job2-context': 'Maior grupo varejista do Brasil à época, com operações multinacionais em supermercados, hipermercados, atacado e e-commerce. Auditorias externas conduzidas por EY e Deloitte; testes internos realizados pela PwC.',
+                'job2-desc': '<ul><li>Executou testes SOx/ITGC em ambiente corporativo multinacional, cobrindo mais de 200 sistemas e aplicações incluindo SAP, mainframes IBM e bases SQL.</li><li>Mapeou a totalidade dos controles ITGC em fluxograma integrado, revelando conexões entre controles e lacunas que não eram visíveis na documentação existente.</li><li>Identificou aproximadamente 20 novos testes a partir desse mapeamento, antecipando e corrigindo desvios de forma proativa antes da chegada da auditoria externa.</li><li>Conduziu testes de gestão de acessos (concessão, revogação, acessos privilegiados), interfaces entre sistemas e avaliação de processos de change management.</li><li>Documentou processos, fluxos e matrizes de riscos e controles, além de coletar evidências e conduzir walkthroughs com áreas de TI.</li><li>Coordenou o suporte às auditorias externas da Deloitte e EY, gerenciando demandas de evidências e acompanhando planos de ação para remediação de desvios.</li><li>Orientou áreas de TI sobre cultura de riscos e controles, traduzindo exigências de compliance em linguagem acessível para equipes técnicas.</li></ul>',
+                'job3-title': 'Auditor',
+                'job3-company': 'PwC Brasil (PricewaterhouseCoopers)',
+                'job3-date': 'Jul 2013 - Jun 2016 | São Paulo, Brasil',
+                'job3-desc': '<ul><li>Auditou mais de 60 clientes de grande porte ao longo de 3 anos, em setores como serviços financeiros (Itaú, PayPal, Cardif/BNP Paribas), tecnologia (Lenovo, EMC), saúde (Hospital Albert Einstein, Fleury), indústria química (Covestro, ECOLAB), varejo e luxo (ROLEX, Luxottica) e energia (Contour Global).</li><li>Elaborou planejamentos de auditoria e realizou levantamento, mapeamento e formalização de controles internos nos engajamentos.</li><li>Revisou analiticamente demonstrações financeiras (Balanço Patrimonial e DRE), aplicando testes substantivos de vouching, recálculos, confirmações e conciliações.</li><li>Supervisionou e atuou em mais de 10 inventários físicos em diferentes regiões do Brasil, coordenando equipes em campo e garantindo aderência aos procedimentos de auditoria.</li><li>Validou reporting packages, provisões, estimativas e contratos, com elaboração completa de papéis de trabalho conforme normas IFRS e BR GAAP.</li><li>Integrou a equipe do Projeto REX (Forensinc), engajamento especial de consultoria investigativa envolvendo apuração de vazamento de dados em grande corporação brasileira.</li></ul>',
+                'job4-title': 'Analista de Suporte Computacional',
+                'job4-company': 'Metalúrgica Andrômeda Ltda.',
+                'job4-date': 'Fev 2006 - Mar 2012 | Mauá, Brasil',
+                'job4-desc': '<ul><li>Progrediu de Auxiliar de Escritório a Analista em 6 anos, com 5 promoções consecutivas passando por áreas financeira, de compras e de tecnologia.</li><li>Encabeçou a implantação técnica do ERP Microsiga/TOTVS: configuração, parametrização, desenho de fluxos de processos e treinamento de aproximadamente 10 usuários.</li></ul>',
                 'education-title': 'Formação Acadêmica',
-                'edu1-title': 'Ciências Contábeis',
-                'edu1-school': 'FECAP - Fundação Escola de Comércio Álvares Penteado',
-                'edu1-context': '(pioneira em contabilidade no Brasil, fundada em 1902)',
-                'edu1-date': '2013 - 2015 | São Paulo, SP, Brasil',
-                'edu2-title': 'Administração Financeira',
+                'edu1-title': 'Bacharelado em Ciências Contábeis',
+                'edu1-school': 'FECAP (Centro Universitário Álvares Penteado)',
+                'edu1-date': '2013 - 2015 | São Paulo, Brasil',
+                'edu2-title': 'Bacharelado em Administração de Empresas (Hab. Administração Financeira)',
                 'edu2-school': 'Universidade Metodista de São Paulo',
-                'edu2-context': '(melhor universidade privada do ABC paulista)',
-                'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brasil',
-                'edu3-title': 'Análise de Dados com SQL',
-                'edu3-date': 'Em andamento',
+                'edu2-date': '2007 - 2011 | São Bernardo do Campo, Brasil',
+                'certifications-title': 'Certificações e Desenvolvimento Contínuo',
+                'certifications-content': '<div class="cert-item"><strong>CRC</strong> (Conselho Regional de Contabilidade), Brasil · Registro inativo, reativável</div><div class="cert-item"><strong>Data Analyst Associate</strong>, DataCamp · Em andamento</div><div class="cert-item">Aulas particulares de Espanhol e Inglês · Em andamento</div>',
                 'skills-title': 'Competências Técnicas',
-                'skills-content': 'Controles Internos SOx/ITGC, Auditoria Financeira, Gestão de Riscos e Segregação de Funções. Experiência prática com sistemas ERP, Excel avançado e mapeamento de processos. Atualmente desenvolvendo habilidades em SQL e análise de dados.',
-                'certifications-title': 'Certificações',
-                'certifications-content': '<div class="cert-item"><strong>CRC Brasil</strong> - Registro profissional</div>',
+                'skill-cat1-title': 'Auditoria e Controles',
+                'skill-cat1-content': 'Auditoria externa e interna, SOx, ITGC, testes substantivos, walkthroughs, matrizes de riscos e controles, COSO, gestão de acessos, segregação de funções, change management, IFRS, BR GAAP',
+                'skill-cat2-title': 'Finanças e Contabilidade',
+                'skill-cat2-content': 'Demonstrações financeiras, fluxo de caixa, conciliações, provisões, planejamento financeiro, orçamento, DRE gerencial, reporting packages',
+                'skill-cat3-title': 'Tecnologia',
+                'skill-cat3-content': 'SAP (contexto de auditoria), TOTVS Microsiga (implantação), ACL Analytics, Excel avançado, SQL (em desenvolvimento), automação de processos (Zapier, Make, APIs, webhooks)',
+                'skill-cat4-title': 'Gestão',
+                'skill-cat4-content': 'Liderança de equipes (até 14 pessoas), gestão de projetos, finanças empresariais, contratos, compras, implementação de processos e KPIs',
                 'languages-title': 'Idiomas',
-                'languages-content': '<div class="language-item"><strong>Português:</strong> Nativo</div><div class="language-item"><strong>Inglês:</strong> B1 funcional, em aprimoramento</div><div class="language-item"><strong>Espanhol:</strong> B1, em aprimoramento</div>',
+                'languages-content': '<div class="language-item"><strong>Português:</strong> Nativo</div><div class="language-item"><strong>Espanhol:</strong> B1 (em evolução, com aulas particulares)</div><div class="language-item"><strong>Inglês:</strong> B1 (em evolução, com aulas particulares)</div>',
                 'additional-title': 'Informações Adicionais',
-                'additional-content': '<ul><li><strong>Disponibilidade:</strong> Imediata para posições remotas, híbridas ou presenciais</li><li><strong>Nacionalidade:</strong> Espanhola (cidadão da União Europeia)</li><li><strong>Foco:</strong> Auditoria, Controles Internos e Gestão de Riscos. Também aberto a posições administrativas ou de Análise de Dados.</li></ul>',
-                'footer-note': '<em>Currículo atualizado em janeiro de 2026. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">Também disponível em: <a href="?lang=en" style="color: #2c5aa0;">English</a> | <a href="?lang=es" style="color: #2c5aa0;">Español</a></span>',
-                'print-btn': '📄 Imprimir Currículo'
+                'additional-content': '<ul><li>Disponibilidade imediata</li><li>Aberto a modelo presencial, híbrido ou remoto</li><li>Disponibilidade para viagens</li></ul>',
+                'footer-note': '<em>Currículo atualizado em fevereiro de 2026. Versão sempre atualizada disponível em <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">Também disponível em: <a href="?lang=en" style="color: #2c5aa0;">English</a> | <a href="?lang=es" style="color: #2c5aa0;">Español</a></span>',
+                'print-btn': 'Imprimir Currículo'
             },
             'es': {
-                'header-title': 'Controles Internos, Auditoría y Gestión Empresarial. Trayectoria construida entre Big Four, multinacional y emprendimiento',
-                'phone-note': '(preferiblemente WhatsApp)',
-                'location': 'Disponible internacionalmente',
-                'availability-note': '<strong>Disponibilidad:</strong> Inmediata para posiciones <strong>remotas/híbridas</strong> | <span id="location">Disponible internacionalmente</span> | Ciudadano UE (España)',
+                'header-title': 'Auditoría, Controles Internos SOx/ITGC y Finanzas Corporativas',
+                'availability-note': '<span id="location">Madrid y alrededores, España</span> · Nacionalidad española · Ciudadano de la Unión Europea',
                 'profile-title': 'Perfil Profesional',
-                'profile-content': 'Empecé mi carrera en 2006, en una metalúrgica en la región del ABC Paulista (polo industrial cerca de São Paulo), Brasil. En 6 años, pasé de auxiliar administrativo a analista de sistemas ERP, una escuela práctica de procesos, compras, finanzas y tecnología.<br><br>Después vinieron 3 años en PwC, auditando empresas como Itaú (mayor banco privado de América Latina), Lenovo y Motorola. Fue donde aprendí el rigor técnico de la auditoría externa y la importancia de documentar bien lo que se hace. Luego fui al GPA (Grupo Casino) para trabajar con controles internos de TI, ejecutando pruebas SOx/ITGC y dando soporte a las auditorías de Deloitte y EY.<br><br>En 2018, cofundé la Agencia AO4, donde sigo hasta hoy gestionando operaciones, finanzas y tecnología. Monté sistemas de gestión que permitieron acompañar costos por proyecto y tomar decisiones basadas en datos reales.<br><br>Tengo formación en Ciencias Contables y Administración, registro profesional CRC (equivalente a colegiatura de contadores), y actualmente estudio SQL y análisis de datos en DataCamp.',
-                'highlights-title': 'Principales Logros',
-                'highlights-content': '<ul><li>2º lugar en el premio Agencia Revelación RD Station 2022 (plataforma líder de marketing digital en América Latina)</li><li>Cofundación y gestión de la Agencia AO4 desde 2018, con clientes que permanecen hace más de 5 años</li><li>Estructuración de sistema de gestión (Kanban + Timesheet) que permitió acompañar costos por proyecto e identificar ineficiencias</li><li>Ejecución de más de 300 pruebas SOx/ITGC, identificando 40+ desviaciones críticas en ambiente multinacional</li></ul>',
+                'profile-content': 'Durante 19 años, he desarrollado mi carrera trabajando con números, procesos y personas. Trabajé en auditoría externa en PwC, donde revisé más de 60 empresas grandes de sectores como banca, industria o salud. Después, trabajé en los controles internos (SOx/ITGC) del grupo de distribución más grande de Brasil: revisé todos los controles de tecnología y detecté problemas antes de que llegaran los auditores externos. También tuve mi propia empresa durante 7 años, donde me encargué de la gestión operativa y financiera con un equipo de hasta 14 personas y más de 200 clientes.<br><br>Todo esto me dio una visión que no es muy común: conozco el punto de vista del auditor y también el del gestor. Sé dónde se esconden los riesgos porque los he buscado como auditor, y entiendo por qué fallan los procesos porque he sido el responsable de que funcionen. Tengo nacionalidad española y busco volver al mundo corporativo en España en puestos de auditoría, controles internos o finanzas.',
                 'experience-title': 'Experiencia Profesional',
-                'job1-title': 'Cofundador y Socio - Responsable de Operaciones',
-                'job1-date': '2018 - Presente (7 años) | São José do Rio Preto, SP, Brasil',
-                'job1-desc': '<ul><li>Cofundación y gestión de la agencia, con cartera de clientes estable (promedio de 5 años de relación)</li><li>Implementé sistema Kanban + Timesheet que permitió acompañar costos por proyecto e identificar ineficiencias</li><li>2º lugar en el premio Agencia Revelación RD Station 2022 (plataforma líder de marketing en América Latina)</li><li>Estructuré procesos de onboarding de clientes y documentación de procedimientos internos</li><li>Responsable del financiero y operaciones de la empresa, incluyendo contratos, tecnología y control de accesos</li></ul>',
-                'job2-title': 'Analista - Controles Internos de Tecnología (SOx/ITGC)',
-                'job2-date': 'Agosto 2016 - Mayo 2018 (1 año 10 meses) | São Paulo, Brasil',
-                'job2-desc': '<ul><li>Ejecución de pruebas SOx/ITGC en ambiente multinacional</li><li>Pruebas de gestión de accesos, concesión/revocación, accesos privilegiados, seguridad de la información y desarrollo de sistemas</li><li>Elaboración y actualización de pruebas de interfaz entre sistemas</li><li>Solicitud de evidencias y walkthroughs directamente con áreas de TI</li><li>Documentación de procesos, flujos y matrices de riesgos y controles</li><li>Seguimiento de planes de acción para remediación de desviaciones</li><li>Soporte a las auditorías externas (Deloitte, EY), incluyendo control y seguimiento de las demandas de evidencias</li><li>Evaluación de procesos de change management (RFCs, aprobaciones)</li><li>Orientación a las áreas de TI sobre cultura de riesgos y controles</li><li>Reuniones con gestores de TI y trabajo conjunto con contraloría y contabilidad</li></ul>',
-                'job3-title': 'Auditor Externo',
-                'job3-date': 'Julio 2013 - Junio 2016 (3 años) | São Paulo, Brasil',
-                'job3-desc': '<ul><li>Auditorías financieras en clientes como Itaú (mayor banco privado de América Latina), Lenovo, Motorola y Abril Comunicações (importante grupo de medios de Brasil)</li><li>Elaboración de planificación de auditoría</li><li>Levantamiento, mapeo y formalización de Controles Internos de las empresas auditadas</li><li>Pruebas sustantivas: vouching, recálculos, confirmaciones y análisis de conciliaciones</li><li>Revisión analítica de Balance y Estado de Resultados</li><li>Circularización de clientes, proveedores y bancos</li><li>Acompañamiento de inventario físico en diversas regiones de Brasil</li><li>Acompañamiento, revisión y validación de Reporting Package</li><li>Revisión de provisiones, estimaciones y contratos para correcto tratamiento contable</li><li>Pruebas de cut-off y preparación de papeles de trabajo</li><li>Revisiones de informes de auditoría y dictámenes sobre estados financieros (IFRS/BRGAAP)</li></ul>',
-                'job4-title': 'Analista de Sistemas ERP',
-                'job4-date': 'Febrero 2006 - Marzo 2012 (6 años 2 meses) | Mauá, SP, Brasil',
-                'job4-desc': '<ul><li>Gestión del sistema ERP, incluyendo parametrizaciones, personalizaciones y soporte a los usuarios</li><li>Actuación en compras y soporte a la documentación del área comercial</li><li>Mejora de flujos y procesos internos</li><li>Evolución de Auxiliar Administrativo a Analista de Sistemas a lo largo de 6 años</li><li>Soporte a la infraestructura de TI</li></ul>',
+                'job1-title': 'Cofundador y Socio Administrador',
+                'job1-company': 'AO4 Comunicación y Tecnología',
+                'job1-date': 'May 2018 - Presente | São José do Rio Preto, Brasil',
+                'job1-context': 'Empresa de comunicación y tecnología digital. Responsable integral de la gestión operativa, financiera y estratégica del negocio.',
+                'job1-desc': '<ul><li>Estructuró la gestión financiera completa de la empresa: tesorería, presupuesto, cuenta de resultados gerencial y análisis de rentabilidad por cliente y proyecto, con todas las decisiones basadas en datos.</li><li>Dirigió un equipo de hasta 14 empleados, gestionando contratación, desarrollo profesional y asignación de recursos con enfoque en eficiencia y resultados medibles.</li><li>Implantó un sistema Kanban integrado con control de horas por proyecto, permitiendo visualizar costes, identificar cuellos de botella y reasignar esfuerzos con mayor precisión.</li><li>Diseñó cuadros de mando financieros con KPIs estratégicos y operativos que se convirtieron en la base para decisiones de inversión, ajuste y crecimiento.</li><li>Automatizó flujos operativos mediante Zapier, Make, APIs y webhooks, eliminando tareas manuales repetitivas y liberando tiempo del equipo para trabajo de mayor valor.</li><li>Gestionó una cartera de aproximadamente 200 clientes a lo largo de la operación, con un máximo de 45 clientes activos simultáneos con cuota mensual.</li><li>Obtuvo el Premio RD Station Agencia Revelación (2022), reconocimiento nacional por rendimiento comercial y resultados de ventas.</li></ul>',
+                'job2-title': 'Analista de Controles Internos de TI (SOx, ITGC)',
+                'job2-company': 'GPA — Grupo Pão de Açúcar',
+                'job2-date': 'Ago 2016 - May 2018 | São Paulo, Brasil',
+                'job2-context': 'El mayor grupo de distribución y retail de Brasil en ese momento, un holding multinacional con operaciones en supermercados, hipermercados, cash & carry y comercio electrónico (comparable en escala a grupos como Carrefour o Mercadona en Europa). Auditorías externas realizadas por EY y Deloitte; pruebas internas a cargo de PwC.',
+                'job2-desc': '<ul><li>Ejecutó pruebas SOx/ITGC en un entorno corporativo multinacional, cubriendo más de 200 sistemas y aplicaciones incluyendo SAP, mainframes IBM y bases de datos SQL.</li><li>Cartografió la totalidad de los controles ITGC en un diagrama de flujo integrado, revelando vínculos entre controles y brechas que no eran visibles en la documentación existente.</li><li>Detectó aproximadamente 20 nuevos escenarios de prueba a partir de dicho mapeo, permitiendo remediar desviaciones de forma proactiva antes de la llegada de los auditores externos.</li><li>Realizó pruebas de gestión de accesos (altas, bajas, accesos privilegiados), pruebas de interfaces entre sistemas y evaluación de procesos de gestión de cambios.</li><li>Documentó procesos, flujos y matrices de riesgos y controles, recopilando evidencias y conduciendo walkthroughs con las áreas de TI.</li><li>Coordinó el soporte a las auditorías externas de Deloitte y EY, gestionando solicitudes de evidencias y haciendo seguimiento de planes de acción hasta su cierre.</li><li>Asesoró a los equipos de TI en materia de cultura de riesgos y controles, traduciendo exigencias de compliance a un lenguaje claro y accionable para perfiles técnicos.</li></ul>',
+                'job3-title': 'Auditor',
+                'job3-company': 'PwC Brasil (PricewaterhouseCoopers)',
+                'job3-date': 'Jul 2013 - Jun 2016 | São Paulo, Brasil',
+                'job3-desc': '<ul><li>Auditó más de 60 clientes de gran tamaño a lo largo de 3 años, en sectores como servicios financieros (Itaú, PayPal, Cardif/BNP Paribas), tecnología (Lenovo, EMC), salud (Hospital Albert Einstein, Fleury), industria química (Covestro, ECOLAB), retail y lujo (ROLEX, Luxottica) y energía (Contour Global).</li><li>Planificó auditorías y realizó el relevamiento, mapeo y formalización de controles internos en cada encargo.</li><li>Analizó estados financieros (balance de situación y cuenta de resultados), aplicando procedimientos sustantivos de vouching, recálculos, confirmaciones y conciliaciones.</li><li>Supervisó y participó en más de 10 inventarios físicos en distintas regiones de Brasil, liderando equipos de campo y asegurando el cumplimiento de los procedimientos de auditoría.</li><li>Revisó reporting packages, provisiones, estimaciones y contratos, elaborando papeles de trabajo completos conforme normas NIIF y GAAP brasileñas.</li><li>Formó parte del equipo del Proyecto REX (Forensinc), un encargo especial de consultoría forense para investigar una filtración de datos en una gran corporación brasileña.</li></ul>',
+                'job4-title': 'Analista de Soporte Informático',
+                'job4-company': 'Metalúrgica Andrômeda Ltda.',
+                'job4-date': 'Feb 2006 - Mar 2012 | Mauá, Brasil',
+                'job4-desc': '<ul><li>Ascendió de Auxiliar Administrativo a Analista en 6 años, con 5 promociones consecutivas a través de las áreas financiera, de compras y de tecnología.</li><li>Lideró la implantación técnica del ERP Microsiga/TOTVS: configuración, parametrización, diseño de flujos de procesos y formación de aproximadamente 10 usuarios.</li></ul>',
                 'education-title': 'Formación Académica',
-                'edu1-title': 'Ciencias Contables',
-                'edu1-school': 'FECAP - Fundação Escola de Comércio Álvares Penteado',
-                'edu1-context': '(pionera en contabilidad en Brasil, fundada en 1902)',
-                'edu1-date': '2013 - 2015 | São Paulo, SP, Brasil',
-                'edu2-title': 'Administración Financiera',
+                'edu1-title': 'Grado en Ciencias Contables (equivalente a Contabilidad y Finanzas)',
+                'edu1-school': 'FECAP (Centro Universitário Álvares Penteado, centro de referencia en contabilidad en Brasil)',
+                'edu1-date': '2013 - 2015 | São Paulo, Brasil',
+                'edu2-title': 'Grado en Administración de Empresas (Administración Financiera)',
                 'edu2-school': 'Universidade Metodista de São Paulo',
-                'edu2-context': '(mejor universidad privada del ABC paulista, región industrial de São Paulo)',
-                'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brasil',
-                'edu3-title': 'Análisis de Datos con SQL',
-                'edu3-date': 'En curso',
+                'edu2-date': '2007 - 2011 | São Bernardo do Campo, Brasil',
+                'certifications-title': 'Certificaciones y Desarrollo Continuo',
+                'certifications-content': '<div class="cert-item"><strong>CRC</strong> (Consejo Regional de Contabilidad), Brasil · Registro inactivo, reactivable</div><div class="cert-item"><strong>Data Analyst Associate</strong>, DataCamp · En curso</div><div class="cert-item">Clases particulares de Español e Inglés · En curso</div>',
                 'skills-title': 'Competencias Técnicas',
-                'skills-content': 'Controles Internos SOx/ITGC, Auditoría Financiera, Gestión de Riesgos y Segregación de Funciones. Experiencia práctica con sistemas ERP, Excel avanzado y mapeo de procesos. Actualmente desarrollando habilidades en SQL y análisis de datos.',
-                'certifications-title': 'Certificaciones',
-                'certifications-content': '<div class="cert-item"><strong>CRC Brasil</strong> - Registro profesional de contadores (equivalente a colegiatura)</div>',
+                'skill-cat1-title': 'Auditoría y Controles',
+                'skill-cat1-content': 'Auditoría externa e interna, SOx, ITGC, pruebas sustantivas, walkthroughs, matrices de riesgos y controles, COSO, gestión de accesos, segregación de funciones, gestión de cambios, NIIF, GAAP',
+                'skill-cat2-title': 'Finanzas y Contabilidad',
+                'skill-cat2-content': 'Estados financieros, tesorería, conciliaciones, provisiones, planificación financiera, presupuestos, cuenta de resultados gerencial, reporting packages',
+                'skill-cat3-title': 'Tecnología',
+                'skill-cat3-content': 'SAP (contexto de auditoría), TOTVS Microsiga (implantación), ACL Analytics, Excel avanzado, SQL (en desarrollo), automatización de procesos (Zapier, Make, APIs, webhooks)',
+                'skill-cat4-title': 'Gestión',
+                'skill-cat4-content': 'Liderazgo de equipos (hasta 14 personas), gestión de proyectos, finanzas empresariales, contratos, compras, implantación de procesos y KPIs',
                 'languages-title': 'Idiomas',
-                'languages-content': '<div class="language-item"><strong>Portugués:</strong> Nativo</div><div class="language-item"><strong>Inglés:</strong> B1 funcional, en mejora</div><div class="language-item"><strong>Español:</strong> B1, en mejora</div>',
+                'languages-content': '<div class="language-item"><strong>Portugués:</strong> Nativo</div><div class="language-item"><strong>Español:</strong> B1 (en mejora, con clases particulares)</div><div class="language-item"><strong>Inglés:</strong> B1 (en mejora, con clases particulares)</div>',
                 'additional-title': 'Información Adicional',
-                'additional-content': '<ul><li><strong>Disponibilidad:</strong> Inmediata para posiciones remotas, híbridas o presenciales</li><li><strong>Nacionalidad:</strong> Española (ciudadano de la Unión Europea)</li><li><strong>Enfoque:</strong> Auditoría, Controles Internos y Gestión de Riesgos. También abierto a posiciones administrativas o de Análisis de Datos.</li></ul>',
-                'footer-note': '<em>Currículum actualizado en enero de 2026. Versión siempre actualizada disponible en <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">También disponible en: <a href="?lang=en" style="color: #2c5aa0;">English</a> | <a href="?lang=pt" style="color: #2c5aa0;">Português</a></span>',
-                'print-btn': '📄 Imprimir Currículum'
+                'additional-content': '<ul><li>Disponibilidad inmediata</li><li>Abierto a modalidad presencial, híbrida o remota</li><li>Disponibilidad para viajar</li></ul>',
+                'footer-note': '<em>Currículum actualizado en febrero de 2026. Versión siempre actualizada disponible en <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">También disponible en: <a href="?lang=en" style="color: #2c5aa0;">English</a> | <a href="?lang=pt" style="color: #2c5aa0;">Português</a></span>',
+                'print-btn': 'Imprimir Currículum'
             },
             'en': {
-                'header-title': 'Internal Controls, Audit and Business Management. Career built across Big Four, multinational and entrepreneurship',
-                'phone-note': '(preferably WhatsApp)',
-                'location': 'Available internationally',
-                'availability-note': '<strong>Availability:</strong> Immediate for <strong>remote/hybrid</strong> positions | <span id="location">Available internationally</span> | EU Citizen (Spain)',
-                'profile-title': 'Professional Profile',
-                'profile-content': 'I started my career in 2006 at a metallurgical company in the ABC Paulista region (industrial hub near São Paulo), Brazil. Over 6 years, I went from administrative assistant to ERP systems analyst, a hands-on school in processes, purchasing, finance, and technology.<br><br>Then came 3 years at PwC, auditing companies like Itaú (largest private bank in Latin America), Lenovo, and Motorola. That is where I learned the technical rigor of external audit and the importance of proper documentation. After that, I joined GPA (Casino Group) to work with IT internal controls, running SOx/ITGC tests and supporting audits by Deloitte and EY.<br><br>In 2018, I co-founded Agência AO4, where I still manage operations, finance, and technology. I built management systems that allowed us to track costs per project and make decisions based on real data.<br><br>I have degrees in Accounting and Business Administration, a CRC professional registration (Brazilian CPA equivalent), and I am currently studying SQL and data analysis on DataCamp.',
-                'highlights-title': 'Key Achievements',
-                'highlights-content': '<ul><li>2nd place at RD Station Breakthrough Agency Award 2022 (leading marketing automation platform in Latin America)</li><li>Co-founding and management of Agência AO4 since 2018, with clients that have stayed for over 5 years</li><li>Implementation of management system (Kanban + Timesheet) that enabled tracking costs per project and identifying inefficiencies</li><li>Execution of over 300 SOx/ITGC tests, identifying 40+ critical deviations in multinational environment</li></ul>',
+                'header-title': 'Audit, Internal Controls SOx/ITGC & Corporate Finance',
+                'availability-note': '<span id="location">Madrid area, Spain</span> · Spanish citizenship · European Union citizen',
+                'profile-title': 'Professional Summary',
+                'profile-content': 'For 19 years, I\'ve developed my career working with numbers, processes, and people. I worked for three years in external audit at PwC, where I reviewed over 60 large companies in sectors like banking, industry, and healthcare. After that, I worked on SOx/ITGC internal controls at the largest retail group in Brazil: I reviewed all IT controls and found problems before the external auditors did. I also co-founded and ran a business for seven years, where I managed operations, finance, and a team of up to 14 people, serving over 200 clients.<br><br>This experience gave me something unusual: I know both the auditor\'s view and the manager\'s view. I know where risks hide because I\'ve looked for them as an auditor, and I understand why processes fail because I\'ve been the person responsible for making them work. I have Spanish citizenship and I\'m now looking to return to the corporate world in Europe, in audit, internal controls, or corporate finance roles.',
                 'experience-title': 'Professional Experience',
-                'job1-title': 'Co-founder and Partner - Operations Manager',
-                'job1-date': '2018 - Present (7 years) | São José do Rio Preto, SP, Brazil',
-                'job1-desc': '<ul><li>Co-founding and management of the agency, with stable client portfolio (average of 5 years relationship)</li><li>Implemented Kanban + Timesheet system that enabled tracking costs per project and identifying inefficiencies</li><li>2nd place at RD Station Breakthrough Agency Award 2022 (leading marketing platform in Latin America)</li><li>Structured client onboarding processes and internal procedures documentation</li><li>Responsible for finance and operations, including contracts, technology and access control</li></ul>',
-                'job2-title': 'Analyst - Technology Internal Controls (SOx/ITGC)',
-                'job2-date': 'August 2016 - May 2018 (1 year 10 months) | São Paulo, Brazil',
-                'job2-desc': '<ul><li>Execution of SOx/ITGC tests in multinational environment</li><li>Access management, granting/revocation, privileged access, information security and system development testing</li><li>Development and update of interface tests between systems</li><li>Evidence requests and walkthroughs directly with IT areas</li><li>Documentation of processes, flows and risk and control matrices</li><li>Follow-up of action plans for deviation remediation</li><li>Support to external audits (Deloitte, EY), including control and follow-up of evidence requests</li><li>Evaluation of change management processes (RFCs, approvals)</li><li>Guidance to IT areas on risk and control culture</li><li>Meetings with IT managers and joint work with controllership and accounting</li></ul>',
-                'job3-title': 'External Auditor',
-                'job3-date': 'July 2013 - June 2016 (3 years) | São Paulo, Brazil',
-                'job3-desc': '<ul><li>Financial audits for clients such as Itaú (largest private bank in Latin America), Lenovo, Motorola and Abril Comunicações (major media company in Brazil)</li><li>Audit planning preparation</li><li>Survey, mapping and formalization of Internal Controls of audited companies</li><li>Substantive tests: vouching, recalculations, confirmations and reconciliation analysis</li><li>Analytical review of Balance Sheet and Income Statement</li><li>Circularization of customers, suppliers and banks</li><li>Physical inventory observation across various regions of Brazil</li><li>Follow-up, review and validation of Reporting Package</li><li>Review of provisions, estimates and contracts for proper accounting treatment</li><li>Cut-off tests and working papers preparation</li><li>Reviews of audit reports and opinions on financial statements (IFRS/BRGAAP)</li></ul>',
-                'job4-title': 'ERP Systems Analyst',
-                'job4-date': 'February 2006 - March 2012 (6 years 2 months) | Mauá, SP, Brazil',
-                'job4-desc': '<ul><li>ERP system management, including parameterizations, customizations and user support</li><li>Work in purchasing and support to commercial area documentation</li><li>Improvement of internal flows and processes</li><li>Evolution from Administrative Assistant to Systems Analyst over 6 years</li><li>IT infrastructure support</li></ul>',
+                'job1-title': 'Co-Founder & Managing Partner',
+                'job1-company': 'AO4 Communications & Technology',
+                'job1-date': 'May 2018 - Present | São José do Rio Preto, Brazil',
+                'job1-context': 'Communications and digital technology firm. Fully responsible for the company\'s operational, financial, and strategic management.',
+                'job1-desc': '<ul><li>Built the company\'s entire financial management framework: cash flow, budgeting, managerial P&L, and client/project profitability analysis, with every decision grounded in hard data.</li><li>Led a team of up to 14 employees, handling recruitment, development, and resource allocation with a focus on efficiency and measurable outcomes.</li><li>Implemented a Kanban system integrated with Timesheet tracking, enabling project-level cost visibility, bottleneck identification, and more precise effort reallocation.</li><li>Created financial dashboards with strategic and operational KPIs that became the foundation for investment, cost-cutting, and growth decisions.</li><li>Automated operational workflows using Zapier, Make, APIs, and webhooks, eliminating repetitive manual tasks and redirecting the team\'s time toward higher-value work.</li><li>Managed a portfolio of approximately 200 clients throughout the company\'s lifetime, with an active roster that peaked at 45 simultaneous monthly-retainer clients.</li><li>Earned the RD Station Breakthrough Agency Award (2022), a national recognition for commercial performance and sales results.</li></ul>',
+                'job2-title': 'IT Internal Controls Analyst (SOx, ITGC)',
+                'job2-company': 'GPA — Grupo Pão de Açúcar',
+                'job2-date': 'Aug 2016 - May 2018 | São Paulo, Brazil',
+                'job2-context': 'Brazil\'s largest retail group at the time, a multinational holding company operating supermarkets, hypermarkets, wholesale, and e-commerce. External audits conducted by EY and Deloitte; internal testing performed by PwC.',
+                'job2-desc': '<ul><li>Executed SOx/ITGC testing across a multinational corporate environment, covering over 200 systems and applications including SAP, IBM mainframes, and SQL databases.</li><li>Mapped every ITGC control into an integrated flowchart, uncovering links between controls and gaps that were invisible in the existing documentation.</li><li>Uncovered approximately 20 new test scenarios through that mapping effort, enabling proactive remediation of deviations before external auditors arrived on site.</li><li>Performed access management testing (provisioning, revocation, privileged access), system interface testing, and change management process evaluations.</li><li>Documented processes, workflows, and risk/control matrices while collecting evidence and conducting walkthroughs with IT departments.</li><li>Coordinated support for Deloitte and EY external audits, managing evidence requests and tracking remediation action plans to completion.</li><li>Advised IT teams on risk and controls culture, translating compliance requirements into clear, actionable language for technical staff.</li></ul>',
+                'job3-title': 'Auditor',
+                'job3-company': 'PwC Brazil (PricewaterhouseCoopers)',
+                'job3-date': 'Jul 2013 - Jun 2016 | São Paulo, Brazil',
+                'job3-desc': '<ul><li>Audited over 60 large-scale clients across 3 years in sectors including financial services (Itaú, PayPal, Cardif/BNP Paribas), technology (Lenovo, EMC), healthcare (Hospital Albert Einstein, Fleury), chemicals (Covestro, ECOLAB), luxury retail (ROLEX, Luxottica), and energy (Contour Global).</li><li>Designed audit plans and performed end-to-end assessment, mapping, and formalization of internal controls for each engagement.</li><li>Conducted analytical reviews of financial statements (balance sheet and income statement), applying substantive procedures including vouching, recalculations, confirmations, and reconciliations.</li><li>Oversaw and participated in over 10 physical inventory counts across multiple regions in Brazil, leading field teams and ensuring adherence to audit procedures.</li><li>Reviewed reporting packages, provisions, estimates, and contracts, preparing complete audit workpapers in accordance with IFRS and BR GAAP standards.</li><li>Joined the Project REX (Forensinc) team, a special forensic consulting engagement investigating a data breach at a major Brazilian corporation.</li></ul>',
+                'job4-title': 'IT Support Analyst',
+                'job4-company': 'Metalúrgica Andrômeda Ltda.',
+                'job4-date': 'Feb 2006 - Mar 2012 | Mauá, Brazil',
+                'job4-desc': '<ul><li>Rose from Office Assistant to Analyst in 6 years through 5 consecutive promotions across finance, procurement, and technology functions.</li><li>Spearheaded the technical implementation of the Microsiga/TOTVS ERP system: configuration, parameterization, process flow design, and training of approximately 10 users.</li></ul>',
                 'education-title': 'Education',
-                'edu1-title': 'Accounting',
-                'edu1-school': 'FECAP - Fundação Escola de Comércio Álvares Penteado',
-                'edu1-context': '(pioneer in accounting education in Brazil, founded 1902)',
-                'edu1-date': '2013 - 2015 | São Paulo, SP, Brazil',
-                'edu2-title': 'Business Administration',
+                'edu1-title': 'Bachelor\'s Degree in Accounting',
+                'edu1-school': 'FECAP (Centro Universitário Álvares Penteado, a top-ranked private accounting school in Brazil)',
+                'edu1-date': '2013 - 2015 | São Paulo, Brazil',
+                'edu2-title': 'Bachelor\'s Degree in Business Administration (Financial Administration)',
                 'edu2-school': 'Universidade Metodista de São Paulo',
-                'edu2-context': '(top private university in the ABC industrial region of São Paulo)',
-                'edu2-date': '2007 - 2011 | São Bernardo do Campo, SP, Brazil',
-                'edu3-title': 'Data Analysis with SQL',
-                'edu3-date': 'Ongoing',
+                'edu2-date': '2007 - 2011 | São Bernardo do Campo, Brazil',
+                'certifications-title': 'Certifications & Continuous Development',
+                'certifications-content': '<div class="cert-item"><strong>CRC</strong> (Regional Accounting Council), Brazil · Inactive license, eligible for reactivation</div><div class="cert-item"><strong>Data Analyst Associate</strong>, DataCamp · In progress</div><div class="cert-item">Spanish and English private tutoring · Ongoing</div>',
                 'skills-title': 'Technical Skills',
-                'skills-content': 'SOx/ITGC Internal Controls, Financial Audit, Risk Management and Segregation of Duties. Practical experience with ERP systems, advanced Excel and process mapping. Currently developing skills in SQL and data analysis.',
-                'certifications-title': 'Certifications',
-                'certifications-content': '<div class="cert-item"><strong>CRC Brazil</strong> - Certified Public Accountant registration</div>',
+                'skill-cat1-title': 'Audit & Controls',
+                'skill-cat1-content': 'External/internal auditing, SOx, ITGC, substantive testing, walkthroughs, risk/control matrices, COSO, access management, segregation of duties, change management, IFRS, BR GAAP',
+                'skill-cat2-title': 'Finance & Accounting',
+                'skill-cat2-content': 'Financial statements, cash flow, reconciliations, provisions, financial planning, budgeting, managerial P&L, reporting packages',
+                'skill-cat3-title': 'Technology',
+                'skill-cat3-content': 'SAP (audit context), TOTVS Microsiga (implementation), ACL Analytics, advanced Excel, SQL (developing), process automation (Zapier, Make, APIs, webhooks)',
+                'skill-cat4-title': 'Management',
+                'skill-cat4-content': 'Team leadership (up to 14), project management, corporate finance, contracts, procurement, process/KPI implementation',
                 'languages-title': 'Languages',
-                'languages-content': '<div class="language-item"><strong>Portuguese:</strong> Native</div><div class="language-item"><strong>English:</strong> Functional B1, improving</div><div class="language-item"><strong>Spanish:</strong> B1, improving</div>',
+                'languages-content': '<div class="language-item"><strong>Portuguese:</strong> Native</div><div class="language-item"><strong>Spanish:</strong> B1 (improving, with private tutoring)</div><div class="language-item"><strong>English:</strong> B1 (improving, with private tutoring)</div>',
                 'additional-title': 'Additional Information',
-                'additional-content': '<ul><li><strong>Availability:</strong> Immediate for remote, hybrid or on-site positions</li><li><strong>Nationality:</strong> Spanish (European Union citizen)</li><li><strong>Focus:</strong> Audit, Internal Controls and Risk Management. Also open to administrative or Data Analysis positions.</li></ul>',
-                'footer-note': '<em>Resume updated January 2026. Always updated version available at <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">Also available in: <a href="?lang=es" style="color: #2c5aa0;">Español</a> | <a href="?lang=pt" style="color: #2c5aa0;">Português</a></span>',
-                'print-btn': '📄 Print Resume'
+                'additional-content': '<ul><li>Available immediately</li><li>Open to on-site, hybrid, or remote arrangements</li><li>Willing to travel</li></ul>',
+                'footer-note': '<em>Resume updated February 2026. Always updated version available at <strong><a href="https://cv.lucasmartins.work" target="_blank" style="color: #2c5aa0; text-decoration: none;">cv.lucasmartins.work</a></strong></em><br><span id="footer-langs" style="font-size: 10px;">Also available in: <a href="?lang=es" style="color: #2c5aa0;">Español</a> | <a href="?lang=pt" style="color: #2c5aa0;">Português</a></span>',
+                'print-btn': 'Print Resume'
             }
         };
 
         function setLanguage(lang) {
             if (!translations[lang]) return;
 
-            // Animação de fade out
+            // Animacao de fade out
             const elements = document.querySelectorAll('.header, .section, .footer-note, .print-button-container');
             elements.forEach(el => el.classList.add('fade-out'));
 
             setTimeout(() => {
-                // Atualiza conteúdo
+                // Atualiza conteudo
                 const langData = translations[lang];
                 history.pushState({}, '', `?lang=${lang}`);
 
@@ -716,17 +706,17 @@
                     }
                 }
 
-                // Atualiza botão ativo
+                // Atualiza botao ativo
                 document.querySelectorAll('.lang-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
 
-                // Animação de fade in
+                // Animacao de fade in
                 elements.forEach(el => el.classList.remove('fade-out'));
             }, 150);
         }
 
-        // Mantém compatibilidade com função antiga
+        // Mantem compatibilidade com funcao antiga
         function changeLanguage() {
             const lang = document.getElementById('languageSelect')?.value || 'es';
             setLanguage(lang);
@@ -745,14 +735,14 @@
             }
         }
 
-        // DETECTA IDIOMA DA URL E APLICA AUTOMATICAMENTE (padrão: espanhol)
+        // DETECTA IDIOMA DA URL E APLICA AUTOMATICAMENTE (padrao: espanhol)
         function applyLanguageFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const lang = urlParams.get('lang') || 'es';
             const showPhoto = urlParams.get('photo') === 'true';
 
             if (translations[lang]) {
-                // Aplica idioma sem animação no carregamento inicial
+                // Aplica idioma sem animacao no carregamento inicial
                 const langData = translations[lang];
                 for (const key in langData) {
                     const element = document.getElementById(key);
@@ -764,7 +754,7 @@
                         }
                     }
                 }
-                // Marca botão ativo
+                // Marca botao ativo
                 document.querySelectorAll('.lang-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
@@ -776,10 +766,10 @@
             }
         }
 
-        // Executar ao carregar a página
+        // Executar ao carregar a pagina
         document.addEventListener('DOMContentLoaded', applyLanguageFromURL);
 
-        // Interceptar Ctrl+P / Cmd+P para redirecionar para versão print
+        // Interceptar Ctrl+P / Cmd+P para redirecionar para versao print
         document.addEventListener('keydown', function(e) {
             if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
                 e.preventDefault();
